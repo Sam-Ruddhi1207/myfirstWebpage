@@ -1,1 +1,302 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Internship Portal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: #222;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #4f46e5;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: white;
+            color: #4f46e5;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #ffd700;
+            color: #222;
+        }
+
+        /* Internship Section */
+        .internships {
+            padding: 60px 8%;
+        }
+
+        .internships h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #4f46e5;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .apply-btn:hover {
+            background: #3730a3;
+        }
+
+        /* About */
+        .about {
+            padding: 60px 8%;
+            background: white;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Internship Portal</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#internships">Internships</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <h1>Welcome to Internship Portal</h1>
+
+        <p>
+            Find the right internship and start your professional journey.
+        </p>
+
+        <a href="#internships" class="btn">
+            Explore Internships
+        </a>
+
+    </section>
+
+
+    <!-- Internship Section -->
+    <section class="internships" id="internships">
+
+        <h2>Available Internships</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Web Development Intern</h3>
+
+                <p><b>Company:</b> Tech Solutions</p>
+                <p><b>Location:</b> Remote</p>
+                <p><b>Duration:</b> 3 Months</p>
+
+                <a href="#" class="apply-btn">
+                    Apply Now
+                </a>
+            </div>
+
+
+            <div class="card">
+                <h3>Java Developer Intern</h3>
+
+                <p><b>Company:</b> Software Technologies</p>
+                <p><b>Location:</b> Pune</p>
+                <p><b>Duration:</b> 6 Months</p>
+
+                <a href="#" class="apply-btn">
+                    Apply Now
+                </a>
+            </div>
+
+
+            <div class="card">
+                <h3>Data Science Intern</h3>
+
+                <p><b>Company:</b> Data Analytics Pvt. Ltd.</p>
+                <p><b>Location:</b> Mumbai</p>
+                <p><b>Duration:</b> 4 Months</p>
+
+                <a href="#" class="apply-btn">
+                    Apply Now
+                </a>
+            </div>
+
+
+            <div class="card">
+                <h3>Python Developer Intern</h3>
+
+                <p><b>Company:</b> Innovation Labs</p>
+                <p><b>Location:</b> Remote</p>
+                <p><b>Duration:</b> 3 Months</p>
+
+                <a href="#" class="apply-btn">
+                    Apply Now
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about" id="about">
+
+        <h2>About Internship Portal</h2>
+
+        <p>
+            Internship Portal is a platform designed to help students
+            discover internship opportunities and build their professional
+            careers. Students can explore internships based on their
+            skills, interests, location and duration.
+        </p>
+
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Email: internshipportal@gmail.com</p>
+
+        <p>Phone: +91 123456723</p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>© 2026 Internship Portal. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+</html>

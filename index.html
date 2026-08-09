@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Internship Portal</title>
 
     <style>
 
-        /* ================= GENERAL ================= */
+        /* =========================================
+           GENERAL
+        ========================================= */
 
         * {
             margin: 0;
@@ -28,16 +32,22 @@
         }
 
 
-        /* ================= NAVBAR ================= */
+        /* =========================================
+           NAVBAR
+        ========================================= */
 
         nav {
             background: linear-gradient(135deg, #4f46e5, #7c3aed);
+
             padding: 18px 8%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             position: sticky;
             top: 0;
+
             z-index: 1000;
         }
 
@@ -50,13 +60,14 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 22px;
+            align-items: center;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
         }
 
@@ -65,19 +76,30 @@
         }
 
 
-        /* ================= HERO ================= */
+        /* =========================================
+           HERO
+        ========================================= */
 
         .hero {
             min-height: 500px;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f46e5,
+                    #7c3aed
+                );
+
             color: white;
 
             display: flex;
             flex-direction: column;
+
             justify-content: center;
             align-items: center;
 
             text-align: center;
+
             padding: 40px 20px;
         }
 
@@ -88,125 +110,169 @@
 
         .hero p {
             font-size: 20px;
-            margin-bottom: 30px;
-            max-width: 700px;
             line-height: 1.6;
+
+            max-width: 700px;
+
+            margin-bottom: 30px;
         }
 
         .hero-btn {
             background: white;
+
             color: #4f46e5;
+
             padding: 14px 28px;
-            border-radius: 7px;
+
+            border-radius: 8px;
+
             text-decoration: none;
+
             font-weight: bold;
+
+            transition: 0.3s;
         }
 
         .hero-btn:hover {
             background: #ffd700;
             color: #222;
+
+            transform: translateY(-2px);
         }
 
 
-        /* ================= SEARCH ================= */
+        /* =========================================
+           SEARCH
+        ========================================= */
 
         .search-section {
             background: white;
+
             padding: 35px 8%;
+
             text-align: center;
         }
 
         .search-section h2 {
             margin-bottom: 20px;
+
             font-size: 28px;
         }
 
         #searchBox {
             width: 70%;
             max-width: 650px;
+
             padding: 15px;
 
             border: 1px solid #ccc;
-            border-radius: 7px;
+
+            border-radius: 8px;
 
             font-size: 16px;
+
             outline: none;
         }
 
         #searchBox:focus {
             border-color: #4f46e5;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(79, 70, 229, 0.1);
         }
 
 
-        /* ================= INTERNSHIPS ================= */
+        /* =========================================
+           INTERNSHIPS
+        ========================================= */
 
         .internships {
-            padding: 60px 8%;
+            padding: 65px 8%;
         }
 
         .internships h2 {
             text-align: center;
+
             font-size: 32px;
+
             margin-bottom: 40px;
         }
 
-
-        /* INTERNSHIP GRID */
-
         .internship-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
 
             max-width: 1100px;
-            margin: 0 auto;
+
+            margin: auto;
         }
 
 
-        /* INTERNSHIP CARD */
+        /* =========================================
+           INTERNSHIP CARD
+        ========================================= */
 
         .internship-card {
             background: white;
 
             border: 1px solid #e5e7eb;
+
             border-radius: 15px;
 
             padding: 25px;
 
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.08);
 
             transition: 0.3s ease;
 
             display: flex;
+
             flex-direction: column;
 
-            min-height: 330px;
+            min-height: 350px;
         }
 
         .internship-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 0, 0, 0.15);
         }
 
         .internship-card h3 {
-            font-size: 22px;
+            font-size: 21px;
+
             color: #222;
+
             margin-bottom: 15px;
         }
 
         .internship-card p {
             color: #555;
+
             line-height: 1.6;
+
             margin: 7px 0;
         }
 
-        .internship-card .description {
-            margin-top: 10px;
-            margin-bottom: 15px;
+        .internship-description {
+            margin-top: 12px;
+
+            margin-bottom: 20px;
         }
 
 
-        /* APPLY BUTTON */
+        /* =========================================
+           APPLY BUTTON
+        ========================================= */
 
         .apply-btn {
             margin-top: auto;
@@ -216,41 +282,51 @@
             padding: 12px;
 
             border: none;
+
             border-radius: 8px;
 
             background: #4f46e5;
+
             color: white;
 
             font-size: 16px;
+
             font-weight: bold;
 
             cursor: pointer;
 
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
 
         .apply-btn:hover {
             background: #3730a3;
+
             transform: scale(1.02);
         }
 
 
-        /* ================= APPLICATION FORM ================= */
+        /* =========================================
+           APPLICATION FORM
+        ========================================= */
 
         .apply-section {
             background: white;
-            padding: 60px 8%;
+
+            padding: 65px 8%;
         }
 
         .apply-section h2 {
             text-align: center;
+
             font-size: 32px;
+
             margin-bottom: 35px;
         }
 
         .application-form {
             max-width: 700px;
-            margin: 0 auto;
+
+            margin: auto;
 
             background: #f8f9ff;
 
@@ -258,13 +334,16 @@
 
             border-radius: 15px;
 
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.08);
         }
 
         .application-form label {
             display: block;
 
             margin-top: 15px;
+
             margin-bottom: 7px;
 
             font-weight: bold;
@@ -273,14 +352,13 @@
         .application-form input,
         .application-form select,
         .application-form textarea {
-
             width: 100%;
 
             padding: 12px;
 
             border: 1px solid #ccc;
 
-            border-radius: 7px;
+            border-radius: 8px;
 
             font-size: 15px;
 
@@ -313,6 +391,8 @@
             font-weight: bold;
 
             cursor: pointer;
+
+            transition: 0.3s;
         }
 
         .submit-btn:hover {
@@ -320,35 +400,45 @@
         }
 
 
-        /* ================= MY APPLICATIONS ================= */
+        /* =========================================
+           MY APPLICATIONS
+        ========================================= */
 
-        .applications {
+        .my-applications {
             background: #f5f7fb;
 
-            padding: 60px 8%;
+            padding: 65px 8%;
 
             min-height: 350px;
         }
 
-        .applications h2 {
+        .my-applications h2 {
             text-align: center;
 
-            font-size: 32px;
+            font-size: 34px;
 
-            margin-bottom: 35px;
+            color: #222;
+
+            margin-bottom: 40px;
         }
 
-        .application-grid {
+        .application-container {
             max-width: 1100px;
 
-            margin: 0 auto;
+            margin: auto;
 
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 25px;
         }
+
+
+        /* =========================================
+           APPLICATION CARD
+        ========================================= */
 
         .application-card {
             background: white;
@@ -359,56 +449,133 @@
 
             padding: 25px;
 
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s ease;
+
+            position: relative;
+        }
+
+        .application-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 12px 28px
+                rgba(0, 0, 0, 0.14);
         }
 
         .application-card h3 {
             color: #4f46e5;
 
-            margin-bottom: 15px;
-
             font-size: 21px;
+
+            margin-bottom: 18px;
         }
 
         .application-card p {
+            color: #555;
+
             margin: 10px 0;
 
-            color: #555;
+            line-height: 1.5;
         }
 
-        .status {
+        .application-card strong {
+            color: #222;
+        }
+
+
+        /* =========================================
+           STATUS
+        ========================================= */
+
+        .application-status {
             display: inline-block;
+
+            margin-top: 10px;
+
+            margin-bottom: 18px;
+
+            padding: 7px 14px;
+
+            border-radius: 20px;
 
             background: #dcfce7;
 
             color: #15803d;
 
-            padding: 6px 12px;
+            font-size: 13px;
 
-            border-radius: 20px;
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           WITHDRAW BUTTON
+        ========================================= */
+
+        .withdraw-btn {
+            width: 100%;
+
+            padding: 11px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #ef4444;
+
+            color: white;
+
+            font-size: 15px;
 
             font-weight: bold;
 
-            font-size: 14px;
+            cursor: pointer;
+
+            transition: 0.3s;
         }
 
+        .withdraw-btn:hover {
+            background: #dc2626;
+
+            transform: scale(1.02);
+        }
+
+
+        /* =========================================
+           EMPTY APPLICATIONS
+        ========================================= */
+
         .no-applications {
+            grid-column: 1 / -1;
+
             text-align: center;
 
             color: #777;
 
-            font-size: 17px;
+            background: white;
 
-            padding: 30px;
+            padding: 35px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 4px 15px
+                rgba(0, 0, 0, 0.06);
         }
 
 
-        /* ================= ABOUT ================= */
+        /* =========================================
+           ABOUT
+        ========================================= */
 
         .about {
             background: white;
 
-            padding: 60px 8%;
+            padding: 65px 8%;
 
             text-align: center;
         }
@@ -427,13 +594,17 @@
             line-height: 1.8;
 
             color: #555;
+
+            font-size: 16px;
         }
 
 
-        /* ================= CONTACT ================= */
+        /* =========================================
+           CONTACT
+        ========================================= */
 
         .contact {
-            padding: 60px 8%;
+            padding: 65px 8%;
 
             text-align: center;
 
@@ -448,11 +619,16 @@
 
         .contact p {
             margin: 12px;
+
             font-size: 17px;
+
+            color: #555;
         }
 
 
-        /* ================= FOOTER ================= */
+        /* =========================================
+           FOOTER
+        ========================================= */
 
         footer {
             background: #222;
@@ -465,22 +641,28 @@
         }
 
 
-        /* ================= TABLET ================= */
+        /* =========================================
+           TABLET
+        ========================================= */
 
         @media (max-width: 900px) {
 
             .internship-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
-            .application-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .application-container {
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
         }
 
 
-        /* ================= MOBILE ================= */
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 700px) {
 
@@ -514,8 +696,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .application-grid {
+            .application-container {
                 grid-template-columns: 1fr;
+            }
+
+            .my-applications {
+                padding: 45px 5%;
             }
 
         }
@@ -528,7 +714,9 @@
 <body>
 
 
-    <!-- ================= NAVIGATION ================= -->
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
 
     <nav>
 
@@ -568,20 +756,29 @@
 
 
 
-    <!-- ================= HOME ================= -->
+    <!-- =========================================
+         HOME
+    ========================================= -->
 
-    <section class="hero" id="home">
+    <section
+        class="hero"
+        id="home"
+    >
 
         <h1>
             Find Your Dream Internship
         </h1>
 
         <p>
-            Explore internship opportunities, develop your skills,
-            gain valuable experience and start your career.
+            Explore internship opportunities, develop your
+            skills, gain valuable experience and start your
+            career.
         </p>
 
-        <a href="#internships" class="hero-btn">
+        <a
+            href="#internships"
+            class="hero-btn"
+        >
             Explore Internships
         </a>
 
@@ -589,7 +786,9 @@
 
 
 
-    <!-- ================= SEARCH ================= -->
+    <!-- =========================================
+         SEARCH
+    ========================================= -->
 
     <section class="search-section">
 
@@ -608,9 +807,14 @@
 
 
 
-    <!-- ================= INTERNSHIPS ================= -->
+    <!-- =========================================
+         INTERNSHIPS
+    ========================================= -->
 
-    <section class="internships" id="internships">
+    <section
+        class="internships"
+        id="internships"
+    >
 
         <h2>
             Latest Internship Opportunities
@@ -620,7 +824,7 @@
         <div class="internship-grid">
 
 
-            <!-- CARD 1 -->
+            <!-- INTERNSHIP 1 -->
 
             <div class="internship-card">
 
@@ -648,24 +852,23 @@
                     ₹10,000 / Month
                 </p>
 
-                <p class="description">
+                <p class="internship-description">
                     Learn HTML, CSS, JavaScript and build
                     real-world websites.
                 </p>
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('Web Development Intern')">
-
+                    onclick="selectInternship('Web Development Intern')"
+                >
                     Apply Now
-
                 </button>
 
             </div>
 
 
 
-            <!-- CARD 2 -->
+            <!-- INTERNSHIP 2 -->
 
             <div class="internship-card">
 
@@ -693,24 +896,23 @@
                     ₹12,000 / Month
                 </p>
 
-                <p class="description">
+                <p class="internship-description">
                     Work on Java applications and improve
                     your programming skills.
                 </p>
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('Java Developer Intern')">
-
+                    onclick="selectInternship('Java Developer Intern')"
+                >
                     Apply Now
-
                 </button>
 
             </div>
 
 
 
-            <!-- CARD 3 -->
+            <!-- INTERNSHIP 3 -->
 
             <div class="internship-card">
 
@@ -738,24 +940,23 @@
                     ₹15,000 / Month
                 </p>
 
-                <p class="description">
+                <p class="internship-description">
                     Develop Python projects and learn
                     practical programming concepts.
                 </p>
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('Python Developer Intern')">
-
+                    onclick="selectInternship('Python Developer Intern')"
+                >
                     Apply Now
-
                 </button>
 
             </div>
 
 
 
-            <!-- CARD 4 -->
+            <!-- INTERNSHIP 4 -->
 
             <div class="internship-card">
 
@@ -783,24 +984,23 @@
                     ₹18,000 / Month
                 </p>
 
-                <p class="description">
-                    Learn data analysis, visualization
-                    and basic machine learning.
+                <p class="internship-description">
+                    Learn data analysis, visualization and
+                    basic machine learning.
                 </p>
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('Data Science Intern')">
-
+                    onclick="selectInternship('Data Science Intern')"
+                >
                     Apply Now
-
                 </button>
 
             </div>
 
 
 
-            <!-- CARD 5 -->
+            <!-- INTERNSHIP 5 -->
 
             <div class="internship-card">
 
@@ -828,24 +1028,23 @@
                     ₹20,000 / Month
                 </p>
 
-                <p class="description">
+                <p class="internship-description">
                     Explore artificial intelligence and
                     machine learning projects.
                 </p>
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('AI / ML Intern')">
-
+                    onclick="selectInternship('AI / ML Intern')"
+                >
                     Apply Now
-
                 </button>
 
             </div>
 
 
 
-            <!-- CARD 6 -->
+            <!-- INTERNSHIP 6 -->
 
             <div class="internship-card">
 
@@ -873,17 +1072,16 @@
                     ₹8,000 / Month
                 </p>
 
-                <p class="description">
-                    Learn UI/UX design and create
-                    attractive user interfaces.
+                <p class="internship-description">
+                    Learn UI/UX design and create attractive
+                    user interfaces.
                 </p>
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('UI/UX Design Intern')">
-
+                    onclick="selectInternship('UI/UX Design Intern')"
+                >
                     Apply Now
-
                 </button>
 
             </div>
@@ -895,9 +1093,14 @@
 
 
 
-    <!-- ================= APPLICATION FORM ================= -->
+    <!-- =========================================
+         APPLICATION FORM
+    ========================================= -->
 
-    <section id="apply" class="apply-section">
+    <section
+        class="apply-section"
+        id="apply"
+    >
 
         <h2>
             Apply for Internship
@@ -942,6 +1145,8 @@
                 type="tel"
                 id="phone"
                 placeholder="Enter your phone number"
+                pattern="[0-9]{10}"
+                maxlength="10"
                 required
             >
 
@@ -959,27 +1164,27 @@
                     Select an internship
                 </option>
 
-                <option>
+                <option value="Web Development Intern">
                     Web Development Intern
                 </option>
 
-                <option>
+                <option value="Java Developer Intern">
                     Java Developer Intern
                 </option>
 
-                <option>
+                <option value="Python Developer Intern">
                     Python Developer Intern
                 </option>
 
-                <option>
+                <option value="Data Science Intern">
                     Data Science Intern
                 </option>
 
-                <option>
+                <option value="AI / ML Intern">
                     AI / ML Intern
                 </option>
 
-                <option>
+                <option value="UI/UX Design Intern">
                     UI/UX Design Intern
                 </option>
 
@@ -994,6 +1199,7 @@
                 type="file"
                 id="resume"
                 accept=".pdf,.doc,.docx"
+                required
             >
 
 
@@ -1005,6 +1211,7 @@
                 id="message"
                 rows="5"
                 placeholder="Write a short message..."
+                required
             ></textarea>
 
 
@@ -1022,10 +1229,12 @@
 
 
 
-    <!-- ================= MY APPLICATIONS ================= -->
+    <!-- =========================================
+         MY APPLICATIONS
+    ========================================= -->
 
     <section
-        class="applications"
+        class="my-applications"
         id="applications"
     >
 
@@ -1035,15 +1244,11 @@
 
 
         <div
-            class="application-grid"
-            id="applicationGrid"
+            class="application-container"
+            id="applicationList"
         >
 
-            <!-- Applications will appear here -->
-
-            <p class="no-applications">
-                You have not submitted any applications yet.
-            </p>
+            <!-- Applications will be added here by JavaScript -->
 
         </div>
 
@@ -1051,7 +1256,9 @@
 
 
 
-    <!-- ================= ABOUT ================= -->
+    <!-- =========================================
+         ABOUT
+    ========================================= -->
 
     <section
         class="about"
@@ -1074,7 +1281,9 @@
 
 
 
-    <!-- ================= CONTACT ================= -->
+    <!-- =========================================
+         CONTACT
+    ========================================= -->
 
     <section
         class="contact"
@@ -1101,7 +1310,9 @@
 
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
 
     <footer>
 
@@ -1113,12 +1324,16 @@
 
 
 
-    <!-- ================= JAVASCRIPT ================= -->
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
 
     <script>
 
 
-        /* ================= SEARCH ================= */
+        /* =========================================
+           SEARCH INTERNSHIPS
+        ========================================= */
 
         function searchInternships() {
 
@@ -1157,7 +1372,9 @@
 
 
 
-        /* ================= SELECT INTERNSHIP ================= */
+        /* =========================================
+           SELECT INTERNSHIP
+        ========================================= */
 
         function selectInternship(internshipName) {
 
@@ -1176,120 +1393,188 @@
 
 
 
-        /* ================= SUBMIT APPLICATION ================= */
+        /* =========================================
+           SUBMIT APPLICATION
+        ========================================= */
 
         document
             .getElementById("applicationForm")
-            .addEventListener("submit", function(event) {
+            .addEventListener(
+                "submit",
+                function(event) {
 
-                event.preventDefault();
+                    event.preventDefault();
 
 
-                let name =
+                    let name =
+                        document
+                        .getElementById("fullName")
+                        .value
+                        .trim();
+
+
+                    let email =
+                        document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                    let phone =
+                        document
+                        .getElementById("phone")
+                        .value
+                        .trim();
+
+
+                    let internship =
+                        document
+                        .getElementById("internshipSelect")
+                        .value;
+
+
+                    let message =
+                        document
+                        .getElementById("message")
+                        .value
+                        .trim();
+
+
+                    let resume =
+                        document
+                        .getElementById("resume")
+                        .files[0];
+
+
+                    /* PHONE VALIDATION */
+
+                    if (!/^[0-9]{10}$/.test(phone)) {
+
+                        alert(
+                            "Please enter a valid 10-digit phone number."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* RESUME VALIDATION */
+
+                    if (!resume) {
+
+                        alert(
+                            "Please upload your resume."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* CREATE APPLICATION */
+
+                    let application = {
+
+                        id: Date.now(),
+
+                        name: name,
+
+                        email: email,
+
+                        phone: phone,
+
+                        internship: internship,
+
+                        message: message,
+
+                        resumeName: resume.name,
+
+                        status: "Applied",
+
+                        date:
+                            new Date()
+                            .toLocaleDateString(
+                                "en-IN"
+                            )
+
+                    };
+
+
+                    /* GET EXISTING APPLICATIONS */
+
+                    let applications =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "applications"
+                            )
+                        ) || [];
+
+
+                    /* ADD NEW APPLICATION */
+
+                    applications.push(
+                        application
+                    );
+
+
+                    /* SAVE */
+
+                    localStorage.setItem(
+                        "applications",
+                        JSON.stringify(
+                            applications
+                        )
+                    );
+
+
+                    /* UPDATE MY APPLICATIONS */
+
+                    displayApplications();
+
+
+                    /* RESET FORM */
+
                     document
-                    .getElementById("fullName")
-                    .value;
+                        .getElementById(
+                            "applicationForm"
+                        )
+                        .reset();
 
 
-                let email =
+                    /* SUCCESS MESSAGE */
+
+                    alert(
+                        "Application submitted successfully!"
+                    );
+
+
+                    /* SCROLL */
+
                     document
-                    .getElementById("email")
-                    .value;
-
-
-                let phone =
-                    document
-                    .getElementById("phone")
-                    .value;
-
-
-                let internship =
-                    document
-                    .getElementById("internshipSelect")
-                    .value;
-
-
-                let message =
-                    document
-                    .getElementById("message")
-                    .value;
-
-
-                let application = {
-
-                    name: name,
-
-                    email: email,
-
-                    phone: phone,
-
-                    internship: internship,
-
-                    message: message,
-
-                    status: "Applied",
-
-                    date: new Date()
-                        .toLocaleDateString("en-IN")
-
-                };
-
-
-                /* GET OLD APPLICATIONS */
-
-                let applications =
-                    JSON.parse(
-                        localStorage.getItem(
+                        .getElementById(
                             "applications"
                         )
-                    ) || [];
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
 
-
-                /* ADD NEW APPLICATION */
-
-                applications.push(application);
-
-
-                /* SAVE APPLICATION */
-
-                localStorage.setItem(
-                    "applications",
-                    JSON.stringify(applications)
-                );
-
-
-                /* SHOW APPLICATIONS */
-
-                displayApplications();
-
-
-                /* RESET FORM */
-
-                document
-                    .getElementById("applicationForm")
-                    .reset();
-
-
-                alert(
-                    "Application submitted successfully!"
-                );
-
-
-                /* GO TO MY APPLICATIONS */
-
-                document
-                    .getElementById("applications")
-                    .scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-            });
+                }
+            );
 
 
 
-        /* ================= DISPLAY APPLICATIONS ================= */
+        /* =========================================
+           DISPLAY APPLICATIONS
+        ========================================= */
 
         function displayApplications() {
+
+            let applicationList =
+                document.getElementById(
+                    "applicationList"
+                );
+
 
             let applications =
                 JSON.parse(
@@ -1299,86 +1584,221 @@
                 ) || [];
 
 
-            let applicationGrid =
-                document.getElementById(
-                    "applicationGrid"
-                );
+            applicationList.innerHTML = "";
 
 
-            if (applications.length === 0) {
+            /* NO APPLICATIONS */
 
-                applicationGrid.innerHTML = `
+            if (
+                applications.length === 0
+            ) {
+
+                applicationList.innerHTML = `
 
                     <p class="no-applications">
-                        You have not submitted any applications yet.
+
+                        You have not submitted
+                        any applications yet.
+
                     </p>
 
                 `;
 
                 return;
+
             }
 
 
-            applicationGrid.innerHTML = "";
+            /* DISPLAY EACH APPLICATION */
+
+            applications.forEach(
+                function(application, index) {
+
+                    let card =
+                        document.createElement(
+                            "div"
+                        );
 
 
-            applications.forEach(function(application) {
-
-                let card =
-                    document.createElement("div");
+                    card.className =
+                        "application-card";
 
 
-                card.className =
-                    "application-card";
+                    card.innerHTML = `
+
+                        <h3>
+                            ${application.internship}
+                        </h3>
 
 
-                card.innerHTML = `
+                        <p>
+                            <strong>
+                                Applicant:
+                            </strong>
 
-                    <h3>
-                        ${application.internship}
-                    </h3>
+                            ${application.name}
+                        </p>
 
-                    <p>
-                        <strong>Name:</strong>
-                        ${application.name}
-                    </p>
 
-                    <p>
-                        <strong>Email:</strong>
-                        ${application.email}
-                    </p>
+                        <p>
+                            <strong>
+                                Email:
+                            </strong>
 
-                    <p>
-                        <strong>Phone:</strong>
-                        ${application.phone}
-                    </p>
+                            ${application.email}
+                        </p>
 
-                    <p>
-                        <strong>Application Date:</strong>
-                        ${application.date}
-                    </p>
 
-                    <p>
-                        <strong>Status:</strong>
-                        <span class="status">
+                        <p>
+                            <strong>
+                                Phone:
+                            </strong>
+
+                            ${application.phone}
+                        </p>
+
+
+                        <p>
+                            <strong>
+                                Applied On:
+                            </strong>
+
+                            ${application.date}
+                        </p>
+
+
+                        <p>
+                            <strong>
+                                Resume:
+                            </strong>
+
+                            ${application.resumeName || "Uploaded"}
+                        </p>
+
+
+                        <p>
+                            <strong>
+                                Status:
+                            </strong>
+                        </p>
+
+
+                        <span
+                            class="application-status"
+                        >
                             ${application.status}
                         </span>
-                    </p>
-
-                `;
 
 
-                applicationGrid.appendChild(card);
+                        <button
+                            class="withdraw-btn"
+                            onclick="withdrawApplication(${index})"
+                        >
+                            Withdraw Application
+                        </button>
 
-            });
+                    `;
+
+
+                    applicationList.appendChild(
+                        card
+                    );
+
+                }
+            );
 
         }
 
 
 
-        /* ================= LOAD SAVED APPLICATIONS ================= */
+        /* =========================================
+           WITHDRAW APPLICATION
+        ========================================= */
 
-        displayApplications();
+        function withdrawApplication(index) {
+
+            let applications =
+                JSON.parse(
+                    localStorage.getItem(
+                        "applications"
+                    )
+                ) || [];
+
+
+            if (
+                !applications[index]
+            ) {
+
+                return;
+
+            }
+
+
+            let internshipName =
+                applications[index]
+                    .internship;
+
+
+            let confirmWithdraw =
+                confirm(
+                    "Are you sure you want to withdraw your application for " +
+                    internshipName +
+                    "?"
+                );
+
+
+            if (!confirmWithdraw) {
+
+                return;
+
+            }
+
+
+            /* REMOVE APPLICATION */
+
+            applications.splice(
+                index,
+                1
+            );
+
+
+            /* SAVE UPDATED LIST */
+
+            localStorage.setItem(
+                "applications",
+                JSON.stringify(
+                    applications
+                )
+            );
+
+
+            /* REFRESH CARDS */
+
+            displayApplications();
+
+
+            /* SUCCESS */
+
+            alert(
+                "Application withdrawn successfully."
+            );
+
+        }
+
+
+
+        /* =========================================
+           LOAD APPLICATIONS WHEN PAGE OPENS
+        ========================================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                displayApplications();
+
+            }
+        );
 
 
     </script>

@@ -821,7 +821,7 @@
             <li>
                 <a href="#register">Register</a>
             </li>
-
+  <li><a href="#profile">Profile</a></li>
         </ul>
 
     </nav>
@@ -2158,6 +2158,85 @@ document
 
     });
 
+/* =========================================
+   LOAD STUDENT PROFILE
+========================================= */
+
+function loadStudentProfile() {
+
+    let user =
+        JSON.parse(
+            localStorage.getItem("studentUser")
+        );
+
+    let loggedIn =
+        localStorage.getItem("loggedIn");
+
+    if (
+        user &&
+        loggedIn === "true"
+    ) {
+
+        document.getElementById("profileName")
+            .textContent = user.name;
+
+        document.getElementById("profileEmail")
+            .textContent = user.email;
+
+        document.getElementById("profilePhone")
+            .textContent = user.phone;
+
+    } else {
+
+        document.getElementById("profileName")
+            .textContent = "Not Logged In";
+
+        document.getElementById("profileEmail")
+            .textContent = "-";
+
+        document.getElementById("profilePhone")
+            .textContent = "-";
+    }
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logoutStudent() {
+
+    let confirmLogout =
+        confirm(
+            "Are you sure you want to logout?"
+        );
+
+    if (!confirmLogout) {
+        return;
+    }
+
+    localStorage.removeItem("loggedIn");
+
+    alert("You have been logged out successfully.");
+
+    loadStudentProfile();
+
+    document
+        .getElementById("home")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+
+
+/* LOAD PROFILE */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+        loadStudentProfile();
+    }
+);
     </script>
 
 

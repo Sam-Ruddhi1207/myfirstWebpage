@@ -2186,75 +2186,71 @@ let application = {
            WITHDRAW APPLICATION
         ========================================= */
 
-        function withdrawApplication(index) {
+       function withdrawApplication(index) {
 
-            let applications =
-                JSON.parse(
-                    localStorage.getItem(
-                        "applications"
-                    )
-                ) || [];
+    let applications =
+        JSON.parse(
+            localStorage.getItem("applications")
+        ) || [];
 
 
-            if (
-                !applications[index]
-            ) {
-
-                return;
-
-            }
+    if (!applications[index]) {
+        return;
+    }
 
 
-            let internshipName =
-                applications[index]
-                    .internship;
+    let internshipName =
+        applications[index].internship;
 
 
-            let confirmWithdraw =
-                confirm(
-                    "Are you sure you want to withdraw your application for " +
-                    internshipName +
-                    "?"
-                );
+    let confirmWithdraw =
+        confirm(
+            "Are you sure you want to withdraw your application for " +
+            internshipName +
+            "?"
+        );
 
 
-            if (!confirmWithdraw) {
-
-                return;
-
-            }
+    if (!confirmWithdraw) {
+        return;
+    }
 
 
-            /* REMOVE APPLICATION */
+    /* CHANGE STATUS INSTEAD OF DELETING */
 
-            applications.splice(
-                index,
-                1
-            );
+    applications[index].status =
+        "Withdrawn";
 
 
-            /* SAVE UPDATED LIST */
+    /* SAVE UPDATED APPLICATIONS */
 
-            localStorage.setItem(
-                "applications",
-                JSON.stringify(
-                    applications
-                )
-            );
+    localStorage.setItem(
+        "applications",
+        JSON.stringify(applications)
+    );
 
 
-            /* REFRESH CARDS */
+    /* REFRESH APPLICATIONS */
 
-            displayApplications();
+    displayApplications();
+
+    loadDashboard();
 
 
-            /* SUCCESS */
+    alert(
+        "Application withdrawn successfully."
+    );
 
-            alert(
-                "Application withdrawn successfully."
-            );
+}
+            
 
-        }
+        
+            
+
+
+           
+              
+        
 
 
 

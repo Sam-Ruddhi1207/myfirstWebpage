@@ -32,48 +32,243 @@
         }
 
 
-        /* =========================================
-           NAVBAR
-        ========================================= */
+        /* =====================================================
+   PROFESSIONAL NAVBAR
+===================================================== */
 
-        nav {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+.main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-            padding: 18px 8%;
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
 
-            position: sticky;
-            top: 0;
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
 
-            z-index: 1000;
-        }
+    padding: 16px 30px;
 
-        .logo {
-            color: white;
-            font-size: 25px;
-            font-weight: bold;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 22px;
-            align-items: center;
-        }
+    gap: 30px;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-        }
 
-        nav ul li a:hover {
-            color: #ffd700;
-        }
+/* ================= LOGO ================= */
+
+.logo {
+    color: white;
+    text-decoration: none;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    white-space: nowrap;
+}
+
+.logo span {
+    font-weight: 400;
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    list-style: none;
+
+    gap: 6px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    display: block;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    padding: 9px 12px;
+
+    border-radius: 7px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* ================= HOVER ================= */
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.15);
+
+    transform: translateY(-1px);
+}
+
+
+/* ================= LOGIN BUTTON ================= */
+
+.nav-login {
+    background: white !important;
+    color: #4f46e5 !important;
+
+    font-weight: 700 !important;
+
+    padding: 9px 18px !important;
+
+    margin-left: 5px;
+}
+
+.nav-login:hover {
+    background: #ffd700 !important;
+    color: #222 !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= MOBILE MENU BUTTON ================= */
+
+.menu-toggle {
+    display: none;
+
+    border: none;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    color: white;
+
+    font-size: 25px;
+
+    padding: 7px 12px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+.menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .nav-container {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 8px 9px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .nav-container {
+        position: relative;
+
+        flex-wrap: wrap;
+
+        padding: 14px 20px;
+    }
+
+
+    /* Show menu button */
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    /* Hide menu initially */
+
+    .nav-links {
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5px;
+
+        padding-top: 15px;
+    }
+
+
+    /* Show menu */
+
+    .nav-links.active {
+        display: flex;
+    }
+
+
+    .nav-links a {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 11px;
+
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+
+    .nav-login {
+        margin-left: 0;
+
+        text-align: center;
+    }
+
+}
+       
+        
+
+       
 
 
         /* =========================================
@@ -1079,13 +1274,24 @@
          NAVIGATION
     ========================================= -->
 
-    <nav>
+    <!-- ================= NAVIGATION ================= -->
 
-        <div class="logo">
-            Internship Portal
-        </div>
+<nav class="main-nav">
 
-        <ul>
+    <div class="nav-container">
+
+        <!-- LOGO -->
+        <a href="#home" class="logo">
+            Internship <span>Portal</span>
+        </a>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <!-- NAVIGATION LINKS -->
+        <ul class="nav-links" id="navLinks">
 
             <li>
                 <a href="#home">Home</a>
@@ -1100,7 +1306,11 @@
             </li>
 
             <li>
-                <a href="#applications">My Applications</a>
+                <a href="#myApplications">Applications</a>
+            </li>
+
+            <li>
+                <a href="#dashboard">Dashboard</a>
             </li>
 
             <li>
@@ -1111,20 +1321,20 @@
                 <a href="#contact">Contact</a>
             </li>
 
+            <!-- LOGIN BUTTON -->
             <li>
-                <a href="#login">Login</a>
+                <a href="#login" class="nav-login">
+                    Login
+                </a>
             </li>
 
-            <li>
-                <a href="#register">Register</a>
-            </li>
-  <li><a href="#profile">Profile</a></li>
-            <li><a href="#dashboard">Dashboard</a></li>
-
-            <li><a href="#admin-login">Admin</a></li>
         </ul>
 
-    </nav>
+    </div>
+
+</nav>
+                
+        
 
 
 
@@ -3002,6 +3212,19 @@ document
     }
 
 });
+
+        
+    /* ================= MOBILE NAVIGATION ================= */
+
+function toggleMenu() {
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+    navLinks.classList.toggle("active");
+
+}    
+    
     </script>
 
 

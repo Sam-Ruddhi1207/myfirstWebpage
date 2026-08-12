@@ -3591,7 +3591,323 @@ function toggleMenu() {
     navLinks.classList.toggle("active");
 
 }    
-    
+
+        /* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+
+function loadAdminDashboard() {
+
+    let adminLoggedIn =
+        localStorage.getItem("adminLoggedIn");
+
+    let applicationList =
+        document.getElementById("adminApplicationList");
+
+
+    /* CHECK ADMIN LOGIN */
+
+    if (adminLoggedIn !== "true") {
+
+        applicationList.innerHTML = `
+            <div class="admin-empty">
+                <h3>Admin Login Required</h3>
+                <p>Please login as administrator to view applications.</p>
+            </div>
+        `;
+
+        updateAdminStatistics([]);
+
+        return;
+    }
+
+
+    /* GET APPLICATIONS */
+
+    let applications =
+        JSON.parse(
+            localStorage.getItem("applications")
+        ) || [];
+
+
+    /* UPDATE STATISTICS */
+
+    updateAdminStatistics(applications);
+
+
+    /* NO APPLICATIONS */
+
+    if (applications.length === 0) {
+
+        applicationList.innerHTML = `
+            <div class="admin-empty">
+
+                <h3>No Applications Yet</h3>
+
+                <p>
+                    Student applications will appear here
+                    when students apply for internships.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    /* CLEAR OLD CARDS */
+
+    applicationList.innerHTML = "";
+
+
+    /* DISPLAY APPLICATIONS */
+
+    applications.forEach(
+        function(application, index) {
+
+            let card =
+                document.createElement("div");
+
+            card.className =
+                "admin-application-card";
+
+
+            card.innerHTML = `
+
+                <h4>
+                    ${application.internship || "Internship"}
+                </h4>
+
+                <p>
+                    <strong>Student:</strong>
+                    ${application.name || "N/A"}
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    ${application.email || "N/A"}
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    ${application.phone || "N/A"}
+                </p>
+
+                <p>
+                    <strong>Applied On:</strong>
+                    ${application.date || "N/A"}
+                </p>
+
+                <span class="admin-status">
+                    Status:
+                    ${application.status || "Applied"}
+                </span>
+
+                <div class="admin-action-buttons">
+
+                    <button
+                        class="shortlist-btn"
+                        onclick="updateApplicationStatus(
+                            ${index},
+                            'Shortlisted'
+                        )">
+
+                        Shortlist
+
+                    </button>
+
+
+                    <button
+                        class="select-btn"
+                        onclick="updateApplicationStatus(
+                            ${index},
+                            'Selected'
+                        )">
+
+                        Select
+
+                    </button>
+
+
+                    <button
+                        class="reject-btn"
+                        onclick="updateApplicationStatus(
+                            ${index},
+                            'Rejected'
+                        )">
+
+                        Reject
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            applicationList.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADMIN STATISTICS
+===================================================== */
+
+function updateAdminStatistics(applications) {
+
+    let total = applications.length;
+
+    let applied = applications.filter(
+        function(application) {
+
+            return (
+                !application.status ||
+                application.status === "Applied"
+            );
+
+        }
+    ).length;
+
+
+    let shortlisted = applications.filter(
+        function(application) {
+
+            return application.status === "Shortlisted";
+
+        }
+    ).length;
+
+
+    let selected = applications.filter(
+        function(application) {
+
+            return application.status === "Selected";
+
+        }
+    ).length;
+
+
+    let rejected = applications.filter(
+        function(application) {
+
+            return application.status === "Rejected";
+
+        }
+    ).length;
+
+
+    document.getElementById(
+        "adminTotal"
+    ).textContent = total;
+
+
+    document.getElementById(
+        "adminApplied"
+    ).textContent = applied;
+
+
+    document.getElementById(
+        "adminShortlisted"
+    ).textContent = shortlisted;
+
+
+    document.getElementById(
+        "adminSelected"
+    ).textContent = selected;
+
+
+    document.getElementById(
+        "adminRejected"
+    ).textContent = rejected;
+
+}
+
+
+/* =====================================================
+   UPDATE APPLICATION STATUS
+===================================================== */
+
+function updateApplicationStatus(
+    index,
+    newStatus
+) {
+
+    let applications =
+        JSON.parse(
+            localStorage.getItem("applications")
+        ) || [];
+
+
+    if (!applications[index]) {
+        return;
+    }
+
+
+    let studentName =
+        applications[index].name;
+
+
+    let confirmation =
+        confirm(
+            "Change " +
+            studentName +
+            "'s application status to " +
+            newStatus +
+            "?"
+        );
+
+
+    if (!confirmation) {
+        return;
+    }
+
+
+    /* UPDATE STATUS */
+
+    applications[index].status =
+        newStatus;
+
+
+    /* SAVE */
+
+    localStorage.setItem(
+        "applications",
+        JSON.stringify(
+            applications
+        )
+    );
+
+
+    /* REFRESH DASHBOARD */
+
+    loadAdminDashboard();
+
+
+    alert(
+        "Application status updated to " +
+        newStatus
+    );
+
+}
+
+
+/* =====================================================
+   LOAD ADMIN DASHBOARD
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadAdminDashboard();
+
+    }
+);
     </script>
 
 

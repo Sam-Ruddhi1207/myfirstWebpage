@@ -861,6 +861,73 @@
     }
 
 }
+        /* =========================================
+   ADMIN LOGIN
+========================================= */
+
+.admin-section {
+    background: white;
+    padding: 65px 8%;
+}
+
+.admin-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.admin-form {
+    max-width: 500px;
+    margin: auto;
+
+    background: #f8f9ff;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.admin-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.admin-form input {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+}
+
+.admin-btn {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #222;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.admin-btn:hover {
+    background: #000;
+}
 
         /* =========================================
            ABOUT
@@ -1053,6 +1120,8 @@
             </li>
   <li><a href="#profile">Profile</a></li>
             <li><a href="#dashboard">Dashboard</a></li>
+
+            <li><a href="#admin-login">Admin</a></li>
         </ul>
 
     </nav>
@@ -1727,6 +1796,41 @@
 
 </section>
 
+    <!-- =========================================
+     ADMIN LOGIN
+========================================= -->
+
+<section class="admin-section" id="admin-login">
+
+    <h2>Admin Login</h2>
+
+    <form class="admin-form" id="adminLoginForm">
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            id="adminEmail"
+            placeholder="Enter admin email"
+            required
+        >
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter password"
+            required
+        >
+
+        <button type="submit" class="admin-btn">
+            Login as Admin
+        </button>
+
+    </form>
+
+</section>
     <!-- =========================================
          ABOUT
     ========================================= -->
@@ -2858,6 +2962,46 @@ document.addEventListener(
 
     }
 );
+
+        /* =========================================
+   ADMIN LOGIN
+========================================= */
+
+document
+.getElementById("adminLoginForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let email =
+        document.getElementById("adminEmail").value;
+
+    let password =
+        document.getElementById("adminPassword").value;
+
+    if (
+        email === "admin@internship.com" &&
+        password === "admin123"
+    ) {
+
+        localStorage.setItem(
+            "adminLoggedIn",
+            "true"
+        );
+
+        alert(
+            "Admin Login Successful!"
+        );
+
+    } else {
+
+        alert(
+            "Invalid Admin Credentials"
+        );
+
+    }
+
+});
     </script>
 
 

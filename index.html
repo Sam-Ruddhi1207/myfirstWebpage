@@ -1124,6 +1124,313 @@
     background: #000;
 }
 
+
+        /* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+
+.admin-dashboard {
+    background: #f5f7fb;
+    padding: 65px 8%;
+}
+
+.admin-dashboard > h2 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+
+/* ADMIN WELCOME */
+
+.admin-welcome {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #111827,
+        #374151
+    );
+
+    color: white;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+}
+
+.admin-welcome h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.admin-welcome p {
+    opacity: 0.85;
+}
+
+
+/* =====================================================
+   ADMIN STATISTICS
+===================================================== */
+
+.admin-stats {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 18px;
+}
+
+.admin-stat-card {
+    background: white;
+
+    padding: 24px 15px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,0.07);
+
+    border: 1px solid #e5e7eb;
+
+    transition: 0.3s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,0.12);
+}
+
+.admin-stat-card span {
+    font-size: 27px;
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+.admin-stat-card h3 {
+    font-size: 28px;
+
+    color: #4f46e5;
+
+    margin-bottom: 5px;
+}
+
+.admin-stat-card p {
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   ADMIN APPLICATIONS
+===================================================== */
+
+.admin-applications {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.admin-applications > h3 {
+    font-size: 24px;
+
+    margin-bottom: 20px;
+}
+
+
+/* APPLICATION CARD */
+
+.admin-application-card {
+    background: white;
+
+    padding: 24px;
+
+    margin-bottom: 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,0.07);
+}
+
+.admin-application-card h4 {
+    color: #4f46e5;
+
+    font-size: 20px;
+
+    margin-bottom: 14px;
+}
+
+.admin-application-card p {
+    color: #555;
+
+    margin: 7px 0;
+}
+
+
+/* =====================================================
+   ADMIN STATUS
+===================================================== */
+
+.admin-status {
+    display: inline-block;
+
+    margin: 12px 0;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    background: #f0efff;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   ADMIN ACTION BUTTONS
+===================================================== */
+
+.admin-action-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.admin-action-buttons button {
+    border: none;
+
+    padding: 9px 15px;
+
+    border-radius: 7px;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.admin-action-buttons button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* SHORTLIST */
+
+.shortlist-btn {
+    background: #f59e0b;
+}
+
+.shortlist-btn:hover {
+    background: #d97706;
+}
+
+
+/* SELECT */
+
+.select-btn {
+    background: #16a34a;
+}
+
+.select-btn:hover {
+    background: #15803d;
+}
+
+
+/* REJECT */
+
+.reject-btn {
+    background: #ef4444;
+}
+
+.reject-btn:hover {
+    background: #dc2626;
+}
+
+
+/* EMPTY */
+
+.admin-empty {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    color: #777;
+
+    border: 1px solid #e5e7eb;
+}
+
+
+/* =====================================================
+   ADMIN MOBILE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .admin-stats {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .admin-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .admin-action-buttons {
+        flex-direction: column;
+    }
+
+    .admin-action-buttons button {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
         /* =========================================
            ABOUT
         ========================================= */

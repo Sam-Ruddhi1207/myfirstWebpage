@@ -1640,32 +1640,32 @@
 
 
                     /* CREATE APPLICATION */
+let application = {
 
-                    let application = {
+    id: Date.now(),
 
-                        id: Date.now(),
+    studentEmail: email,
 
-                        name: name,
+    name: name,
 
-                        email: email,
+    email: email,
 
-                        phone: phone,
+    phone: phone,
 
-                        internship: internship,
+    internship: internship,
 
-                        message: message,
+    message: message,
 
-                        resumeName: resume.name,
+    resumeName: resume.name,
 
-                        status: "Applied",
+    status: "Applied",
 
-                        date:
-                            new Date()
-                            .toLocaleDateString(
-                                "en-IN"
-                            )
+    date: new Date().toLocaleDateString("en-IN")
 
-                    };
+};
+                    
+
+                      
 
 
                     /* GET EXISTING APPLICATIONS */

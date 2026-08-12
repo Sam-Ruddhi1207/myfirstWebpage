@@ -631,6 +631,236 @@
     background: #3730a3;
     transform: translateY(-2px);
 }
+        /* =========================================
+   STUDENT DASHBOARD
+========================================= */
+
+.dashboard-section {
+    background: #f5f7fb;
+    padding: 65px 8%;
+}
+
+.dashboard-section > h2 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+
+/* WELCOME */
+
+.dashboard-welcome {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+}
+
+.dashboard-welcome h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.dashboard-welcome p {
+    opacity: 0.9;
+}
+
+
+/* STATISTICS */
+
+.dashboard-stats {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    font-size: 30px;
+    color: #4f46e5;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    color: #666;
+}
+
+
+/* APPLICATIONS */
+
+.dashboard-applications {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.dashboard-applications > h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+
+.dashboard-application-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* APPLICATION CARD */
+
+.dashboard-application-card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.07);
+}
+
+.dashboard-application-card h4 {
+    color: #4f46e5;
+
+    font-size: 19px;
+
+    margin-bottom: 12px;
+}
+
+.dashboard-application-card p {
+    color: #555;
+
+    margin: 7px 0;
+}
+
+
+/* DASHBOARD STATUS */
+
+.dashboard-status {
+    display: inline-block;
+
+    margin: 10px 0;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* DASHBOARD WITHDRAW */
+
+.dashboard-withdraw {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 10px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.dashboard-withdraw:hover {
+    background: #dc2626;
+}
+
+
+/* EMPTY DASHBOARD */
+
+.dashboard-empty {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    color: #777;
+
+    grid-column: 1 / -1;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-application-list {
+        grid-template-columns: 1fr;
+    }
+
+}
 
         /* =========================================
            ABOUT
@@ -822,6 +1052,7 @@
                 <a href="#register">Register</a>
             </li>
   <li><a href="#profile">Profile</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
         </ul>
 
     </nav>
@@ -1422,6 +1653,79 @@
 
 </section>
 
+    <!-- =========================================
+     STUDENT DASHBOARD
+========================================= -->
+
+<section class="dashboard-section" id="dashboard">
+
+    <h2>Student Dashboard</h2>
+
+    <div class="dashboard-welcome">
+        <h3>
+            Welcome, <span id="dashboardName">Student</span> 👋
+        </h3>
+
+        <p>
+            Manage your internship applications from here.
+        </p>
+    </div>
+
+
+    <!-- DASHBOARD STATISTICS -->
+
+    <div class="dashboard-stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">📋</div>
+
+            <h3 id="totalApplications">
+                0
+            </h3>
+
+            <p>Total Applications</p>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon">🟢</div>
+
+            <h3 id="activeApplications">
+                0
+            </h3>
+
+            <p>Active Applications</p>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon">🔴</div>
+
+            <h3 id="withdrawnApplications">
+                0
+            </h3>
+
+            <p>Withdrawn</p>
+        </div>
+
+    </div>
+
+
+    <!-- RECENT APPLICATIONS -->
+
+    <div class="dashboard-applications">
+
+        <h3>My Recent Applications</h3>
+
+        <div
+            id="dashboardApplicationList"
+            class="dashboard-application-list"
+        >
+        </div>
+
+    </div>
+
+</section>
 
     <!-- =========================================
          ABOUT
@@ -2235,6 +2539,327 @@ document.addEventListener(
     "DOMContentLoaded",
     function() {
         loadStudentProfile();
+    }
+);
+
+        /* =========================================
+   STUDENT DASHBOARD
+========================================= */
+
+function loadDashboard() {
+
+    let user =
+        JSON.parse(
+            localStorage.getItem("studentUser")
+        );
+
+    let loggedIn =
+        localStorage.getItem("loggedIn");
+
+
+    /* GET APPLICATIONS */
+
+    let applications =
+        JSON.parse(
+            localStorage.getItem("applications")
+        ) || [];
+
+
+    /* IF NOT LOGGED IN */
+
+    if (
+        !user ||
+        loggedIn !== "true"
+    ) {
+
+        document.getElementById(
+            "dashboardName"
+        ).textContent = "Student";
+
+        document.getElementById(
+            "totalApplications"
+        ).textContent = "0";
+
+        document.getElementById(
+            "activeApplications"
+        ).textContent = "0";
+
+        document.getElementById(
+            "withdrawnApplications"
+        ).textContent = "0";
+
+        document.getElementById(
+            "dashboardApplicationList"
+        ).innerHTML = `
+
+            <div class="dashboard-empty">
+
+                Please login to view your applications.
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* SHOW STUDENT NAME */
+
+    document.getElementById(
+        "dashboardName"
+    ).textContent = user.name;
+
+
+    /* ONLY CURRENT STUDENT APPLICATIONS */
+
+    let myApplications =
+        applications.filter(
+            function(application) {
+
+                return (
+                    application.studentEmail &&
+                    application.studentEmail.toLowerCase()
+                    ===
+                    user.email.toLowerCase()
+                );
+
+            }
+        );
+
+
+    /* TOTAL */
+
+    document.getElementById(
+        "totalApplications"
+    ).textContent =
+        myApplications.length;
+
+
+    /* ACTIVE */
+
+    let active =
+        myApplications.filter(
+            function(application) {
+
+                return application.status !== "Withdrawn";
+
+            }
+        );
+
+
+    document.getElementById(
+        "activeApplications"
+    ).textContent =
+        active.length;
+
+
+    /* WITHDRAWN */
+
+    let withdrawn =
+        myApplications.filter(
+            function(application) {
+
+                return application.status === "Withdrawn";
+
+            }
+        );
+
+
+    document.getElementById(
+        "withdrawnApplications"
+    ).textContent =
+        withdrawn.length;
+
+
+    /* APPLICATION LIST */
+
+    let list =
+        document.getElementById(
+            "dashboardApplicationList"
+        );
+
+
+    list.innerHTML = "";
+
+
+    /* NO APPLICATIONS */
+
+    if (
+        myApplications.length === 0
+    ) {
+
+        list.innerHTML = `
+
+            <div class="dashboard-empty">
+
+                You have not applied for any internship yet.
+
+                <br><br>
+
+                Go to the Internships section
+                and apply for your first internship!
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* DISPLAY APPLICATIONS */
+
+    myApplications.forEach(
+        function(application) {
+
+            let card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "dashboard-application-card";
+
+
+            card.innerHTML = `
+
+                <h4>
+                    ${application.internship}
+                </h4>
+
+
+                <p>
+                    <strong>Applicant:</strong>
+                    ${application.name}
+                </p>
+
+
+                <p>
+                    <strong>Email:</strong>
+                    ${application.email}
+                </p>
+
+
+                <p>
+                    <strong>Applied On:</strong>
+                    ${application.date}
+                </p>
+
+
+                <span class="dashboard-status">
+
+                    ${application.status}
+
+                </span>
+
+
+                ${
+                    application.status !== "Withdrawn"
+                    ?
+
+                    `<button
+                        class="dashboard-withdraw"
+                        onclick="withdrawDashboardApplication(${application.id})"
+                    >
+                        Withdraw Application
+                    </button>`
+
+                    :
+
+                    ""
+                }
+
+            `;
+
+
+            list.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   WITHDRAW FROM DASHBOARD
+========================================= */
+
+function withdrawDashboardApplication(id) {
+
+    let applications =
+        JSON.parse(
+            localStorage.getItem("applications")
+        ) || [];
+
+
+    let application =
+        applications.find(
+            function(app) {
+
+                return app.id === id;
+
+            }
+        );
+
+
+    if (!application) {
+        return;
+    }
+
+
+    let confirmation =
+        confirm(
+            "Are you sure you want to withdraw this application?"
+        );
+
+
+    if (!confirmation) {
+        return;
+    }
+
+
+    /* CHANGE STATUS */
+
+    application.status =
+        "Withdrawn";
+
+
+    /* SAVE */
+
+    localStorage.setItem(
+        "applications",
+        JSON.stringify(
+            applications
+        )
+    );
+
+
+    /* UPDATE BOTH SECTIONS */
+
+    displayApplications();
+
+    loadDashboard();
+
+
+    alert(
+        "Application withdrawn successfully."
+    );
+
+}
+
+
+/* =========================================
+   LOAD DASHBOARD
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadDashboard();
+
     }
 );
     </script>

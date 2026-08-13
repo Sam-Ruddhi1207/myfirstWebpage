@@ -959,6 +959,419 @@ footer {
     }
 }
 
+      /* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+
+.admin-dashboard {
+    background: #f5f7fb;
+    padding: 60px 7%;
+    min-height: 700px;
+}
+
+.admin-header {
+    max-width: 1150px;
+    margin: 0 auto 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.admin-header h2 {
+    color: #222;
+    font-size: 30px;
+    margin-bottom: 7px;
+}
+
+.admin-header p {
+    color: #777;
+}
+
+.admin-logout-btn {
+    border: none;
+    background: #dc2626;
+    color: white;
+
+    padding: 11px 20px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.admin-logout-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* STATISTICS */
+
+.admin-stats {
+    max-width: 1150px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 20px;
+}
+
+.admin-stat-card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.07);
+
+    transition: 0.3s;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eef2ff;
+
+    border-radius: 12px;
+
+    font-size: 23px;
+}
+
+.admin-stat-card h3 {
+    font-size: 27px;
+    color: #4f46e5;
+}
+
+.admin-stat-card p {
+    font-size: 13px;
+    color: #777;
+}
+
+
+/* APPLICATION PANEL */
+
+.admin-panel {
+    max-width: 1150px;
+
+    margin: 35px auto 0;
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.08);
+}
+
+.admin-panel-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.admin-panel-header h3 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.admin-panel-header p {
+    color: #777;
+}
+
+#adminSearch {
+    width: 280px;
+
+    padding: 12px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+#adminSearch:focus {
+    border-color: #4f46e5;
+}
+
+
+/* APPLICATION CARD */
+
+.admin-application {
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    margin-bottom: 18px;
+
+    transition: 0.3s;
+}
+
+.admin-application:hover {
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+}
+
+.admin-application-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+.admin-application h4 {
+    font-size: 20px;
+
+    color: #4f46e5;
+
+    margin-bottom: 6px;
+}
+
+.admin-application .student-name {
+    font-weight: bold;
+
+    color: #333;
+}
+
+.application-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin: 15px 0;
+}
+
+.application-detail {
+    background: #f8fafc;
+
+    padding: 11px;
+
+    border-radius: 8px;
+}
+
+.application-detail span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #888;
+
+    margin-bottom: 4px;
+}
+
+.application-detail strong {
+    color: #333;
+
+    font-size: 14px;
+}
+
+
+/* STATUS */
+
+.admin-status {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    background: #fef3c7;
+
+    color: #92400e;
+}
+
+.status-shortlisted {
+    background: #ede9fe;
+
+    color: #6d28d9;
+}
+
+.status-selected {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.status-rejected {
+    background: #fee2e2;
+
+    color: #991b1b;
+}
+
+
+/* ADMIN ACTIONS */
+
+.admin-actions {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 15px;
+}
+
+.admin-actions button {
+    border: none;
+
+    padding: 9px 15px;
+
+    border-radius: 7px;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.admin-actions button:hover {
+    transform: translateY(-1px);
+}
+
+.shortlist-admin-btn {
+    background: #7c3aed;
+}
+
+.select-admin-btn {
+    background: #16a34a;
+}
+
+.reject-admin-btn {
+    background: #dc2626;
+}
+
+.no-admin-applications {
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #777;
+}
+
+.no-admin-applications h3 {
+    color: #444;
+
+    margin-bottom: 8px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 950px) {
+
+    .admin-stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .application-details {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-dashboard {
+        padding: 40px 5%;
+    }
+
+    .admin-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-panel {
+        padding: 20px;
+    }
+
+    .admin-panel-header {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    #adminSearch {
+        width: 100%;
+    }
+
+    .application-details {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-application-top {
+        flex-direction: column;
+    }
+
+}
 </style>
 
 </head>
@@ -2903,8 +3316,480 @@ document.addEventListener(
     }
 );
 
+      /* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+
+function loadAdminApplications() {
+
+    const applications =
+        JSON.parse(
+            localStorage.getItem("applications")
+        ) || [];
+
+    const container =
+        document.getElementById(
+            "adminApplicationsList"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    updateAdminStats(applications);
+
+    container.innerHTML = "";
+
+    if (applications.length === 0) {
+
+        container.innerHTML = `
+            <div class="no-admin-applications">
+                <h3>No applications found</h3>
+                <p>
+                    Student applications will
+                    appear here.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    applications.forEach(
+        function(application, index) {
+
+            const status =
+                application.status ||
+                "Applied";
+
+            let statusClass = "";
+
+            if (status === "Shortlisted") {
+                statusClass =
+                    "status-shortlisted";
+            }
+
+            if (status === "Selected") {
+                statusClass =
+                    "status-selected";
+            }
+
+            if (status === "Rejected") {
+                statusClass =
+                    "status-rejected";
+            }
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "admin-application";
+
+            card.innerHTML = `
+
+                <div class="admin-application-top">
+
+                    <div>
+
+                        <h4>
+                            ${application.internship}
+                        </h4>
+
+                        <p class="student-name">
+                            ${application.name}
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="admin-status ${statusClass}">
+
+                        ${status}
+
+                    </span>
+
+                </div>
+
+
+                <div class="application-details">
+
+                    <div class="application-detail">
+
+                        <span>Email</span>
+
+                        <strong>
+                            ${application.email}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="application-detail">
+
+                        <span>Phone</span>
+
+                        <strong>
+                            ${application.phone}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="application-detail">
+
+                        <span>Applied On</span>
+
+                        <strong>
+                            ${application.date}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="shortlist-admin-btn"
+                        onclick="changeApplicationStatus(
+                            ${index},
+                            'Shortlisted'
+                        )">
+
+                        Shortlist
+
+                    </button>
+
+
+                    <button
+                        class="select-admin-btn"
+                        onclick="changeApplicationStatus(
+                            ${index},
+                            'Selected'
+                        )">
+
+                        Select
+
+                    </button>
+
+
+                    <button
+                        class="reject-admin-btn"
+                        onclick="changeApplicationStatus(
+                            ${index},
+                            'Rejected'
+                        )">
+
+                        Reject
+
+                    </button>
+
+                </div>
+
+            `;
+
+            container.appendChild(card);
+
+        }
+    );
+}
+
+
+/* =====================================================
+   ADMIN STATISTICS
+===================================================== */
+
+function updateAdminStats(applications) {
+
+    let total = applications.length;
+
+    let pending =
+        applications.filter(
+            function(app) {
+
+                return (
+                    !app.status ||
+                    app.status === "Applied"
+                );
+
+            }
+        ).length;
+
+    let shortlisted =
+        applications.filter(
+            function(app) {
+
+                return app.status ===
+                    "Shortlisted";
+
+            }
+        ).length;
+
+    let selected =
+        applications.filter(
+            function(app) {
+
+                return app.status ===
+                    "Selected";
+
+            }
+        ).length;
+
+    let rejected =
+        applications.filter(
+            function(app) {
+
+                return app.status ===
+                    "Rejected";
+
+            }
+        ).length;
+
+
+    document.getElementById(
+        "totalApplications"
+    ).textContent = total;
+
+
+    document.getElementById(
+        "pendingApplications"
+    ).textContent = pending;
+
+
+    document.getElementById(
+        "shortlistedApplications"
+    ).textContent = shortlisted;
+
+
+    document.getElementById(
+        "selectedApplications"
+    ).textContent = selected;
+
+
+    document.getElementById(
+        "rejectedApplications"
+    ).textContent = rejected;
+}
+
+
+/* =====================================================
+   CHANGE APPLICATION STATUS
+===================================================== */
+
+function changeApplicationStatus(
+    index,
+    newStatus
+) {
+
+    let applications =
+        JSON.parse(
+            localStorage.getItem("applications")
+        ) || [];
+
+
+    if (!applications[index]) {
+        return;
+    }
+
+
+    applications[index].status =
+        newStatus;
+
+
+    localStorage.setItem(
+        "applications",
+        JSON.stringify(applications)
+    );
+
+
+    loadAdminApplications();
+
+
+    alert(
+        "Application marked as " +
+        newStatus
+    );
+}
+
+
+/* =====================================================
+   SEARCH ADMIN APPLICATIONS
+===================================================== */
+
+function searchAdminApplications() {
+
+    const search =
+        document
+        .getElementById("adminSearch")
+        .value
+        .toLowerCase();
+
+
+    const cards =
+        document.querySelectorAll(
+            ".admin-application"
+        );
+
+
+    cards.forEach(
+        function(card) {
+
+            const text =
+                card.innerText
+                .toLowerCase();
+
+
+            if (
+                text.includes(search)
+            ) {
+
+                card.style.display =
+                    "block";
+
+            } else {
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+}
+
+
+/* =====================================================
+   ADMIN LOGOUT
+===================================================== */
+
+function adminLogout() {
+
+    localStorage.removeItem(
+        "adminLoggedIn"
+    );
+
+    alert(
+        "Admin logged out successfully."
+    );
+
+    window.location.hash =
+        "home";
+}
+
+
+/* =====================================================
+   LOAD DASHBOARD WHEN PAGE OPENS
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        loadAdminApplications();
+
+    }
+);
 </script>
 
+      <!-- ================= ADMIN DASHBOARD ================= -->
+
+<section id="adminDashboard" class="admin-dashboard">
+
+    <div class="admin-header">
+        <div>
+            <h2>Admin Dashboard</h2>
+            <p>Manage internship applications and portal activity.</p>
+        </div>
+
+        <button class="admin-logout-btn" onclick="adminLogout()">
+            Logout
+        </button>
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="admin-stats">
+
+        <div class="admin-stat-card">
+            <div class="stat-icon">📄</div>
+            <div>
+                <h3 id="totalApplications">0</h3>
+                <p>Total Applications</p>
+            </div>
+        </div>
+
+        <div class="admin-stat-card">
+            <div class="stat-icon">⏳</div>
+            <div>
+                <h3 id="pendingApplications">0</h3>
+                <p>Pending</p>
+            </div>
+        </div>
+
+        <div class="admin-stat-card">
+            <div class="stat-icon">⭐</div>
+            <div>
+                <h3 id="shortlistedApplications">0</h3>
+                <p>Shortlisted</p>
+            </div>
+        </div>
+
+        <div class="admin-stat-card">
+            <div class="stat-icon">✅</div>
+            <div>
+                <h3 id="selectedApplications">0</h3>
+                <p>Selected</p>
+            </div>
+        </div>
+
+        <div class="admin-stat-card">
+            <div class="stat-icon">❌</div>
+            <div>
+                <h3 id="rejectedApplications">0</h3>
+                <p>Rejected</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- APPLICATION MANAGEMENT -->
+
+    <div class="admin-panel">
+
+        <div class="admin-panel-header">
+
+            <div>
+                <h3>Student Applications</h3>
+                <p>Review and manage internship applications.</p>
+            </div>
+
+            <input
+                type="text"
+                id="adminSearch"
+                placeholder="Search applications..."
+                onkeyup="searchAdminApplications()"
+            >
+
+        </div>
+
+
+        <div id="adminApplicationsList">
+
+            <div class="no-admin-applications">
+                <h3>No applications found</h3>
+                <p>
+                    Student applications will appear here.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 </body>
 
 </html>

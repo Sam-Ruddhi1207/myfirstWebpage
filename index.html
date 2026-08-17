@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,7 @@
 <style>
 
 /* =========================
-   GLOBAL
+   RESET
 ========================= */
 
 * {
@@ -27,11 +26,10 @@ html {
 body {
     background: #f5f7fb;
     color: #222;
-    line-height: 1.6;
 }
 
 section {
-    scroll-margin-top: 85px;
+    scroll-margin-top: 80px;
 }
 
 
@@ -50,46 +48,40 @@ section {
 .nav-container {
     max-width: 1400px;
     margin: auto;
-    min-height: 78px;
+    min-height: 75px;
     padding: 0 30px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
 }
 
 .logo {
     color: white;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: bold;
-    white-space: nowrap;
 }
 
 .nav-menu {
     list-style: none;
+
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 5px;
-    margin: 0;
-    padding: 0;
-}
 
-.nav-menu li {
-    list-style: none;
+    gap: 4px;
 }
 
 .nav-menu li a {
-    display: block;
     color: white;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
+
     padding: 10px 11px;
-    border-radius: 8px;
-    white-space: nowrap;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
     transition: 0.3s;
 }
 
@@ -101,21 +93,19 @@ section {
 .login-btn {
     background: white !important;
     color: #4338ca !important;
-    font-weight: bold !important;
-    padding: 10px 17px !important;
-}
-
-.login-btn:hover {
-    background: #ffd700 !important;
-    color: #222 !important;
+    font-weight: bold;
 }
 
 .menu-toggle {
     display: none;
-    border: none;
+
     background: transparent;
+    border: none;
+
     color: white;
+
     font-size: 28px;
+
     cursor: pointer;
 }
 
@@ -125,13 +115,14 @@ section {
 ========================= */
 
 .hero {
-    min-height: 540px;
+    min-height: 520px;
 
-    background: linear-gradient(
-        135deg,
-        #4f46e5,
-        #7c3aed
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
 
     color: white;
 
@@ -143,31 +134,34 @@ section {
 
     text-align: center;
 
-    padding: 70px 20px;
+    padding: 60px 20px;
 }
 
 .hero h1 {
-    font-size: 56px;
+    font-size: 52px;
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 20px;
     max-width: 800px;
-    margin-bottom: 35px;
+
+    font-size: 19px;
+
+    margin-bottom: 30px;
 }
 
 .hero-btn {
     display: inline-block;
 
     background: white;
+
     color: #4f46e5;
+
+    text-decoration: none;
 
     padding: 14px 28px;
 
     border-radius: 8px;
-
-    text-decoration: none;
 
     font-weight: bold;
 
@@ -177,7 +171,6 @@ section {
 .hero-btn:hover {
     background: #ffd700;
     color: #222;
-    transform: translateY(-2px);
 }
 
 
@@ -187,12 +180,13 @@ section {
 
 .search-section {
     background: white;
-    padding: 40px 8%;
+
     text-align: center;
+
+    padding: 40px 20px;
 }
 
 .search-section h2 {
-    font-size: 30px;
     margin-bottom: 20px;
 }
 
@@ -200,21 +194,15 @@ section {
     width: 70%;
     max-width: 650px;
 
-    padding: 15px;
+    padding: 14px;
 
     border: 1px solid #ccc;
+
     border-radius: 8px;
 
     font-size: 16px;
+
     outline: none;
-}
-
-#searchBox:focus {
-    border-color: #4f46e5;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(79,70,229,0.1);
 }
 
 
@@ -228,8 +216,10 @@ section {
 
 .section-title {
     text-align: center;
+
     font-size: 34px;
-    margin-bottom: 45px;
+
+    margin-bottom: 40px;
 }
 
 
@@ -245,7 +235,7 @@ section {
     display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
     gap: 25px;
 }
@@ -253,27 +243,26 @@ section {
 .internship-card {
     background: white;
 
-    border: 1px solid #e5e7eb;
-
     border-radius: 15px;
 
     padding: 25px;
+
+    min-height: 330px;
+
+    display: flex;
+    flex-direction: column;
 
     box-shadow:
         0 5px 18px
         rgba(0,0,0,0.08);
 
+    border: 1px solid #e5e7eb;
+
     transition: 0.3s;
-
-    display: flex;
-
-    flex-direction: column;
-
-    min-height: 330px;
 }
 
 .internship-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
 
     box-shadow:
         0 12px 30px
@@ -281,35 +270,33 @@ section {
 }
 
 .internship-card h3 {
-    font-size: 21px;
     color: #4338ca;
+
     margin-bottom: 12px;
 }
 
 .internship-card p {
     color: #555;
-    margin: 6px 0;
-}
 
-.internship-description {
-    margin-top: 12px !important;
-    line-height: 1.6;
+    margin: 5px 0;
 }
 
 .badge {
     display: inline-block;
 
-    background: #f0efff;
+    width: fit-content;
 
-    color: #5148d8;
+    margin-top: 12px;
 
     padding: 5px 10px;
 
     border-radius: 20px;
 
-    font-size: 12px;
+    background: #eef2ff;
 
-    margin-top: 12px;
+    color: #4338ca;
+
+    font-size: 12px;
 }
 
 .apply-btn {
@@ -327,27 +314,23 @@ section {
 
     color: white;
 
-    font-size: 15px;
-
     font-weight: bold;
 
     cursor: pointer;
-
-    transition: 0.3s;
 }
 
 .apply-btn:hover {
     background: #3730a3;
-    transform: scale(1.02);
 }
 
 
 /* =========================
-   APPLY FORM
+   APPLY
 ========================= */
 
 .apply-section {
     background: #eef2ff;
+
     padding: 70px 20px;
 }
 
@@ -370,11 +353,9 @@ section {
 .form-container h2 {
     text-align: center;
 
-    font-size: 32px;
-
     color: #4338ca;
 
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .form-group {
@@ -384,9 +365,9 @@ section {
 .form-group label {
     display: block;
 
-    font-weight: bold;
-
     margin-bottom: 7px;
+
+    font-weight: bold;
 }
 
 .form-group input,
@@ -400,19 +381,9 @@ section {
 
     border-radius: 8px;
 
-    font-size: 15px;
-
     outline: none;
-}
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #4f46e5;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(79,70,229,0.1);
+    font-size: 15px;
 }
 
 .submit-btn {
@@ -446,6 +417,7 @@ section {
 
 .applications-section {
     background: white;
+
     padding: 70px 8%;
 }
 
@@ -457,7 +429,7 @@ section {
     display: grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(2, 1fr);
 
     gap: 25px;
 }
@@ -478,11 +450,13 @@ section {
 
 .application-card h3 {
     color: #4338ca;
+
     margin-bottom: 12px;
 }
 
 .application-card p {
     margin: 7px 0;
+
     color: #555;
 }
 
@@ -538,6 +512,8 @@ section {
 }
 
 .empty-applications {
+    grid-column: 1 / -1;
+
     text-align: center;
 
     padding: 35px;
@@ -547,8 +523,6 @@ section {
     background: #f8fafc;
 
     border-radius: 12px;
-
-    grid-column: 1 / -1;
 }
 
 
@@ -557,8 +531,6 @@ section {
 ========================= */
 
 .about {
-    background: #f5f7fb;
-
     padding: 70px 8%;
 
     text-align: center;
@@ -572,8 +544,6 @@ section {
     color: #555;
 
     line-height: 1.8;
-
-    font-size: 17px;
 }
 
 
@@ -589,15 +559,8 @@ section {
     text-align: center;
 }
 
-.contact-info {
-    max-width: 650px;
-    margin: auto;
-}
-
 .contact-info p {
     margin: 15px;
-
-    font-size: 17px;
 
     color: #555;
 }
@@ -609,6 +572,7 @@ section {
 
 .auth-section {
     padding: 70px 20px;
+
     background: #eef2ff;
 }
 
@@ -643,6 +607,7 @@ section {
 
 .profile-section {
     padding: 70px 20px;
+
     background: white;
 }
 
@@ -688,11 +653,12 @@ section {
 
 
 /* =========================
-   DASHBOARD
+   STUDENT DASHBOARD
 ========================= */
 
 .dashboard-section {
     padding: 70px 8%;
+
     background: #f5f7fb;
 }
 
@@ -704,7 +670,7 @@ section {
     display: grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4, 1fr);
 
     gap: 20px;
 }
@@ -725,6 +691,7 @@ section {
 
 .dashboard-card h3 {
     color: #4338ca;
+
     margin-bottom: 10px;
 }
 
@@ -737,19 +704,128 @@ section {
 }
 
 
-/* =========================
+/* =====================================================
    ADMIN DASHBOARD
-========================= */
+===================================================== */
 
 .admin-section {
-    padding: 70px 8%;
-    background: white;
+    padding: 70px 6%;
+
+    background: #f8fafc;
 }
 
-.admin-controls {
-    max-width: 1100px;
 
-    margin: 0 auto 25px;
+/* Admin Header */
+
+.admin-header {
+    max-width: 1200px;
+
+    margin: auto;
+
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.admin-header h2 {
+    font-size: 36px;
+
+    color: #1e293b;
+
+    margin-bottom: 10px;
+}
+
+.admin-header p {
+    color: #64748b;
+}
+
+
+/* Admin Statistics */
+
+.admin-stats {
+    max-width: 1200px;
+
+    margin: 0 auto 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.admin-stat-card {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,0.06);
+
+    border: 1px solid #e5e7eb;
+
+    transition: 0.3s;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,0.10);
+}
+
+.stat-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    background: #eef2ff;
+}
+
+.stat-info h3 {
+    font-size: 28px;
+
+    color: #1e293b;
+}
+
+.stat-info p {
+    font-size: 13px;
+
+    color: #64748b;
+}
+
+
+/* Admin Controls */
+
+.admin-controls {
+    max-width: 1200px;
+
+    margin: 0 auto 20px;
+
+    background: white;
+
+    padding: 18px;
+
+    border-radius: 12px;
 
     display: flex;
 
@@ -758,10 +834,16 @@ section {
     align-items: center;
 
     gap: 15px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,0.05);
 }
 
 .admin-search {
-    width: 350px;
+    flex: 1;
+
+    max-width: 450px;
 
     padding: 12px 15px;
 
@@ -769,36 +851,48 @@ section {
 
     border-radius: 8px;
 
-    font-size: 15px;
-
     outline: none;
+
+    font-size: 14px;
 }
 
 .admin-search:focus {
     border-color: #4f46e5;
 }
 
-.admin-summary {
-    font-weight: bold;
-    color: #4338ca;
+.status-filter {
+    padding: 12px 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background: white;
+
+    outline: none;
+
+    font-size: 14px;
 }
+
+
+/* Admin Table */
 
 .admin-table-container {
     max-width: 1200px;
 
     margin: auto;
 
-    overflow-x: auto;
-
     background: white;
-
-    padding: 25px;
 
     border-radius: 15px;
 
+    padding: 20px;
+
+    overflow-x: auto;
+
     box-shadow:
         0 5px 18px
-        rgba(0,0,0,0.07);
+        rgba(0,0,0,0.06);
 }
 
 .admin-table {
@@ -806,26 +900,37 @@ section {
 
     border-collapse: collapse;
 
-    min-width: 900px;
-}
-
-.admin-table th,
-.admin-table td {
-    padding: 14px;
-
-    text-align: left;
-
-    border-bottom: 1px solid #eee;
+    min-width: 1000px;
 }
 
 .admin-table th {
     background: #eef2ff;
+
     color: #4338ca;
+
+    padding: 14px;
+
+    text-align: left;
+
+    font-size: 13px;
+}
+
+.admin-table td {
+    padding: 13px;
+
+    border-bottom: 1px solid #edf0f3;
+
+    font-size: 13px;
+
+    color: #475569;
 }
 
 .admin-table tr:hover {
     background: #fafafa;
 }
+
+
+/* Admin Status */
 
 .admin-status {
     display: inline-block;
@@ -834,36 +939,42 @@ section {
 
     border-radius: 20px;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: bold;
 }
 
 .admin-pending {
     background: #fff7ed;
+
     color: #c2410c;
 }
 
 .admin-approved {
     background: #ecfdf5;
+
     color: #047857;
 }
 
 .admin-rejected {
     background: #fef2f2;
+
     color: #b91c1c;
 }
+
+
+/* Admin Buttons */
 
 .admin-action-btn {
     border: none;
 
-    padding: 7px 10px;
+    padding: 7px 9px;
 
     border-radius: 6px;
 
     color: white;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: bold;
 
@@ -916,19 +1027,13 @@ footer {
    TABLET
 ========================= */
 
-@media (max-width:1100px) {
-
-    .nav-container {
-        padding: 0 20px;
-    }
-
-    .nav-menu {
-        gap: 2px;
-    }
+@media(max-width:1100px) {
 
     .nav-menu li a {
-        font-size: 12px;
-        padding: 9px 7px;
+        font-size: 11px;
+
+        padding:
+            8px 6px;
     }
 
     .internship-grid {
@@ -941,6 +1046,10 @@ footer {
             repeat(2,1fr);
     }
 
+    .admin-stats {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 }
 
 
@@ -948,11 +1057,7 @@ footer {
    MOBILE
 ========================= */
 
-@media (max-width:850px) {
-
-    .nav-container {
-        min-height: 70px;
-    }
+@media(max-width:850px) {
 
     .menu-toggle {
         display: block;
@@ -963,7 +1068,7 @@ footer {
 
         position: absolute;
 
-        top: 70px;
+        top: 75px;
 
         left: 0;
         right: 0;
@@ -975,17 +1080,11 @@ footer {
                 #7c3aed
             );
 
-        padding: 15px 20px;
-
         flex-direction: column;
 
-        align-items: stretch;
+        padding: 15px;
 
-        gap: 5px;
-
-        box-shadow:
-            0 8px 20px
-            rgba(0,0,0,0.2);
+        gap: 4px;
     }
 
     .nav-menu.active {
@@ -993,19 +1092,17 @@ footer {
     }
 
     .nav-menu li a {
+        display: block;
+
         text-align: center;
 
         padding: 12px;
 
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .hero h1 {
-        font-size: 40px;
-    }
-
-    .hero p {
-        font-size: 17px;
+        font-size: 38px;
     }
 
     .internship-grid {
@@ -1020,15 +1117,23 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
     .admin-controls {
         flex-direction: column;
+
         align-items: stretch;
     }
 
     .admin-search {
-        width: 100%;
+        max-width: 100%;
     }
 
+    .status-filter {
+        width: 100%;
+    }
 }
 
 
@@ -1036,18 +1141,14 @@ footer {
    SMALL MOBILE
 ========================= */
 
-@media (max-width:500px) {
-
-    .nav-container {
-        padding: 0 15px;
-    }
+@media(max-width:500px) {
 
     .logo {
         font-size: 20px;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .hero p {
@@ -1063,20 +1164,9 @@ footer {
     .profile-card {
         padding: 22px;
     }
-
-    .page-section,
-    .applications-section,
-    .about,
-    .dashboard-section,
-    .admin-section {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
 }
 
 </style>
-
 </head>
 
 
@@ -1091,9 +1181,14 @@ footer {
 
 <div class="nav-container">
 
-<a href="#home" class="logo">
+<a
+href="#home"
+class="logo">
+
 Internship Portal
+
 </a>
+
 
 <button
 class="menu-toggle"
@@ -1102,6 +1197,7 @@ onclick="toggleMenu()">
 ☰
 
 </button>
+
 
 <ul
 class="nav-menu"
@@ -1112,15 +1208,11 @@ id="navMenu">
 </li>
 
 <li>
-<a href="#internships">
-Internships
-</a>
+<a href="#internships">Internships</a>
 </li>
 
 <li>
-<a href="#apply">
-Apply
-</a>
+<a href="#apply">Apply</a>
 </li>
 
 <li>
@@ -1130,15 +1222,11 @@ My Applications
 </li>
 
 <li>
-<a href="#about">
-About
-</a>
+<a href="#about">About</a>
 </li>
 
 <li>
-<a href="#contact">
-Contact
-</a>
+<a href="#contact">Contact</a>
 </li>
 
 <li>
@@ -1222,7 +1310,7 @@ Search Internships
 <input
 type="text"
 id="searchBox"
-placeholder="Search by internship, company or location..."
+placeholder="Search internship, company or location..."
 onkeyup="searchInternships()">
 
 </section>
@@ -1240,12 +1328,11 @@ id="internships">
 Latest Internship Opportunities
 </h2>
 
+
 <div
 class="internship-grid"
 id="internshipCards">
 
-
-<!-- CARD 1 -->
 
 <div
 class="internship-card"
@@ -1276,7 +1363,7 @@ Remote
 ₹10,000 / Month
 </p>
 
-<p class="internship-description">
+<p>
 Learn HTML, CSS, JavaScript
 and build real-world websites.
 </p>
@@ -1287,9 +1374,7 @@ Remote
 
 <button
 class="apply-btn"
-onclick="selectInternship(
-'Web Development Intern'
-)">
+onclick="selectInternship('Web Development Intern')">
 
 Apply Now
 
@@ -1297,8 +1382,6 @@ Apply Now
 
 </div>
 
-
-<!-- CARD 2 -->
 
 <div
 class="internship-card"
@@ -1329,7 +1412,7 @@ Pune
 ₹12,000 / Month
 </p>
 
-<p class="internship-description">
+<p>
 Work on Java applications
 and improve programming skills.
 </p>
@@ -1340,9 +1423,7 @@ Pune
 
 <button
 class="apply-btn"
-onclick="selectInternship(
-'Java Developer Intern'
-)">
+onclick="selectInternship('Java Developer Intern')">
 
 Apply Now
 
@@ -1350,8 +1431,6 @@ Apply Now
 
 </div>
 
-
-<!-- CARD 3 -->
 
 <div
 class="internship-card"
@@ -1382,7 +1461,7 @@ Remote
 ₹15,000 / Month
 </p>
 
-<p class="internship-description">
+<p>
 Develop Python projects
 and learn practical concepts.
 </p>
@@ -1393,9 +1472,7 @@ Remote
 
 <button
 class="apply-btn"
-onclick="selectInternship(
-'Python Developer Intern'
-)">
+onclick="selectInternship('Python Developer Intern')">
 
 Apply Now
 
@@ -1403,8 +1480,6 @@ Apply Now
 
 </div>
 
-
-<!-- CARD 4 -->
 
 <div
 class="internship-card"
@@ -1435,7 +1510,7 @@ Mumbai
 ₹18,000 / Month
 </p>
 
-<p class="internship-description">
+<p>
 Learn data analysis,
 visualization and machine learning.
 </p>
@@ -1446,9 +1521,7 @@ Mumbai
 
 <button
 class="apply-btn"
-onclick="selectInternship(
-'Data Science Intern'
-)">
+onclick="selectInternship('Data Science Intern')">
 
 Apply Now
 
@@ -1456,8 +1529,6 @@ Apply Now
 
 </div>
 
-
-<!-- CARD 5 -->
 
 <div
 class="internship-card"
@@ -1488,7 +1559,7 @@ Bengaluru
 ₹20,000 / Month
 </p>
 
-<p class="internship-description">
+<p>
 Explore artificial intelligence
 and machine learning projects.
 </p>
@@ -1499,9 +1570,7 @@ Bengaluru
 
 <button
 class="apply-btn"
-onclick="selectInternship(
-'AI / ML Intern'
-)">
+onclick="selectInternship('AI / ML Intern')">
 
 Apply Now
 
@@ -1509,8 +1578,6 @@ Apply Now
 
 </div>
 
-
-<!-- CARD 6 -->
 
 <div
 class="internship-card"
@@ -1541,7 +1608,7 @@ Mumbai
 ₹8,000 / Month
 </p>
 
-<p class="internship-description">
+<p>
 Design attractive and
 user-friendly digital experiences.
 </p>
@@ -1552,9 +1619,7 @@ Design
 
 <button
 class="apply-btn"
-onclick="selectInternship(
-'UI/UX Design Intern'
-)">
+onclick="selectInternship('UI/UX Design Intern')">
 
 Apply Now
 
@@ -1569,7 +1634,7 @@ Apply Now
 
 
 <!-- =========================
-     APPLY FORM
+     APPLY
 ========================= -->
 
 <section
@@ -1581,6 +1646,7 @@ id="apply">
 <h2>
 Apply for Internship
 </h2>
+
 
 <form
 id="applicationForm"
@@ -1596,8 +1662,8 @@ Full Name
 <input
 type="text"
 id="fullName"
-placeholder="Enter your full name"
-required>
+required
+placeholder="Enter your full name">
 
 </div>
 
@@ -1611,8 +1677,8 @@ Email
 <input
 type="email"
 id="email"
-placeholder="Enter your email"
-required>
+required
+placeholder="Enter your email">
 
 </div>
 
@@ -1626,8 +1692,8 @@ Phone Number
 <input
 type="tel"
 id="phone"
-placeholder="Enter your phone number"
-required>
+required
+placeholder="Enter your phone number">
 
 </div>
 
@@ -1698,8 +1764,8 @@ Why do you want this internship?
 <textarea
 id="message"
 rows="5"
-placeholder="Write a short message..."
-required></textarea>
+required
+placeholder="Write a short message..."></textarea>
 
 </div>
 
@@ -1711,7 +1777,6 @@ class="submit-btn">
 Submit Application
 
 </button>
-
 
 </form>
 
@@ -1755,14 +1820,14 @@ About Internship Portal
 
 <p>
 
-Internship Portal is a platform created
-to help students discover internship
-opportunities based on their skills,
-interests and career goals.
+Internship Portal helps students
+discover internship opportunities
+according to their skills and
+career goals.
 
-Students can explore different internships,
-apply for suitable opportunities and gain
-practical industry experience.
+Students can explore internships,
+submit applications and track their
+application status.
 
 </p>
 
@@ -1829,10 +1894,11 @@ Email
 <input
 type="email"
 id="loginEmail"
-placeholder="Enter your email"
-required>
+required
+placeholder="Enter your email">
 
 </div>
+
 
 <div class="form-group">
 
@@ -1843,10 +1909,11 @@ Password
 <input
 type="password"
 id="loginPassword"
-placeholder="Enter your password"
-required>
+required
+placeholder="Enter your password">
 
 </div>
+
 
 <button
 type="submit"
@@ -1889,10 +1956,11 @@ Full Name
 <input
 type="text"
 id="registerName"
-placeholder="Enter your full name"
-required>
+required
+placeholder="Enter your full name">
 
 </div>
+
 
 <div class="form-group">
 
@@ -1903,10 +1971,11 @@ Email
 <input
 type="email"
 id="registerEmail"
-placeholder="Enter your email"
-required>
+required
+placeholder="Enter your email">
 
 </div>
+
 
 <div class="form-group">
 
@@ -1917,10 +1986,11 @@ Password
 <input
 type="password"
 id="registerPassword"
-placeholder="Create password"
-required>
+required
+placeholder="Create password">
 
 </div>
+
 
 <button
 type="submit"
@@ -1949,6 +2019,7 @@ id="profile">
 My Profile
 </h2>
 
+
 <div class="profile-card">
 
 <div
@@ -1959,11 +2030,14 @@ S
 
 </div>
 
+
 <h2 id="profileName">
 Student Profile
 </h2>
 
+
 <p>
+
 <strong>Name:</strong>
 
 <span id="profileNameText">
@@ -1972,7 +2046,9 @@ Student
 
 </p>
 
+
 <p>
+
 <strong>Email:</strong>
 
 <span id="profileEmailText">
@@ -1980,6 +2056,7 @@ student@example.com
 </span>
 
 </p>
+
 
 <p>
 <strong>Role:</strong>
@@ -1992,7 +2069,7 @@ Student
 
 
 <!-- =========================
-     DASHBOARD
+     STUDENT DASHBOARD
 ========================= -->
 
 <section
@@ -2003,7 +2080,9 @@ id="dashboard">
 Student Dashboard
 </h2>
 
+
 <div class="dashboard-grid">
+
 
 <div class="dashboard-card">
 
@@ -2088,43 +2167,168 @@ Rejected Applications
 
 </div>
 
+
 </div>
 
 </section>
 
 
-<!-- =========================
-     ADMIN DASHBOARD
-========================= -->
+<!-- =====================================================
+     PROFESSIONAL ADMIN DASHBOARD
+===================================================== -->
 
 <section
 class="admin-section"
 id="admin">
 
-<h2 class="section-title">
+
+<div class="admin-header">
+
+<h2>
 Admin Dashboard
 </h2>
 
+<p>
+Manage student internship applications
+from one place.
+</p>
+
+</div>
+
+
+<!-- ADMIN STATISTICS -->
+
+<div class="admin-stats">
+
+
+<div class="admin-stat-card">
+
+<div class="stat-icon">
+📋
+</div>
+
+<div class="stat-info">
+
+<h3 id="adminTotal">
+0
+</h3>
+
+<p>
+Total Applications
+</p>
+
+</div>
+
+</div>
+
+
+<div class="admin-stat-card">
+
+<div class="stat-icon">
+⏳
+</div>
+
+<div class="stat-info">
+
+<h3 id="adminPending">
+0
+</h3>
+
+<p>
+Pending Applications
+</p>
+
+</div>
+
+</div>
+
+
+<div class="admin-stat-card">
+
+<div class="stat-icon">
+✅
+</div>
+
+<div class="stat-info">
+
+<h3 id="adminApproved">
+0
+</h3>
+
+<p>
+Approved Applications
+</p>
+
+</div>
+
+</div>
+
+
+<div class="admin-stat-card">
+
+<div class="stat-icon">
+❌
+</div>
+
+<div class="stat-info">
+
+<h3 id="adminRejected">
+0
+</h3>
+
+<p>
+Rejected Applications
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- SEARCH + FILTER -->
 
 <div class="admin-controls">
+
 
 <input
 type="text"
 class="admin-search"
 id="adminSearch"
-placeholder="Search applications..."
-onkeyup="searchAdminApplications()">
+placeholder="Search by student, email, internship or company..."
+onkeyup="filterAdminApplications()">
 
-<div
-class="admin-summary"
-id="adminSummary">
 
-Total Applications: 0
+<select
+class="status-filter"
+id="statusFilter"
+onchange="filterAdminApplications()">
+
+<option value="All">
+All Status
+</option>
+
+<option value="Pending">
+Pending
+</option>
+
+<option value="Approved">
+Approved
+</option>
+
+<option value="Rejected">
+Rejected
+</option>
+
+</select>
+
 
 </div>
 
-</div>
 
+<!-- TABLE -->
 
 <div class="admin-table-container">
 
@@ -2163,12 +2367,13 @@ Status
 </th>
 
 <th>
-Action
+Actions
 </th>
 
 </tr>
 
 </thead>
+
 
 <tbody
 id="adminApplicationTable">
@@ -2196,16 +2401,12 @@ All Rights Reserved
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
 
-/* =========================
-   APPLICATION STORAGE
-========================= */
+/* =====================================================
+   APPLICATION DATA
+===================================================== */
 
 let applications =
 JSON.parse(
@@ -2215,10 +2416,6 @@ localStorage.getItem(
 ) || [];
 
 
-/* =========================
-   REGISTERED USER
-========================= */
-
 let registeredUser =
 JSON.parse(
 localStorage.getItem(
@@ -2227,9 +2424,9 @@ localStorage.getItem(
 ) || null;
 
 
-/* =========================
-   MOBILE NAVIGATION
-========================= */
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
 function toggleMenu() {
 
@@ -2250,19 +2447,16 @@ function() {
 
 document
 .getElementById("navMenu")
-.classList.remove(
-"active"
-);
+.classList.remove("active");
 
-}
-);
+});
 
 });
 
 
-/* =========================
+/* =====================================================
    SEARCH INTERNSHIPS
-========================= */
+===================================================== */
 
 function searchInternships() {
 
@@ -2272,26 +2466,31 @@ document
 .value
 .toLowerCase();
 
+
 let cards =
 document.querySelectorAll(
 ".internship-card"
 );
+
 
 cards.forEach(function(card) {
 
 let text =
 card.innerText.toLowerCase();
 
+
 if (
 text.includes(input)
 ) {
 
-card.style.display = "flex";
+card.style.display =
+"flex";
 
 }
 else {
 
-card.style.display = "none";
+card.style.display =
+"none";
 
 }
 
@@ -2300,9 +2499,9 @@ card.style.display = "none";
 }
 
 
-/* =========================
+/* =====================================================
    SELECT INTERNSHIP
-========================= */
+===================================================== */
 
 function selectInternship(
 internship
@@ -2312,7 +2511,9 @@ document
 .getElementById(
 "internshipSelect"
 )
-.value = internship;
+.value =
+internship;
+
 
 document
 .getElementById("apply")
@@ -2323,11 +2524,13 @@ behavior: "smooth"
 }
 
 
-/* =========================
+/* =====================================================
    SUBMIT APPLICATION
-========================= */
+===================================================== */
 
-function submitApplication(event) {
+function submitApplication(
+event
+) {
 
 event.preventDefault();
 
@@ -2338,11 +2541,13 @@ document
 .value
 .trim();
 
+
 let email =
 document
 .getElementById("email")
 .value
 .trim();
+
 
 let phone =
 document
@@ -2350,12 +2555,14 @@ document
 .value
 .trim();
 
+
 let internship =
 document
 .getElementById(
 "internshipSelect"
 )
 .value;
+
 
 let message =
 document
@@ -2381,7 +2588,7 @@ return;
 }
 
 
-/* Prevent duplicate */
+/* DUPLICATE CHECK */
 
 let alreadyApplied =
 applications.some(
@@ -2407,7 +2614,7 @@ return;
 }
 
 
-/* Company */
+/* COMPANY */
 
 let company = "";
 let location = "";
@@ -2492,7 +2699,7 @@ location =
 }
 
 
-/* Create application */
+/* APPLICATION OBJECT */
 
 let newApplication = {
 
@@ -2526,12 +2733,8 @@ newApplication
 );
 
 
-/* Save */
-
 saveApplications();
 
-
-/* Reset */
 
 document
 .getElementById(
@@ -2549,7 +2752,7 @@ renderApplications();
 
 updateDashboard();
 
-updateAdminTable();
+updateAdminDashboard();
 
 
 document
@@ -2563,9 +2766,9 @@ behavior: "smooth"
 }
 
 
-/* =========================
-   SAVE APPLICATIONS
-========================= */
+/* =====================================================
+   SAVE
+===================================================== */
 
 function saveApplications() {
 
@@ -2579,9 +2782,9 @@ applications
 }
 
 
-/* =========================
+/* =====================================================
    MY APPLICATIONS
-========================= */
+===================================================== */
 
 function renderApplications() {
 
@@ -2636,6 +2839,7 @@ statusClass =
 
 }
 
+
 if (
 app.status === "Rejected"
 ) {
@@ -2663,37 +2867,27 @@ ${app.internship}
 </h3>
 
 <p>
-<strong>
-Student:
-</strong>
+<strong>Student:</strong>
 ${app.name}
 </p>
 
 <p>
-<strong>
-Company:
-</strong>
+<strong>Company:</strong>
 ${app.company}
 </p>
 
 <p>
-<strong>
-Location:
-</strong>
+<strong>Location:</strong>
 ${app.location}
 </p>
 
 <p>
-<strong>
-Email:
-</strong>
+<strong>Email:</strong>
 ${app.email}
 </p>
 
 <p>
-<strong>
-Applied On:
-</strong>
+<strong>Applied On:</strong>
 ${app.date}
 </p>
 
@@ -2726,21 +2920,21 @@ card
 }
 
 
-/* =========================
+/* =====================================================
    WITHDRAW
-========================= */
+===================================================== */
 
 function withdrawApplication(
 id
 ) {
 
-let confirmation =
+let confirmWithdraw =
 confirm(
 "Are you sure you want to withdraw this application?"
 );
 
 
-if (!confirmation) {
+if (!confirmWithdraw) {
 return;
 }
 
@@ -2757,11 +2951,12 @@ return app.id !== id;
 
 saveApplications();
 
+
 renderApplications();
 
 updateDashboard();
 
-updateAdminTable();
+updateAdminDashboard();
 
 
 alert(
@@ -2771,9 +2966,9 @@ alert(
 }
 
 
-/* =========================
-   UPDATE DASHBOARD
-========================= */
+/* =====================================================
+   STUDENT DASHBOARD
+===================================================== */
 
 function updateDashboard() {
 
@@ -2785,9 +2980,8 @@ let approved =
 applications.filter(
 function(app) {
 
-return (
-app.status === "Approved"
-);
+return app.status ===
+"Approved";
 
 }
 ).length;
@@ -2797,9 +2991,8 @@ let pending =
 applications.filter(
 function(app) {
 
-return (
-app.status === "Pending"
-);
+return app.status ===
+"Pending";
 
 }
 ).length;
@@ -2809,9 +3002,8 @@ let rejected =
 applications.filter(
 function(app) {
 
-return (
-app.status === "Rejected"
-);
+return app.status ===
+"Rejected";
 
 }
 ).length;
@@ -2821,39 +3013,122 @@ document
 .getElementById(
 "totalApplications"
 )
-.innerText = total;
+.innerText =
+total;
 
 
 document
 .getElementById(
 "approvedApplications"
 )
-.innerText = approved;
+.innerText =
+approved;
 
 
 document
 .getElementById(
 "pendingApplications"
 )
-.innerText = pending;
+.innerText =
+pending;
 
 
 document
 .getElementById(
 "rejectedApplications"
 )
-.innerText = rejected;
+.innerText =
+rejected;
 
 }
 
 
-/* =========================
+/* =====================================================
+   ADMIN DASHBOARD STATISTICS
+===================================================== */
+
+function updateAdminDashboard() {
+
+let total =
+applications.length;
+
+
+let pending =
+applications.filter(
+function(app) {
+
+return app.status ===
+"Pending";
+
+}
+).length;
+
+
+let approved =
+applications.filter(
+function(app) {
+
+return app.status ===
+"Approved";
+
+}
+).length;
+
+
+let rejected =
+applications.filter(
+function(app) {
+
+return app.status ===
+"Rejected";
+
+}
+).length;
+
+
+document
+.getElementById(
+"adminTotal"
+)
+.innerText =
+total;
+
+
+document
+.getElementById(
+"adminPending"
+)
+.innerText =
+pending;
+
+
+document
+.getElementById(
+"adminApproved"
+)
+.innerText =
+approved;
+
+
+document
+.getElementById(
+"adminRejected"
+)
+.innerText =
+rejected;
+
+
+filterAdminApplications();
+
+}
+
+
+/* =====================================================
    ADMIN TABLE
-========================= */
+===================================================== */
 
 function updateAdminTable(
-filteredApplications =
-applications
+list
 ) {
 
 let table =
@@ -2865,18 +3140,8 @@ document.getElementById(
 table.innerHTML = "";
 
 
-document
-.getElementById(
-"adminSummary"
-)
-.innerText =
-"Total Applications: "
-+
-applications.length;
-
-
 if (
-filteredApplications.length === 0
+list.length === 0
 ) {
 
 table.innerHTML = `
@@ -2885,9 +3150,13 @@ table.innerHTML = `
 
 <td
 colspan="8"
-style="text-align:center;">
+style="
+text-align:center;
+padding:30px;
+color:#64748b;
+">
 
-No applications available.
+No applications found.
 
 </td>
 
@@ -2900,9 +3169,8 @@ return;
 }
 
 
-filteredApplications.forEach(
+list.forEach(
 function(app) {
-
 
 let statusClass =
 "admin-pending";
@@ -2916,6 +3184,7 @@ statusClass =
 "admin-approved";
 
 }
+
 
 if (
 app.status === "Rejected"
@@ -2936,7 +3205,9 @@ document.createElement(
 row.innerHTML = `
 
 <td>
+<strong>
 ${app.name}
+</strong>
 </td>
 
 <td>
@@ -3010,9 +3281,79 @@ row
 }
 
 
-/* =========================
-   APPROVE APPLICATION
-========================= */
+/* =====================================================
+   ADMIN SEARCH + FILTER
+===================================================== */
+
+function filterAdminApplications() {
+
+let search =
+document
+.getElementById(
+"adminSearch"
+)
+.value
+.toLowerCase();
+
+
+let status =
+document
+.getElementById(
+"statusFilter"
+)
+.value;
+
+
+let filtered =
+applications.filter(
+function(app) {
+
+let searchableText =
+
+(
+app.name +
+" " +
+app.email +
+" " +
+app.internship +
+" " +
+app.company +
+" " +
+app.location
+)
+.toLowerCase();
+
+
+let matchesSearch =
+searchableText
+.includes(search);
+
+
+let matchesStatus =
+
+status === "All" ||
+app.status === status;
+
+
+return (
+matchesSearch &&
+matchesStatus
+);
+
+}
+);
+
+
+updateAdminTable(
+filtered
+);
+
+}
+
+
+/* =====================================================
+   APPROVE
+===================================================== */
 
 function approveApplication(
 id
@@ -3057,7 +3398,7 @@ renderApplications();
 
 updateDashboard();
 
-updateAdminTable();
+updateAdminDashboard();
 
 
 alert(
@@ -3067,9 +3408,9 @@ alert(
 }
 
 
-/* =========================
-   REJECT APPLICATION
-========================= */
+/* =====================================================
+   REJECT
+===================================================== */
 
 function rejectApplication(
 id
@@ -3103,13 +3444,13 @@ return;
 }
 
 
-let confirmation =
+let confirmReject =
 confirm(
 "Are you sure you want to reject this application?"
 );
 
 
-if (!confirmation) {
+if (!confirmReject) {
 return;
 }
 
@@ -3125,7 +3466,7 @@ renderApplications();
 
 updateDashboard();
 
-updateAdminTable();
+updateAdminDashboard();
 
 
 alert(
@@ -3135,21 +3476,21 @@ alert(
 }
 
 
-/* =========================
-   DELETE APPLICATION
-========================= */
+/* =====================================================
+   DELETE
+===================================================== */
 
 function deleteApplication(
 id
 ) {
 
-let confirmation =
+let confirmDelete =
 confirm(
 "Are you sure you want to permanently delete this application?"
 );
 
 
-if (!confirmation) {
+if (!confirmDelete) {
 return;
 }
 
@@ -3171,7 +3512,7 @@ renderApplications();
 
 updateDashboard();
 
-updateAdminTable();
+updateAdminDashboard();
 
 
 alert(
@@ -3181,58 +3522,9 @@ alert(
 }
 
 
-/* =========================
-   ADMIN SEARCH
-========================= */
-
-function searchAdminApplications() {
-
-let input =
-document
-.getElementById(
-"adminSearch"
-)
-.value
-.toLowerCase();
-
-
-let filtered =
-applications.filter(
-function(app) {
-
-let text =
-(
-app.name +
-" " +
-app.email +
-" " +
-app.internship +
-" " +
-app.company +
-" " +
-app.location +
-" " +
-app.status
-)
-.toLowerCase();
-
-
-return text.includes(input);
-
-}
-);
-
-
-updateAdminTable(
-filtered
-);
-
-}
-
-
-/* =========================
+/* =====================================================
    REGISTER
-========================= */
+===================================================== */
 
 function registerUser(
 event
@@ -3249,6 +3541,7 @@ document
 .value
 .trim();
 
+
 let email =
 document
 .getElementById(
@@ -3256,6 +3549,7 @@ document
 )
 .value
 .trim();
+
 
 let password =
 document
@@ -3326,9 +3620,9 @@ updateProfile();
 }
 
 
-/* =========================
+/* =====================================================
    LOGIN
-========================= */
+===================================================== */
 
 function loginUser(
 event
@@ -3345,6 +3639,7 @@ document
 .value
 .trim();
 
+
 let password =
 document
 .getElementById(
@@ -3353,7 +3648,35 @@ document
 .value;
 
 
-/* Student login */
+/* ADMIN */
+
+if (
+email ===
+"admin@internship.com"
+&&
+password ===
+"admin123"
+) {
+
+alert(
+"Admin login successful!"
+);
+
+
+document
+.getElementById(
+"admin"
+)
+.scrollIntoView({
+behavior: "smooth"
+});
+
+return;
+
+}
+
+
+/* STUDENT */
 
 if (
 registeredUser &&
@@ -3387,36 +3710,6 @@ document
 behavior: "smooth"
 });
 
-
-return;
-
-}
-
-
-/* Admin login */
-
-if (
-email ===
-"admin@internship.com"
-&&
-password ===
-"admin123"
-) {
-
-alert(
-"Admin login successful!"
-);
-
-
-document
-.getElementById(
-"admin"
-)
-.scrollIntoView({
-behavior: "smooth"
-});
-
-
 return;
 
 }
@@ -3429,9 +3722,9 @@ alert(
 }
 
 
-/* =========================
+/* =====================================================
    PROFILE
-========================= */
+===================================================== */
 
 function updateProfile() {
 
@@ -3476,15 +3769,15 @@ registeredUser.name
 }
 
 
-/* =========================
-   INITIAL LOAD
-========================= */
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
 renderApplications();
 
 updateDashboard();
 
-updateAdminTable();
+updateAdminDashboard();
 
 updateProfile();
 
@@ -3492,5 +3785,4 @@ updateProfile();
 </script>
 
 </body>
-
 </html>

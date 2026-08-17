@@ -5,16 +5,15 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Internship Portal</title>
 
     <style>
 
-        /* ================================
+        /* =========================
            GLOBAL
-        ================================= */
+        ========================== */
 
         * {
             margin: 0;
@@ -38,23 +37,23 @@
         }
 
 
-        /* ================================
+        /* =========================
            NAVBAR
-        ================================= */
+        ========================== */
 
         .navbar {
             background: linear-gradient(135deg, #4338ca, #7c3aed);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: auto;
-            padding: 0 30px;
             min-height: 78px;
+            padding: 0 30px;
 
             display: flex;
             align-items: center;
@@ -105,7 +104,7 @@
         }
 
         .nav-menu li a:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.15);
             color: #ffd700;
         }
 
@@ -128,25 +127,25 @@
             background: transparent;
 
             color: white;
+
             font-size: 28px;
 
             cursor: pointer;
         }
 
 
-        /* ================================
+        /* =========================
            HERO
-        ================================= */
+        ========================== */
 
         .hero {
             min-height: 540px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #4f46e5,
-                    #7c3aed
-                );
+            background: linear-gradient(
+                135deg,
+                #4f46e5,
+                #7c3aed
+            );
 
             color: white;
 
@@ -192,14 +191,13 @@
         .hero-btn:hover {
             background: #ffd700;
             color: #222;
-
             transform: translateY(-2px);
         }
 
 
-        /* ================================
+        /* =========================
            SEARCH
-        ================================= */
+        ========================== */
 
         .search-section {
             background: white;
@@ -234,13 +232,13 @@
 
             box-shadow:
                 0 0 0 3px
-                rgba(79, 70, 229, 0.1);
+                rgba(79,70,229,0.1);
         }
 
 
-        /* ================================
-           COMMON SECTION
-        ================================= */
+        /* =========================
+           COMMON
+        ========================== */
 
         .page-section {
             padding: 70px 8%;
@@ -252,14 +250,12 @@
             font-size: 34px;
 
             margin-bottom: 45px;
-
-            color: #222;
         }
 
 
-        /* ================================
-           INTERNSHIPS
-        ================================= */
+        /* =========================
+           INTERNSHIP CARDS
+        ========================== */
 
         .internship-grid {
             max-width: 1150px;
@@ -269,7 +265,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             gap: 25px;
         }
@@ -285,7 +281,7 @@
 
             box-shadow:
                 0 5px 18px
-                rgba(0, 0, 0, 0.08);
+                rgba(0,0,0,0.08);
 
             transition: 0.3s;
 
@@ -301,7 +297,7 @@
 
             box-shadow:
                 0 12px 30px
-                rgba(0, 0, 0, 0.14);
+                rgba(0,0,0,0.14);
         }
 
         .internship-card h3 {
@@ -371,9 +367,9 @@
         }
 
 
-        /* ================================
+        /* =========================
            APPLY FORM
-        ================================= */
+        ========================== */
 
         .apply-section {
             background: #eef2ff;
@@ -394,7 +390,7 @@
 
             box-shadow:
                 0 8px 30px
-                rgba(0, 0, 0, 0.08);
+                rgba(0,0,0,0.08);
         }
 
         .form-container h2 {
@@ -402,9 +398,9 @@
 
             font-size: 32px;
 
-            margin-bottom: 30px;
-
             color: #4338ca;
+
+            margin-bottom: 30px;
         }
 
         .form-group {
@@ -442,7 +438,7 @@
 
             box-shadow:
                 0 0 0 3px
-                rgba(79, 70, 229, 0.1);
+                rgba(79,70,229,0.1);
         }
 
         .submit-btn {
@@ -463,8 +459,6 @@
             font-weight: bold;
 
             cursor: pointer;
-
-            transition: 0.3s;
         }
 
         .submit-btn:hover {
@@ -472,9 +466,9 @@
         }
 
 
-        /* ================================
+        /* =========================
            MY APPLICATIONS
-        ================================= */
+        ========================== */
 
         .applications-section {
             background: white;
@@ -490,13 +484,13 @@
             display: grid;
 
             grid-template-columns:
-                repeat(2, 1fr);
+                repeat(2,1fr);
 
             gap: 25px;
         }
 
         .application-card {
-            background: #ffffff;
+            background: white;
 
             border: 1px solid #e5e7eb;
 
@@ -506,7 +500,7 @@
 
             box-shadow:
                 0 5px 18px
-                rgba(0, 0, 0, 0.07);
+                rgba(0,0,0,0.07);
         }
 
         .application-card h3 {
@@ -537,19 +531,16 @@
 
         .status-pending {
             background: #fff7ed;
-
             color: #c2410c;
         }
 
         .status-approved {
             background: #ecfdf5;
-
             color: #047857;
         }
 
         .status-rejected {
             background: #fef2f2;
-
             color: #b91c1c;
         }
 
@@ -569,18 +560,30 @@
             font-weight: bold;
 
             cursor: pointer;
-
-            transition: 0.3s;
         }
 
         .withdraw-btn:hover {
             background: #b91c1c;
         }
 
+        .empty-applications {
+            text-align: center;
 
-        /* ================================
+            padding: 35px;
+
+            color: #777;
+
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            grid-column: 1 / -1;
+        }
+
+
+        /* =========================
            ABOUT
-        ================================= */
+        ========================== */
 
         .about {
             background: #f5f7fb;
@@ -603,9 +606,9 @@
         }
 
 
-        /* ================================
+        /* =========================
            CONTACT
-        ================================= */
+        ========================== */
 
         .contact {
             background: white;
@@ -630,9 +633,9 @@
         }
 
 
-        /* ================================
+        /* =========================
            LOGIN / REGISTER
-        ================================= */
+        ========================== */
 
         .auth-section {
             padding: 70px 20px;
@@ -653,7 +656,7 @@
 
             box-shadow:
                 0 8px 30px
-                rgba(0, 0, 0, 0.08);
+                rgba(0,0,0,0.08);
         }
 
         .auth-box h2 {
@@ -665,9 +668,9 @@
         }
 
 
-        /* ================================
+        /* =========================
            PROFILE
-        ================================= */
+        ========================== */
 
         .profile-section {
             padding: 70px 20px;
@@ -690,7 +693,7 @@
 
             box-shadow:
                 0 8px 30px
-                rgba(0, 0, 0, 0.08);
+                rgba(0,0,0,0.08);
         }
 
         .profile-circle {
@@ -716,12 +719,11 @@
         }
 
 
-        /* ================================
+        /* =========================
            DASHBOARD
-        ================================= */
+        ========================== */
 
-        .dashboard-section,
-        .admin-section {
+        .dashboard-section {
             padding: 70px 8%;
 
             background: #f5f7fb;
@@ -735,7 +737,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
             gap: 25px;
         }
@@ -751,7 +753,7 @@
 
             box-shadow:
                 0 5px 18px
-                rgba(0, 0, 0, 0.07);
+                rgba(0,0,0,0.07);
         }
 
         .dashboard-card h3 {
@@ -769,9 +771,15 @@
         }
 
 
-        /* ================================
+        /* =========================
            ADMIN
-        ================================= */
+        ========================== */
+
+        .admin-section {
+            padding: 70px 8%;
+
+            background: white;
+        }
 
         .admin-table-container {
             max-width: 1100px;
@@ -788,7 +796,7 @@
 
             box-shadow:
                 0 5px 18px
-                rgba(0, 0, 0, 0.07);
+                rgba(0,0,0,0.07);
         }
 
         .admin-table {
@@ -813,9 +821,9 @@
         }
 
 
-        /* ================================
+        /* =========================
            FOOTER
-        ================================= */
+        ========================== */
 
         footer {
             background: #222;
@@ -828,11 +836,11 @@
         }
 
 
-        /* ================================
+        /* =========================
            TABLET
-        ================================= */
+        ========================== */
 
-        @media (max-width: 1100px) {
+        @media (max-width:1100px) {
 
             .nav-container {
                 padding: 0 20px;
@@ -844,24 +852,22 @@
 
             .nav-menu li a {
                 font-size: 12px;
-
-                padding:
-                    9px 7px;
+                padding: 9px 7px;
             }
 
             .internship-grid {
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    repeat(2,1fr);
             }
 
         }
 
 
-        /* ================================
+        /* =========================
            MOBILE
-        ================================= */
+        ========================== */
 
-        @media (max-width: 850px) {
+        @media (max-width:850px) {
 
             .nav-container {
                 min-height: 70px;
@@ -898,7 +904,7 @@
 
                 box-shadow:
                     0 8px 20px
-                    rgba(0, 0, 0, 0.2);
+                    rgba(0,0,0,0.2);
             }
 
             .nav-menu.active {
@@ -936,11 +942,11 @@
         }
 
 
-        /* ================================
+        /* =========================
            SMALL MOBILE
-        ================================= */
+        ========================== */
 
-        @media (max-width: 500px) {
+        @media (max-width:500px) {
 
             .nav-container {
                 padding: 0 15px;
@@ -987,9 +993,9 @@
 <body>
 
 
-    <!-- =====================================
+    <!-- =========================
          NAVBAR
-    ====================================== -->
+    ========================== -->
 
     <nav class="navbar">
 
@@ -1001,25 +1007,30 @@
 
             <button
                 class="menu-toggle"
-                onclick="toggleMenu()"
-                aria-label="Open navigation menu">
+                onclick="toggleMenu()">
 
                 ☰
 
             </button>
 
-            <ul class="nav-menu" id="navMenu">
+            <ul
+                class="nav-menu"
+                id="navMenu">
 
                 <li>
                     <a href="#home">Home</a>
                 </li>
 
                 <li>
-                    <a href="#internships">Internships</a>
+                    <a href="#internships">
+                        Internships
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#apply">Apply</a>
+                    <a href="#apply">
+                        Apply
+                    </a>
                 </li>
 
                 <li>
@@ -1029,33 +1040,49 @@
                 </li>
 
                 <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-                <li>
-                    <a href="#login" class="login-btn">
-                        Login
+                    <a href="#about">
+                        About
                     </a>
                 </li>
 
                 <li>
-                    <a href="#register">Register</a>
+                    <a href="#contact">
+                        Contact
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#profile">Profile</a>
+                    <a
+                        href="#login"
+                        class="login-btn">
+
+                        Login
+
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#dashboard">Dashboard</a>
+                    <a href="#register">
+                        Register
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#admin">Admin</a>
+                    <a href="#profile">
+                        Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#dashboard">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#admin">
+                        Admin
+                    </a>
                 </li>
 
             </ul>
@@ -1065,11 +1092,13 @@
     </nav>
 
 
-    <!-- =====================================
+    <!-- =========================
          HOME
-    ====================================== -->
+    ========================== -->
 
-    <section class="hero" id="home">
+    <section
+        class="hero"
+        id="home">
 
         <h1>
             Find Your Dream Internship
@@ -1092,9 +1121,9 @@
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          SEARCH
-    ====================================== -->
+    ========================== -->
 
     <section class="search-section">
 
@@ -1111,9 +1140,9 @@
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          INTERNSHIPS
-    ====================================== -->
+    ========================== -->
 
     <section
         class="page-section"
@@ -1128,9 +1157,10 @@
             id="internshipCards">
 
 
-            <!-- CARD 1 -->
-
-            <div class="internship-card">
+            <div
+                class="internship-card"
+                data-company="Tech Solutions"
+                data-location="Remote">
 
                 <h3>
                     Web Development Intern
@@ -1167,7 +1197,11 @@
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('Web Development Intern')">
+                    onclick="selectInternship(
+                        'Web Development Intern',
+                        'Tech Solutions',
+                        'Remote'
+                    )">
 
                     Apply Now
 
@@ -1176,9 +1210,10 @@
             </div>
 
 
-            <!-- CARD 2 -->
-
-            <div class="internship-card">
+            <div
+                class="internship-card"
+                data-company="Software Technologies"
+                data-location="Pune">
 
                 <h3>
                     Java Developer Intern
@@ -1215,7 +1250,11 @@
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('Java Developer Intern')">
+                    onclick="selectInternship(
+                        'Java Developer Intern',
+                        'Software Technologies',
+                        'Pune'
+                    )">
 
                     Apply Now
 
@@ -1224,9 +1263,10 @@
             </div>
 
 
-            <!-- CARD 3 -->
-
-            <div class="internship-card">
+            <div
+                class="internship-card"
+                data-company="Innovation Labs"
+                data-location="Remote">
 
                 <h3>
                     Python Developer Intern
@@ -1263,7 +1303,11 @@
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('Python Developer Intern')">
+                    onclick="selectInternship(
+                        'Python Developer Intern',
+                        'Innovation Labs',
+                        'Remote'
+                    )">
 
                     Apply Now
 
@@ -1272,9 +1316,10 @@
             </div>
 
 
-            <!-- CARD 4 -->
-
-            <div class="internship-card">
+            <div
+                class="internship-card"
+                data-company="Data Analytics Pvt. Ltd."
+                data-location="Mumbai">
 
                 <h3>
                     Data Science Intern
@@ -1311,7 +1356,11 @@
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('Data Science Intern')">
+                    onclick="selectInternship(
+                        'Data Science Intern',
+                        'Data Analytics Pvt. Ltd.',
+                        'Mumbai'
+                    )">
 
                     Apply Now
 
@@ -1320,9 +1369,10 @@
             </div>
 
 
-            <!-- CARD 5 -->
-
-            <div class="internship-card">
+            <div
+                class="internship-card"
+                data-company="Future AI Labs"
+                data-location="Bengaluru">
 
                 <h3>
                     AI / ML Intern
@@ -1359,7 +1409,11 @@
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('AI / ML Intern')">
+                    onclick="selectInternship(
+                        'AI / ML Intern',
+                        'Future AI Labs',
+                        'Bengaluru'
+                    )">
 
                     Apply Now
 
@@ -1368,9 +1422,10 @@
             </div>
 
 
-            <!-- CARD 6 -->
-
-            <div class="internship-card">
+            <div
+                class="internship-card"
+                data-company="Creative Studio"
+                data-location="Mumbai">
 
                 <h3>
                     UI/UX Design Intern
@@ -1407,7 +1462,11 @@
 
                 <button
                     class="apply-btn"
-                    onclick="selectInternship('UI/UX Design Intern')">
+                    onclick="selectInternship(
+                        'UI/UX Design Intern',
+                        'Creative Studio',
+                        'Mumbai'
+                    )">
 
                     Apply Now
 
@@ -1421,9 +1480,9 @@
     </section>
 
 
-    <!-- =====================================
-         APPLY FORM
-    ====================================== -->
+    <!-- =========================
+         APPLY
+    ========================== -->
 
     <section
         class="apply-section"
@@ -1499,27 +1558,27 @@
                             Select an internship
                         </option>
 
-                        <option>
+                        <option value="Web Development Intern">
                             Web Development Intern
                         </option>
 
-                        <option>
+                        <option value="Java Developer Intern">
                             Java Developer Intern
                         </option>
 
-                        <option>
+                        <option value="Python Developer Intern">
                             Python Developer Intern
                         </option>
 
-                        <option>
+                        <option value="Data Science Intern">
                             Data Science Intern
                         </option>
 
-                        <option>
+                        <option value="AI / ML Intern">
                             AI / ML Intern
                         </option>
 
-                        <option>
+                        <option value="UI/UX Design Intern">
                             UI/UX Design Intern
                         </option>
 
@@ -1573,9 +1632,9 @@
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          MY APPLICATIONS
-    ====================================== -->
+    ========================== -->
 
     <section
         class="applications-section"
@@ -1589,101 +1648,14 @@
             class="application-grid"
             id="applicationList">
 
-
-            <!-- APPLICATION 1 -->
-
-            <div class="application-card">
-
-                <h3>
-                    Web Development Intern
-                </h3>
-
-                <p>
-                    <strong>Company:</strong>
-                    Tech Solutions
-                </p>
-
-                <p>
-                    <strong>Location:</strong>
-                    Remote
-                </p>
-
-                <p>
-                    <strong>Applied On:</strong>
-                    15 August 2026
-                </p>
-
-                <span
-                    class="status status-pending">
-
-                    Pending
-
-                </span>
-
-                <br>
-
-                <button
-                    class="withdraw-btn"
-                    onclick="withdrawApplication(this)">
-
-                    Withdraw
-
-                </button>
-
-            </div>
-
-
-            <!-- APPLICATION 2 -->
-
-            <div class="application-card">
-
-                <h3>
-                    Python Developer Intern
-                </h3>
-
-                <p>
-                    <strong>Company:</strong>
-                    Innovation Labs
-                </p>
-
-                <p>
-                    <strong>Location:</strong>
-                    Remote
-                </p>
-
-                <p>
-                    <strong>Applied On:</strong>
-                    12 August 2026
-                </p>
-
-                <span
-                    class="status status-approved">
-
-                    Approved
-
-                </span>
-
-                <br>
-
-                <button
-                    class="withdraw-btn"
-                    onclick="withdrawApplication(this)">
-
-                    Withdraw
-
-                </button>
-
-            </div>
-
-
         </div>
 
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          ABOUT
-    ====================================== -->
+    ========================== -->
 
     <section
         class="about"
@@ -1709,9 +1681,9 @@
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          CONTACT
-    ====================================== -->
+    ========================== -->
 
     <section
         class="contact"
@@ -1743,9 +1715,9 @@
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          LOGIN
-    ====================================== -->
+    ========================== -->
 
     <section
         class="auth-section"
@@ -1803,9 +1775,9 @@
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          REGISTER
-    ====================================== -->
+    ========================== -->
 
     <section
         class="auth-section"
@@ -1877,9 +1849,9 @@
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          PROFILE
-    ====================================== -->
+    ========================== -->
 
     <section
         class="profile-section"
@@ -1891,22 +1863,30 @@
 
         <div class="profile-card">
 
-            <div class="profile-circle">
+            <div
+                class="profile-circle"
+                id="profileInitial">
+
                 S
+
             </div>
 
-            <h2>
+            <h2 id="profileName">
                 Student Profile
             </h2>
 
             <p>
                 <strong>Name:</strong>
-                Student
+                <span id="profileNameText">
+                    Student
+                </span>
             </p>
 
             <p>
                 <strong>Email:</strong>
-                student@example.com
+                <span id="profileEmailText">
+                    student@example.com
+                </span>
             </p>
 
             <p>
@@ -1919,9 +1899,9 @@
     </section>
 
 
-    <!-- =====================================
-         STUDENT DASHBOARD
-    ====================================== -->
+    <!-- =========================
+         DASHBOARD
+    ========================== -->
 
     <section
         class="dashboard-section"
@@ -1940,9 +1920,10 @@
                 </h3>
 
                 <div
-                    class="dashboard-number">
+                    class="dashboard-number"
+                    id="totalApplications">
 
-                    2
+                    0
 
                 </div>
 
@@ -1960,9 +1941,10 @@
                 </h3>
 
                 <div
-                    class="dashboard-number">
+                    class="dashboard-number"
+                    id="approvedApplications">
 
-                    1
+                    0
 
                 </div>
 
@@ -1980,9 +1962,10 @@
                 </h3>
 
                 <div
-                    class="dashboard-number">
+                    class="dashboard-number"
+                    id="pendingApplications">
 
-                    1
+                    0
 
                 </div>
 
@@ -1997,9 +1980,9 @@
     </section>
 
 
-    <!-- =====================================
-         ADMIN DASHBOARD
-    ====================================== -->
+    <!-- =========================
+         ADMIN
+    ========================== -->
 
     <section
         class="admin-section"
@@ -2030,6 +2013,10 @@
                         </th>
 
                         <th>
+                            Location
+                        </th>
+
+                        <th>
                             Status
                         </th>
 
@@ -2037,69 +2024,8 @@
 
                 </thead>
 
-                <tbody>
-
-                    <tr>
-
-                        <td>
-                            Student 1
-                        </td>
-
-                        <td>
-                            Web Development
-                        </td>
-
-                        <td>
-                            Tech Solutions
-                        </td>
-
-                        <td>
-                            Pending
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Student 2
-                        </td>
-
-                        <td>
-                            Python Development
-                        </td>
-
-                        <td>
-                            Innovation Labs
-                        </td>
-
-                        <td>
-                            Approved
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Student 3
-                        </td>
-
-                        <td>
-                            Data Science
-                        </td>
-
-                        <td>
-                            Data Analytics
-                        </td>
-
-                        <td>
-                            Pending
-                        </td>
-
-                    </tr>
+                <tbody
+                    id="adminApplicationTable">
 
                 </tbody>
 
@@ -2110,9 +2036,9 @@
     </section>
 
 
-    <!-- =====================================
+    <!-- =========================
          FOOTER
-    ====================================== -->
+    ========================== -->
 
     <footer>
 
@@ -2124,28 +2050,49 @@
     </footer>
 
 
-    <!-- =====================================
+    <!-- =========================
          JAVASCRIPT
-    ====================================== -->
+    ========================== -->
 
     <script>
 
 
-        /* ================================
+        /* =========================
+           APPLICATION STORAGE
+        ========================== */
+
+        let applications =
+            JSON.parse(
+                localStorage.getItem(
+                    "internshipApplications"
+                )
+            ) || [];
+
+
+        /* =========================
+           REGISTERED USER
+        ========================== */
+
+        let registeredUser =
+            JSON.parse(
+                localStorage.getItem(
+                    "registeredUser"
+                )
+            ) || null;
+
+
+        /* =========================
            MOBILE NAVIGATION
-        ================================= */
+        ========================== */
 
         function toggleMenu() {
 
-            const navMenu =
-                document.getElementById("navMenu");
-
-            navMenu.classList.toggle("active");
+            document
+                .getElementById("navMenu")
+                .classList.toggle("active");
 
         }
 
-
-        /* Close mobile menu after clicking */
 
         document
             .querySelectorAll(".nav-menu a")
@@ -2157,7 +2104,9 @@
 
                         document
                             .getElementById("navMenu")
-                            .classList.remove("active");
+                            .classList.remove(
+                                "active"
+                            );
 
                     }
                 );
@@ -2165,9 +2114,9 @@
             });
 
 
-        /* ================================
-           SEARCH INTERNSHIPS
-        ================================= */
+        /* =========================
+           SEARCH
+        ========================== */
 
         function searchInternships() {
 
@@ -2178,16 +2127,14 @@
                     .toLowerCase();
 
             let cards =
-                document
-                    .querySelectorAll(
-                        ".internship-card"
-                    );
+                document.querySelectorAll(
+                    ".internship-card"
+                );
 
             cards.forEach(function(card) {
 
                 let text =
-                    card.innerText
-                        .toLowerCase();
+                    card.innerText.toLowerCase();
 
                 if (text.includes(input)) {
 
@@ -2204,17 +2151,21 @@
         }
 
 
-        /* ================================
+        /* =========================
            SELECT INTERNSHIP
-        ================================= */
+        ========================== */
 
-        function selectInternship(name) {
+        function selectInternship(
+            internship,
+            company,
+            location
+        ) {
 
             document
                 .getElementById(
                     "internshipSelect"
                 )
-                .value = name;
+                .value = internship;
 
             document
                 .getElementById("apply")
@@ -2225,37 +2176,238 @@
         }
 
 
-        /* ================================
-           APPLICATION SUBMISSION
-        ================================= */
+        /* =========================
+           SUBMIT APPLICATION
+        ========================== */
 
         function submitApplication(event) {
 
             event.preventDefault();
 
-            const name =
+
+            let name =
                 document
                     .getElementById("fullName")
-                    .value;
+                    .value.trim();
 
-            const internship =
+            let email =
+                document
+                    .getElementById("email")
+                    .value.trim();
+
+            let phone =
+                document
+                    .getElementById("phone")
+                    .value.trim();
+
+            let internship =
                 document
                     .getElementById(
                         "internshipSelect"
                     )
                     .value;
 
-            alert(
-                "Application submitted successfully, "
-                + name
-                + "!"
+            let message =
+                document
+                    .getElementById("message")
+                    .value.trim();
+
+
+            if (
+                name === "" ||
+                email === "" ||
+                phone === "" ||
+                internship === "" ||
+                message === ""
+            ) {
+
+                alert(
+                    "Please fill all required fields."
+                );
+
+                return;
+
+            }
+
+
+            /* Prevent duplicate application */
+
+            let alreadyApplied =
+                applications.some(function(app) {
+
+                    return (
+                        app.email === email &&
+                        app.internship === internship
+                    );
+
+                });
+
+
+            if (alreadyApplied) {
+
+                alert(
+                    "You have already applied for this internship."
+                );
+
+                return;
+
+            }
+
+
+            /* Company and location */
+
+            let company = "";
+            let location = "";
+
+
+            if (
+                internship ===
+                "Web Development Intern"
+            ) {
+
+                company =
+                    "Tech Solutions";
+
+                location =
+                    "Remote";
+
+            }
+
+            else if (
+                internship ===
+                "Java Developer Intern"
+            ) {
+
+                company =
+                    "Software Technologies";
+
+                location =
+                    "Pune";
+
+            }
+
+            else if (
+                internship ===
+                "Python Developer Intern"
+            ) {
+
+                company =
+                    "Innovation Labs";
+
+                location =
+                    "Remote";
+
+            }
+
+            else if (
+                internship ===
+                "Data Science Intern"
+            ) {
+
+                company =
+                    "Data Analytics Pvt. Ltd.";
+
+                location =
+                    "Mumbai";
+
+            }
+
+            else if (
+                internship ===
+                "AI / ML Intern"
+            ) {
+
+                company =
+                    "Future AI Labs";
+
+                location =
+                    "Bengaluru";
+
+            }
+
+            else if (
+                internship ===
+                "UI/UX Design Intern"
+            ) {
+
+                company =
+                    "Creative Studio";
+
+                location =
+                    "Mumbai";
+
+            }
+
+
+            let newApplication = {
+
+                id:
+                    Date.now(),
+
+                name:
+                    name,
+
+                email:
+                    email,
+
+                phone:
+                    phone,
+
+                internship:
+                    internship,
+
+                company:
+                    company,
+
+                location:
+                    location,
+
+                message:
+                    message,
+
+                status:
+                    "Pending",
+
+                date:
+                    new Date()
+                        .toLocaleDateString(
+                            "en-IN"
+                        )
+
+            };
+
+
+            applications.push(
+                newApplication
             );
+
+
+            localStorage.setItem(
+                "internshipApplications",
+                JSON.stringify(
+                    applications
+                )
+            );
+
+
+            alert(
+                "Application submitted successfully!"
+            );
+
 
             document
                 .getElementById(
                     "applicationForm"
                 )
                 .reset();
+
+
+            renderApplications();
+
+            updateDashboard();
+
+            updateAdminTable();
+
 
             document
                 .getElementById(
@@ -2268,75 +2420,463 @@
         }
 
 
-        /* ================================
-           WITHDRAW APPLICATION
-        ================================= */
+        /* =========================
+           DISPLAY APPLICATIONS
+        ========================== */
 
-        function withdrawApplication(button) {
+        function renderApplications() {
 
-            const confirmation =
-                confirm(
-                    "Are you sure you want to withdraw this application?"
+            let container =
+                document.getElementById(
+                    "applicationList"
                 );
 
-            if (confirmation) {
 
-                const card =
-                    button.closest(
-                        ".application-card"
-                    );
+            container.innerHTML = "";
 
-                card.remove();
 
-                alert(
-                    "Application withdrawn successfully."
-                );
+            if (
+                applications.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="empty-applications">
+
+                        <h3>
+                            No Applications Yet
+                        </h3>
+
+                        <p>
+                            Apply for an internship
+                            to see your applications here.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
 
             }
 
-        }
+
+            applications.forEach(
+                function(app) {
+
+                    let statusClass =
+                        "status-pending";
 
 
-        /* ================================
-           REGISTER
-        ================================= */
+                    if (
+                        app.status ===
+                        "Approved"
+                    ) {
 
-        function registerUser(event) {
+                        statusClass =
+                            "status-approved";
 
-            event.preventDefault();
+                    }
 
-            const name =
-                document
-                    .getElementById(
-                        "registerName"
-                    )
-                    .value;
 
-            alert(
-                "Registration successful! Welcome "
-                + name
-                + "."
+                    if (
+                        app.status ===
+                        "Rejected"
+                    ) {
+
+                        statusClass =
+                            "status-rejected";
+
+                    }
+
+
+                    let card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "application-card";
+
+
+                    card.innerHTML = `
+
+                        <h3>
+                            ${app.internship}
+                        </h3>
+
+                        <p>
+                            <strong>
+                                Student:
+                            </strong>
+                            ${app.name}
+                        </p>
+
+                        <p>
+                            <strong>
+                                Company:
+                            </strong>
+                            ${app.company}
+                        </p>
+
+                        <p>
+                            <strong>
+                                Location:
+                            </strong>
+                            ${app.location}
+                        </p>
+
+                        <p>
+                            <strong>
+                                Email:
+                            </strong>
+                            ${app.email}
+                        </p>
+
+                        <p>
+                            <strong>
+                                Applied On:
+                            </strong>
+                            ${app.date}
+                        </p>
+
+                        <span
+                            class="status ${statusClass}">
+
+                            ${app.status}
+
+                        </span>
+
+                        <br>
+
+                        <button
+                            class="withdraw-btn"
+                            onclick="withdrawApplication(${app.id})">
+
+                            Withdraw
+
+                        </button>
+
+                    `;
+
+
+                    container.appendChild(
+                        card
+                    );
+
+                }
             );
 
         }
 
 
-        /* ================================
+        /* =========================
+           WITHDRAW
+        ========================== */
+
+        function withdrawApplication(id) {
+
+            let confirmation =
+                confirm(
+                    "Are you sure you want to withdraw this application?"
+                );
+
+
+            if (!confirmation) {
+                return;
+            }
+
+
+            applications =
+                applications.filter(
+                    function(app) {
+
+                        return app.id !== id;
+
+                    }
+                );
+
+
+            localStorage.setItem(
+                "internshipApplications",
+                JSON.stringify(
+                    applications
+                )
+            );
+
+
+            renderApplications();
+
+            updateDashboard();
+
+            updateAdminTable();
+
+
+            alert(
+                "Application withdrawn successfully."
+            );
+
+        }
+
+
+        /* =========================
+           DASHBOARD
+        ========================== */
+
+        function updateDashboard() {
+
+            let total =
+                applications.length;
+
+
+            let approved =
+                applications.filter(
+                    function(app) {
+
+                        return (
+                            app.status ===
+                            "Approved"
+                        );
+
+                    }
+                ).length;
+
+
+            let pending =
+                applications.filter(
+                    function(app) {
+
+                        return (
+                            app.status ===
+                            "Pending"
+                        );
+
+                    }
+                ).length;
+
+
+            document
+                .getElementById(
+                    "totalApplications"
+                )
+                .innerText = total;
+
+
+            document
+                .getElementById(
+                    "approvedApplications"
+                )
+                .innerText = approved;
+
+
+            document
+                .getElementById(
+                    "pendingApplications"
+                )
+                .innerText = pending;
+
+        }
+
+
+        /* =========================
+           ADMIN TABLE
+        ========================== */
+
+        function updateAdminTable() {
+
+            let table =
+                document.getElementById(
+                    "adminApplicationTable"
+                );
+
+
+            table.innerHTML = "";
+
+
+            if (
+                applications.length === 0
+            ) {
+
+                table.innerHTML = `
+
+                    <tr>
+
+                        <td
+                            colspan="5"
+                            style="text-align:center;">
+
+                            No applications available.
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+                return;
+
+            }
+
+
+            applications.forEach(
+                function(app) {
+
+                    let row =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+                    row.innerHTML = `
+
+                        <td>
+                            ${app.name}
+                        </td>
+
+                        <td>
+                            ${app.internship}
+                        </td>
+
+                        <td>
+                            ${app.company}
+                        </td>
+
+                        <td>
+                            ${app.location}
+                        </td>
+
+                        <td>
+                            ${app.status}
+                        </td>
+
+                    `;
+
+
+                    table.appendChild(
+                        row
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =========================
+           REGISTER
+        ========================== */
+
+        function registerUser(event) {
+
+            event.preventDefault();
+
+
+            let name =
+                document
+                    .getElementById(
+                        "registerName"
+                    )
+                    .value.trim();
+
+            let email =
+                document
+                    .getElementById(
+                        "registerEmail"
+                    )
+                    .value.trim();
+
+            let password =
+                document
+                    .getElementById(
+                        "registerPassword"
+                    )
+                    .value;
+
+
+            if (
+                password.length < 6
+            ) {
+
+                alert(
+                    "Password must contain at least 6 characters."
+                );
+
+                return;
+
+            }
+
+
+            registeredUser = {
+
+                name:
+                    name,
+
+                email:
+                    email,
+
+                password:
+                    password
+
+            };
+
+
+            localStorage.setItem(
+                "registeredUser",
+                JSON.stringify(
+                    registeredUser
+                )
+            );
+
+
+            alert(
+                "Registration successful!"
+            );
+
+
+            document
+                .getElementById(
+                    "registerName"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "registerEmail"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "registerPassword"
+                )
+                .value = "";
+
+
+            updateProfile();
+
+        }
+
+
+        /* =========================
            LOGIN
-        ================================= */
+        ========================== */
 
         function loginUser(event) {
 
             event.preventDefault();
 
-            const email =
+
+            let email =
                 document
                     .getElementById(
                         "loginEmail"
                     )
-                    .value;
+                    .value.trim();
 
-            const password =
+            let password =
                 document
                     .getElementById(
                         "loginPassword"
@@ -2344,45 +2884,140 @@
                     .value;
 
 
-            /*
-                DEMO LOGIN
-
-                Email:
-                admin@internship.com
-
-                Password:
-                admin123
-            */
-
             if (
+                registeredUser &&
                 email ===
-                "admin@internship.com"
-                &&
+                    registeredUser.email &&
                 password ===
-                "admin123"
+                    registeredUser.password
             ) {
 
-                alert(
-                    "Login successful!"
+                localStorage.setItem(
+                    "loggedIn",
+                    "true"
                 );
+
+
+                alert(
+                    "Login successful! Welcome "
+                    +
+                    registeredUser.name
+                    +
+                    "."
+                );
+
+
+                updateProfile();
+
 
                 document
                     .getElementById(
-                        "dashboard"
+                        "profile"
                     )
                     .scrollIntoView({
                         behavior: "smooth"
                     });
 
-            } else {
 
-                alert(
-                    "Invalid email or password."
-                );
+                return;
 
             }
 
+
+            /* Demo admin login */
+
+            if (
+                email ===
+                    "admin@internship.com"
+                &&
+                password ===
+                    "admin123"
+            ) {
+
+                alert(
+                    "Admin login successful!"
+                );
+
+
+                document
+                    .getElementById(
+                        "admin"
+                    )
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+
+                return;
+
+            }
+
+
+            alert(
+                "Invalid email or password."
+            );
+
         }
+
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        function updateProfile() {
+
+            if (!registeredUser) {
+                return;
+            }
+
+
+            document
+                .getElementById(
+                    "profileName"
+                )
+                .innerText =
+                    registeredUser.name;
+
+
+            document
+                .getElementById(
+                    "profileNameText"
+                )
+                .innerText =
+                    registeredUser.name;
+
+
+            document
+                .getElementById(
+                    "profileEmailText"
+                )
+                .innerText =
+                    registeredUser.email;
+
+
+            document
+                .getElementById(
+                    "profileInitial"
+                )
+                .innerText =
+                    registeredUser.name
+                        .charAt(0)
+                        .toUpperCase();
+
+        }
+
+
+        /* =========================
+           INITIAL LOAD
+        ========================== */
+
+        renderApplications();
+
+        updateDashboard();
+
+        updateAdminTable();
+
+        updateProfile();
 
 
     </script>

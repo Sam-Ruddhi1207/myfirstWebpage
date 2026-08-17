@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Internship Portal</title>
+
 
 <style>
 
@@ -247,7 +252,7 @@ section {
 
     padding: 25px;
 
-    min-height: 330px;
+    min-height: 350px;
 
     display: flex;
     flex-direction: column;
@@ -299,11 +304,24 @@ section {
     font-size: 12px;
 }
 
-.apply-btn {
+
+/* =========================
+   CARD BUTTONS
+========================= */
+
+.card-buttons {
+    display: flex;
+
+    gap: 10px;
+
     margin-top: auto;
+}
 
-    width: 100%;
+.card-buttons button {
+    flex: 1;
+}
 
+.apply-btn {
     padding: 12px;
 
     border: none;
@@ -317,10 +335,36 @@ section {
     font-weight: bold;
 
     cursor: pointer;
+
+    transition: 0.3s;
 }
 
 .apply-btn:hover {
     background: #3730a3;
+}
+
+.details-btn {
+    padding: 12px;
+
+    border: 2px solid #4f46e5;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #4f46e5;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.details-btn:hover {
+    background: #4f46e5;
+
+    color: white;
 }
 
 
@@ -714,9 +758,6 @@ section {
     background: #f8fafc;
 }
 
-
-/* Admin Header */
-
 .admin-header {
     max-width: 1200px;
 
@@ -738,9 +779,6 @@ section {
 .admin-header p {
     color: #64748b;
 }
-
-
-/* Admin Statistics */
 
 .admin-stats {
     max-width: 1200px;
@@ -813,9 +851,6 @@ section {
     color: #64748b;
 }
 
-
-/* Admin Controls */
-
 .admin-controls {
     max-width: 1200px;
 
@@ -874,9 +909,6 @@ section {
     font-size: 14px;
 }
 
-
-/* Admin Table */
-
 .admin-table-container {
     max-width: 1200px;
 
@@ -929,9 +961,6 @@ section {
     background: #fafafa;
 }
 
-
-/* Admin Status */
-
 .admin-status {
     display: inline-block;
 
@@ -961,9 +990,6 @@ section {
 
     color: #b91c1c;
 }
-
-
-/* Admin Buttons */
 
 .admin-action-btn {
     border: none;
@@ -1008,6 +1034,157 @@ section {
 }
 
 
+/* =====================================================
+   INTERNSHIP DETAILS MODAL
+===================================================== */
+
+.details-modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 2000;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(15, 23, 42, 0.75);
+
+    padding: 30px 15px;
+
+    overflow-y: auto;
+}
+
+.details-modal.active {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.details-box {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.25);
+
+    animation: modalOpen 0.25s ease;
+}
+
+@keyframes modalOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.close-details {
+    position: absolute;
+
+    right: 18px;
+    top: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    color: #334155;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.close-details:hover {
+    background: #dc2626;
+
+    color: white;
+}
+
+.details-box h2 {
+    color: #4338ca;
+
+    font-size: 27px;
+
+    margin-bottom: 25px;
+
+    padding-right: 40px;
+}
+
+.details-content p {
+    margin: 13px 0;
+
+    line-height: 1.6;
+
+    color: #475569;
+}
+
+.details-content strong {
+    color: #1e293b;
+}
+
+.details-content h3 {
+    margin-top: 25px;
+
+    margin-bottom: 8px;
+
+    color: #4338ca;
+}
+
+.modal-apply-btn {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.modal-apply-btn:hover {
+    background: #3730a3;
+}
+
+
 /* =========================
    FOOTER
 ========================= */
@@ -1032,8 +1209,7 @@ footer {
     .nav-menu li a {
         font-size: 11px;
 
-        padding:
-            8px 6px;
+        padding: 8px 6px;
     }
 
     .internship-grid {
@@ -1134,6 +1310,7 @@ footer {
     .status-filter {
         width: 100%;
     }
+
 }
 
 
@@ -1164,18 +1341,28 @@ footer {
     .profile-card {
         padding: 22px;
     }
+
+    .details-box {
+        padding: 25px 20px;
+    }
+
+    .card-buttons {
+        flex-direction: column;
+    }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      NAVBAR
-========================= -->
+===================================================== -->
 
 <nav class="navbar">
 
@@ -1204,15 +1391,21 @@ class="nav-menu"
 id="navMenu">
 
 <li>
-<a href="#home">Home</a>
+<a href="#home">
+Home
+</a>
 </li>
 
 <li>
-<a href="#internships">Internships</a>
+<a href="#internships">
+Internships
+</a>
 </li>
 
 <li>
-<a href="#apply">Apply</a>
+<a href="#apply">
+Apply
+</a>
 </li>
 
 <li>
@@ -1222,11 +1415,15 @@ My Applications
 </li>
 
 <li>
-<a href="#about">About</a>
+<a href="#about">
+About
+</a>
 </li>
 
 <li>
-<a href="#contact">Contact</a>
+<a href="#contact">
+Contact
+</a>
 </li>
 
 <li>
@@ -1268,9 +1465,9 @@ Admin
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      HOME
-========================= -->
+===================================================== -->
 
 <section
 class="hero"
@@ -1297,9 +1494,9 @@ Explore Internships
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SEARCH
-========================= -->
+===================================================== -->
 
 <section class="search-section">
 
@@ -1316,9 +1513,9 @@ onkeyup="searchInternships()">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      INTERNSHIPS
-========================= -->
+===================================================== -->
 
 <section
 class="page-section"
@@ -1333,6 +1530,8 @@ Latest Internship Opportunities
 class="internship-grid"
 id="internshipCards">
 
+
+<!-- WEB DEVELOPMENT -->
 
 <div
 class="internship-card"
@@ -1372,6 +1571,16 @@ and build real-world websites.
 Remote
 </span>
 
+<div class="card-buttons">
+
+<button
+class="details-btn"
+onclick="showInternshipDetails('Web Development Intern')">
+
+View Details
+
+</button>
+
 <button
 class="apply-btn"
 onclick="selectInternship('Web Development Intern')">
@@ -1382,6 +1591,10 @@ Apply Now
 
 </div>
 
+</div>
+
+
+<!-- JAVA -->
 
 <div
 class="internship-card"
@@ -1421,6 +1634,16 @@ and improve programming skills.
 Pune
 </span>
 
+<div class="card-buttons">
+
+<button
+class="details-btn"
+onclick="showInternshipDetails('Java Developer Intern')">
+
+View Details
+
+</button>
+
 <button
 class="apply-btn"
 onclick="selectInternship('Java Developer Intern')">
@@ -1431,6 +1654,10 @@ Apply Now
 
 </div>
 
+</div>
+
+
+<!-- PYTHON -->
 
 <div
 class="internship-card"
@@ -1470,6 +1697,16 @@ and learn practical concepts.
 Remote
 </span>
 
+<div class="card-buttons">
+
+<button
+class="details-btn"
+onclick="showInternshipDetails('Python Developer Intern')">
+
+View Details
+
+</button>
+
 <button
 class="apply-btn"
 onclick="selectInternship('Python Developer Intern')">
@@ -1480,6 +1717,10 @@ Apply Now
 
 </div>
 
+</div>
+
+
+<!-- DATA SCIENCE -->
 
 <div
 class="internship-card"
@@ -1519,6 +1760,16 @@ visualization and machine learning.
 Mumbai
 </span>
 
+<div class="card-buttons">
+
+<button
+class="details-btn"
+onclick="showInternshipDetails('Data Science Intern')">
+
+View Details
+
+</button>
+
 <button
 class="apply-btn"
 onclick="selectInternship('Data Science Intern')">
@@ -1529,6 +1780,10 @@ Apply Now
 
 </div>
 
+</div>
+
+
+<!-- AI ML -->
 
 <div
 class="internship-card"
@@ -1568,6 +1823,16 @@ and machine learning projects.
 Bengaluru
 </span>
 
+<div class="card-buttons">
+
+<button
+class="details-btn"
+onclick="showInternshipDetails('AI / ML Intern')">
+
+View Details
+
+</button>
+
 <button
 class="apply-btn"
 onclick="selectInternship('AI / ML Intern')">
@@ -1578,6 +1843,10 @@ Apply Now
 
 </div>
 
+</div>
+
+
+<!-- UI UX -->
 
 <div
 class="internship-card"
@@ -1617,6 +1886,16 @@ user-friendly digital experiences.
 Design
 </span>
 
+<div class="card-buttons">
+
+<button
+class="details-btn"
+onclick="showInternshipDetails('UI/UX Design Intern')">
+
+View Details
+
+</button>
+
 <button
 class="apply-btn"
 onclick="selectInternship('UI/UX Design Intern')">
@@ -1627,15 +1906,17 @@ Apply Now
 
 </div>
 
+</div>
+
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      APPLY
-========================= -->
+===================================================== -->
 
 <section
 class="apply-section"
@@ -1785,9 +2066,9 @@ Submit Application
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      MY APPLICATIONS
-========================= -->
+===================================================== -->
 
 <section
 class="applications-section"
@@ -1806,9 +2087,9 @@ id="applicationList">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ABOUT
-========================= -->
+===================================================== -->
 
 <section
 class="about"
@@ -1834,9 +2115,9 @@ application status.
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CONTACT
-========================= -->
+===================================================== -->
 
 <section
 class="contact"
@@ -1868,9 +2149,9 @@ Pune, Maharashtra
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      LOGIN
-========================= -->
+===================================================== -->
 
 <section
 class="auth-section"
@@ -1930,9 +2211,9 @@ Login
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      REGISTER
-========================= -->
+===================================================== -->
 
 <section
 class="auth-section"
@@ -2007,9 +2288,9 @@ Register
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PROFILE
-========================= -->
+===================================================== -->
 
 <section
 class="profile-section"
@@ -2068,9 +2349,9 @@ Student
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      STUDENT DASHBOARD
-========================= -->
+===================================================== -->
 
 <section
 class="dashboard-section"
@@ -2174,7 +2455,7 @@ Rejected Applications
 
 
 <!-- =====================================================
-     PROFESSIONAL ADMIN DASHBOARD
+     ADMIN DASHBOARD
 ===================================================== -->
 
 <section
@@ -2195,8 +2476,6 @@ from one place.
 
 </div>
 
-
-<!-- ADMIN STATISTICS -->
 
 <div class="admin-stats">
 
@@ -2288,8 +2567,6 @@ Rejected Applications
 </div>
 
 
-<!-- SEARCH + FILTER -->
-
 <div class="admin-controls">
 
 
@@ -2327,8 +2604,6 @@ Rejected
 
 </div>
 
-
-<!-- TABLE -->
 
 <div class="admin-table-container">
 
@@ -2387,9 +2662,122 @@ id="adminApplicationTable">
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
+     INTERNSHIP DETAILS MODAL
+===================================================== -->
+
+<div
+class="details-modal"
+id="detailsModal">
+
+<div class="details-box">
+
+<button
+class="close-details"
+onclick="closeInternshipDetails()">
+
+×
+
+</button>
+
+
+<h2 id="detailsTitle">
+Internship Details
+</h2>
+
+
+<div class="details-content">
+
+<p>
+<strong>🏢 Company:</strong>
+
+<span id="detailsCompany">
+</span>
+
+</p>
+
+
+<p>
+<strong>📍 Location:</strong>
+
+<span id="detailsLocation">
+</span>
+
+</p>
+
+
+<p>
+<strong>⏳ Duration:</strong>
+
+<span id="detailsDuration">
+</span>
+
+</p>
+
+
+<p>
+<strong>💰 Stipend:</strong>
+
+<span id="detailsStipend">
+</span>
+
+</p>
+
+
+<p>
+<strong>🛠️ Skills Required:</strong>
+
+<span id="detailsSkills">
+</span>
+
+</p>
+
+
+<p>
+<strong>🎓 Eligibility:</strong>
+
+<span id="detailsEligibility">
+</span>
+
+</p>
+
+
+<p>
+<strong>📅 Application Deadline:</strong>
+
+<span id="detailsDeadline">
+</span>
+
+</p>
+
+
+<h3>
+Job Description
+</h3>
+
+
+<p id="detailsDescription">
+</p>
+
+</div>
+
+
+<button
+class="modal-apply-btn"
+id="modalApplyButton">
+
+Apply Now
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -2425,6 +2813,184 @@ localStorage.getItem(
 
 
 /* =====================================================
+   INTERNSHIP DETAILS DATA
+===================================================== */
+
+const internshipDetails = {
+
+"Web Development Intern": {
+
+company: "Tech Solutions",
+
+location: "Remote",
+
+duration: "3 Months",
+
+stipend: "₹10,000 / Month",
+
+skills:
+"HTML, CSS, JavaScript, Git",
+
+eligibility:
+"B.E / B.Tech / BCA / MCA students",
+
+deadline:
+"30 September 2026",
+
+description:
+"Work with the development team to create responsive websites and learn modern web development practices."
+
+},
+
+
+"Java Developer Intern": {
+
+company:
+"Software Technologies",
+
+location:
+"Pune",
+
+duration:
+"6 Months",
+
+stipend:
+"₹12,000 / Month",
+
+skills:
+"Java, OOP, SQL, Spring Boot",
+
+eligibility:
+"Students with basic Java knowledge",
+
+deadline:
+"15 October 2026",
+
+description:
+"Develop Java applications, work with databases and learn professional software development practices."
+
+},
+
+
+"Python Developer Intern": {
+
+company:
+"Innovation Labs",
+
+location:
+"Remote",
+
+duration:
+"3 Months",
+
+stipend:
+"₹15,000 / Month",
+
+skills:
+"Python, OOP, APIs, SQL",
+
+eligibility:
+"CSE / IT students with Python knowledge",
+
+deadline:
+"10 October 2026",
+
+description:
+"Build Python-based applications and APIs while working on practical software development projects."
+
+},
+
+
+"Data Science Intern": {
+
+company:
+"Data Analytics Pvt. Ltd.",
+
+location:
+"Mumbai",
+
+duration:
+"4 Months",
+
+stipend:
+"₹18,000 / Month",
+
+skills:
+"Python, Pandas, NumPy, Machine Learning",
+
+eligibility:
+"Students interested in Data Science",
+
+deadline:
+"20 September 2026",
+
+description:
+"Analyze datasets, create visualizations and work on machine learning projects with the data analytics team."
+
+},
+
+
+"AI / ML Intern": {
+
+company:
+"Future AI Labs",
+
+location:
+"Bengaluru",
+
+duration:
+"6 Months",
+
+stipend:
+"₹20,000 / Month",
+
+skills:
+"Python, Machine Learning, AI, TensorFlow",
+
+eligibility:
+"CSE / AI / Data Science students",
+
+deadline:
+"25 September 2026",
+
+description:
+"Work on artificial intelligence and machine learning projects and gain practical experience with AI technologies."
+
+},
+
+
+"UI/UX Design Intern": {
+
+company:
+"Creative Studio",
+
+location:
+"Mumbai",
+
+duration:
+"3 Months",
+
+stipend:
+"₹8,000 / Month",
+
+skills:
+"Figma, UI Design, UX Research, Prototyping",
+
+eligibility:
+"Students interested in UI/UX design",
+
+deadline:
+"5 October 2026",
+
+description:
+"Design user-friendly interfaces, create prototypes and work with the design team on real-world digital products."
+
+}
+
+};
+
+
+/* =====================================================
    MOBILE MENU
 ===================================================== */
 
@@ -2432,7 +2998,8 @@ function toggleMenu() {
 
 document
 .getElementById("navMenu")
-.classList.toggle("active");
+.classList
+.toggle("active");
 
 }
 
@@ -2447,7 +3014,8 @@ function() {
 
 document
 .getElementById("navMenu")
-.classList.remove("active");
+.classList
+.remove("active");
 
 });
 
@@ -2522,6 +3090,191 @@ behavior: "smooth"
 });
 
 }
+
+
+/* =====================================================
+   SHOW INTERNSHIP DETAILS
+===================================================== */
+
+function showInternshipDetails(
+internship
+) {
+
+let data =
+internshipDetails[internship];
+
+
+if (!data) {
+
+alert(
+"Internship details not found."
+);
+
+return;
+
+}
+
+
+document
+.getElementById(
+"detailsTitle"
+)
+.innerText =
+internship;
+
+
+document
+.getElementById(
+"detailsCompany"
+)
+.innerText =
+data.company;
+
+
+document
+.getElementById(
+"detailsLocation"
+)
+.innerText =
+data.location;
+
+
+document
+.getElementById(
+"detailsDuration"
+)
+.innerText =
+data.duration;
+
+
+document
+.getElementById(
+"detailsStipend"
+)
+.innerText =
+data.stipend;
+
+
+document
+.getElementById(
+"detailsSkills"
+)
+.innerText =
+data.skills;
+
+
+document
+.getElementById(
+"detailsEligibility"
+)
+.innerText =
+data.eligibility;
+
+
+document
+.getElementById(
+"detailsDeadline"
+)
+.innerText =
+data.deadline;
+
+
+document
+.getElementById(
+"detailsDescription"
+)
+.innerText =
+data.description;
+
+
+document
+.getElementById(
+"modalApplyButton"
+)
+.onclick =
+function() {
+
+closeInternshipDetails();
+
+selectInternship(
+internship
+);
+
+};
+
+
+document
+.getElementById(
+"detailsModal"
+)
+.classList
+.add("active");
+
+
+document.body.style.overflow =
+"hidden";
+
+}
+
+
+/* =====================================================
+   CLOSE DETAILS
+===================================================== */
+
+function closeInternshipDetails() {
+
+document
+.getElementById(
+"detailsModal"
+)
+.classList
+.remove("active");
+
+
+document.body.style.overflow =
+"auto";
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL OUTSIDE
+===================================================== */
+
+document
+.getElementById("detailsModal")
+.addEventListener(
+"click",
+function(event) {
+
+if (
+event.target === this
+) {
+
+closeInternshipDetails();
+
+}
+
+});
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+"keydown",
+function(event) {
+
+if (
+event.key === "Escape"
+) {
+
+closeInternshipDetails();
+
+}
+
+});
 
 
 /* =====================================================
@@ -2616,8 +3369,11 @@ return;
 
 /* COMPANY */
 
-let company = "";
-let location = "";
+let company =
+"";
+
+let location =
+"";
 
 
 if (
@@ -2703,23 +3459,32 @@ location =
 
 let newApplication = {
 
-id: Date.now(),
+id:
+Date.now(),
 
-name: name,
+name:
+name,
 
-email: email,
+email:
+email,
 
-phone: phone,
+phone:
+phone,
 
-internship: internship,
+internship:
+internship,
 
-company: company,
+company:
+company,
 
-location: location,
+location:
+location,
 
-message: message,
+message:
+message,
 
-status: "Pending",
+status:
+"Pending",
 
 date:
 new Date()
@@ -2767,7 +3532,7 @@ behavior: "smooth"
 
 
 /* =====================================================
-   SAVE
+   SAVE APPLICATIONS
 ===================================================== */
 
 function saveApplications() {
@@ -2794,7 +3559,8 @@ document.getElementById(
 );
 
 
-container.innerHTML = "";
+container.innerHTML =
+"";
 
 
 if (
@@ -2935,7 +3701,9 @@ confirm(
 
 
 if (!confirmWithdraw) {
+
 return;
+
 }
 
 
@@ -3044,7 +3812,7 @@ rejected;
 
 
 /* =====================================================
-   ADMIN DASHBOARD STATISTICS
+   ADMIN DASHBOARD
 ===================================================== */
 
 function updateAdminDashboard() {
@@ -3137,7 +3905,8 @@ document.getElementById(
 );
 
 
-table.innerHTML = "";
+table.innerHTML =
+"";
 
 
 if (
@@ -3330,7 +4099,6 @@ searchableText
 
 
 let matchesStatus =
-
 status === "All" ||
 app.status === status;
 
@@ -3352,7 +4120,7 @@ filtered
 
 
 /* =====================================================
-   APPROVE
+   APPROVE APPLICATION
 ===================================================== */
 
 function approveApplication(
@@ -3370,7 +4138,9 @@ return item.id === id;
 
 
 if (!app) {
+
 return;
+
 }
 
 
@@ -3409,7 +4179,7 @@ alert(
 
 
 /* =====================================================
-   REJECT
+   REJECT APPLICATION
 ===================================================== */
 
 function rejectApplication(
@@ -3427,7 +4197,9 @@ return item.id === id;
 
 
 if (!app) {
+
 return;
+
 }
 
 
@@ -3451,7 +4223,9 @@ confirm(
 
 
 if (!confirmReject) {
+
 return;
+
 }
 
 
@@ -3477,7 +4251,7 @@ alert(
 
 
 /* =====================================================
-   DELETE
+   DELETE APPLICATION
 ===================================================== */
 
 function deleteApplication(
@@ -3491,7 +4265,9 @@ confirm(
 
 
 if (!confirmDelete) {
+
 return;
+
 }
 
 
@@ -3574,11 +4350,14 @@ return;
 
 registeredUser = {
 
-name: name,
+name:
+name,
 
-email: email,
+email:
+email,
 
-password: password
+password:
+password
 
 };
 
@@ -3600,19 +4379,24 @@ document
 .getElementById(
 "registerName"
 )
-.value = "";
+.value =
+"";
+
 
 document
 .getElementById(
 "registerEmail"
 )
-.value = "";
+.value =
+"";
+
 
 document
 .getElementById(
 "registerPassword"
 )
-.value = "";
+.value =
+"";
 
 
 updateProfile();
@@ -3648,7 +4432,7 @@ document
 .value;
 
 
-/* ADMIN */
+/* ADMIN LOGIN */
 
 if (
 email ===
@@ -3676,7 +4460,7 @@ return;
 }
 
 
-/* STUDENT */
+/* STUDENT LOGIN */
 
 if (
 registeredUser &&
@@ -3729,7 +4513,9 @@ alert(
 function updateProfile() {
 
 if (!registeredUser) {
+
 return;
+
 }
 
 
@@ -3785,4 +4571,5 @@ updateProfile();
 </script>
 
 </body>
+
 </html>

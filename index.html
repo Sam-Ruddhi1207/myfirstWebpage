@@ -1753,6 +1753,81 @@ footer {
     }
 
 }
+   /* ==========================================
+   STEP 14A - APPLICATION STATISTICS
+========================================== */
+
+.admin-application-stats {
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.admin-stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+.admin-stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.admin-stat-card h3 {
+    margin: 0 0 5px;
+    font-size: 26px;
+    color: #1e293b;
+}
+
+.admin-stat-card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+    .admin-application-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .admin-application-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-stat-card {
+        padding: 18px;
+    }
+}
 </style>
 
 </head>
@@ -3059,7 +3134,45 @@ id="adminApplicationTable">
 </table>
 
 </div>
+<!-- ==========================================
+     STEP 14A - APPLICATION STATISTICS
+========================================== -->
 
+<div class="admin-application-stats">
+
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon">📋</div>
+        <div>
+            <h3 id="totalApplicationsCount">0</h3>
+            <p>Total Applications</p>
+        </div>
+    </div>
+
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon">⏳</div>
+        <div>
+            <h3 id="pendingApplicationsCount">0</h3>
+            <p>Pending Applications</p>
+        </div>
+    </div>
+
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon">✅</div>
+        <div>
+            <h3 id="approvedApplicationsCount">0</h3>
+            <p>Approved Applications</p>
+        </div>
+    </div>
+
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon">❌</div>
+        <div>
+            <h3 id="rejectedApplicationsCount">0</h3>
+            <p>Rejected Applications</p>
+        </div>
+    </div>
+
+</div>
    <!-- =====================================================
      STEP 13 - ADMIN APPLICATION MANAGEMENT
 ===================================================== -->
@@ -5642,6 +5755,99 @@ function escapeAdminText(value) {
         .replace(/'/g, "&#039;");
 
 }
+   /* ==========================================
+   STEP 14A - APPLICATION STATISTICS
+========================================== */
+
+function updateApplicationStatistics() {
+
+    let applicationData = [];
+
+    try {
+        applicationData = JSON.parse(
+            localStorage.getItem("internshipApplications") || "[]"
+        );
+    } catch (error) {
+        applicationData = [];
+    }
+
+    if (!Array.isArray(applicationData)) {
+        applicationData = [];
+    }
+
+    const total =
+        applicationData.length;
+
+    const pending =
+        applicationData.filter(function (application) {
+            return (
+                !application.status ||
+                application.status.toLowerCase() === "pending"
+            );
+        }).length;
+
+    const approved =
+        applicationData.filter(function (application) {
+            return (
+                application.status &&
+                application.status.toLowerCase() === "approved"
+            );
+        }).length;
+
+    const rejected =
+        applicationData.filter(function (application) {
+            return (
+                application.status &&
+                application.status.toLowerCase() === "rejected"
+            );
+        }).length;
+
+    const totalElement =
+        document.getElementById(
+            "totalApplicationsCount"
+        );
+
+    const pendingElement =
+        document.getElementById(
+            "pendingApplicationsCount"
+        );
+
+    const approvedElement =
+        document.getElementById(
+            "approvedApplicationsCount"
+        );
+
+    const rejectedElement =
+        document.getElementById(
+            "rejectedApplicationsCount"
+        );
+
+    if (totalElement) {
+        totalElement.textContent = total;
+    }
+
+    if (pendingElement) {
+        pendingElement.textContent = pending;
+    }
+
+    if (approvedElement) {
+        approvedElement.textContent = approved;
+    }
+
+    if (rejectedElement) {
+        rejectedElement.textContent = rejected;
+    }
+}
+
+
+/* Update statistics when page loads */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+        updateApplicationStatistics();
+    }
+);
 </script>
 
 </body>

@@ -1491,6 +1491,268 @@ footer {
     }
 }
 
+   /* =====================================================
+   STEP 13 - ADMIN APPLICATION MANAGEMENT
+===================================================== */
+
+.admin-application-management {
+    margin-top: 30px;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.admin-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.admin-section-header h2 {
+    color: #4338ca;
+    margin-bottom: 6px;
+}
+
+.admin-section-header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.refresh-applications-btn {
+    border: none;
+    border-radius: 9px;
+    padding: 11px 17px;
+    background: #4f46e5;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.refresh-applications-btn:hover {
+    background: #3730a3;
+}
+
+
+/* Statistics */
+
+.admin-application-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.admin-app-stat {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 18px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-icon {
+    font-size: 25px;
+}
+
+.admin-app-stat strong {
+    display: block;
+    color: #1e293b;
+    font-size: 22px;
+}
+
+.admin-app-stat small {
+    color: #64748b;
+}
+
+
+/* Filters */
+
+.admin-application-filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.admin-application-filters input,
+.admin-application-filters select {
+    height: 44px;
+    padding: 0 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    outline: none;
+    font-size: 14px;
+}
+
+.admin-application-filters input:focus,
+.admin-application-filters select:focus {
+    border-color: #4f46e5;
+}
+
+
+/* Application cards */
+
+.admin-applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin-application-card {
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 13px;
+    background: #ffffff;
+}
+
+.admin-application-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.admin-application-top h3 {
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.admin-application-top p {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.admin-status {
+    height: fit-content;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.admin-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.admin-status.approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.admin-status.rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.admin-application-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 15px 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-detail-item {
+    color: #475569;
+    font-size: 13px;
+}
+
+.admin-detail-item strong {
+    display: block;
+    color: #1e293b;
+    margin-bottom: 3px;
+}
+
+.admin-application-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.admin-action-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 9px 14px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.admin-approve-btn {
+    background: #16a34a;
+}
+
+.admin-reject-btn {
+    background: #dc2626;
+}
+
+.admin-delete-btn {
+    background: #64748b;
+}
+
+.admin-action-btn:hover {
+    opacity: .85;
+}
+
+.no-admin-applications {
+    padding: 40px;
+    text-align: center;
+    color: #64748b;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .admin-application-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .admin-application-details {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .admin-section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-application-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-application-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-application-details {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-application-actions {
+        flex-direction: column;
+    }
+
+    .admin-action-btn {
+        width: 100%;
+    }
+
+}
 </style>
 
 </head>
@@ -2798,6 +3060,111 @@ id="adminApplicationTable">
 
 </div>
 
+   <!-- =====================================================
+     STEP 13 - ADMIN APPLICATION MANAGEMENT
+===================================================== -->
+
+<div class="admin-application-management" id="adminApplicationManagement">
+
+    <div class="admin-section-header">
+        <div>
+            <h2>Application Management</h2>
+            <p>Review and manage internship applications.</p>
+        </div>
+
+        <button
+            type="button"
+            class="refresh-applications-btn"
+            onclick="renderAdminApplications()">
+            🔄 Refresh
+        </button>
+    </div>
+
+    <!-- Application Statistics -->
+
+    <div class="admin-application-stats">
+
+        <div class="admin-app-stat">
+            <span class="stat-icon">📋</span>
+            <div>
+                <strong id="adminTotalApplications">0</strong>
+                <small>Total Applications</small>
+            </div>
+        </div>
+
+        <div class="admin-app-stat">
+            <span class="stat-icon">⏳</span>
+            <div>
+                <strong id="adminPendingApplications">0</strong>
+                <small>Pending</small>
+            </div>
+        </div>
+
+        <div class="admin-app-stat">
+            <span class="stat-icon">✅</span>
+            <div>
+                <strong id="adminApprovedApplications">0</strong>
+                <small>Approved</small>
+            </div>
+        </div>
+
+        <div class="admin-app-stat">
+            <span class="stat-icon">❌</span>
+            <div>
+                <strong id="adminRejectedApplications">0</strong>
+                <small>Rejected</small>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Search and Filter -->
+
+    <div class="admin-application-filters">
+
+        <input
+            type="text"
+            id="adminApplicationSearch"
+            placeholder="🔍 Search applicant or internship..."
+            oninput="renderAdminApplications()">
+
+        <select
+            id="adminApplicationStatus"
+            onchange="renderAdminApplications()">
+
+            <option value="all">
+                All Applications
+            </option>
+
+            <option value="Pending">
+                Pending
+            </option>
+
+            <option value="Approved">
+                Approved
+            </option>
+
+            <option value="Rejected">
+                Rejected
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- Applications -->
+
+    <div
+        class="admin-applications-list"
+        id="adminApplicationsList">
+
+        <!-- Applications will appear here -->
+
+    </div>
+
+</div>
 </section>
 
 
@@ -4800,7 +5167,481 @@ function clearInternshipFilters() {
 
     filterInternships();
 }
+/* =====================================================
+   STEP 13 - ADMIN APPLICATION MANAGEMENT
+===================================================== */
 
+function getAllAdminApplications() {
+
+    let applications = JSON.parse(
+        localStorage.getItem("enhancedInternshipApplications")
+    ) || [];
+
+    return applications;
+
+}
+
+
+/* =====================================================
+   RENDER ADMIN APPLICATIONS
+===================================================== */
+
+function renderAdminApplications() {
+
+    const list =
+        document.getElementById(
+            "adminApplicationsList"
+        );
+
+    if (!list) {
+        return;
+    }
+
+    const searchInput =
+        document.getElementById(
+            "adminApplicationSearch"
+        );
+
+    const statusFilter =
+        document.getElementById(
+            "adminApplicationStatus"
+        );
+
+    const search =
+        searchInput
+        ? searchInput.value.trim().toLowerCase()
+        : "";
+
+    const status =
+        statusFilter
+        ? statusFilter.value
+        : "all";
+
+
+    const applications =
+        getAllAdminApplications();
+
+
+    updateAdminApplicationStats(
+        applications
+    );
+
+
+    const filtered =
+        applications.filter(function(app) {
+
+            const searchMatch =
+                search === "" ||
+                String(app.applicantName || "")
+                    .toLowerCase()
+                    .includes(search) ||
+                String(app.internship || "")
+                    .toLowerCase()
+                    .includes(search) ||
+                String(app.email || "")
+                    .toLowerCase()
+                    .includes(search);
+
+            const statusMatch =
+                status === "all" ||
+                String(app.status || "Pending") === status;
+
+            return searchMatch && statusMatch;
+
+        });
+
+
+    list.innerHTML = "";
+
+
+    if (filtered.length === 0) {
+
+        list.innerHTML = `
+            <div class="no-admin-applications">
+                <h3>📭 No Applications Found</h3>
+                <p>No applications match your search or filter.</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    filtered.forEach(function(app) {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "admin-application-card";
+
+
+        const currentStatus =
+            app.status || "Pending";
+
+
+        const statusClass =
+            currentStatus.toLowerCase();
+
+
+        card.innerHTML = `
+
+            <div class="admin-application-top">
+
+                <div>
+                    <h3>
+                        ${escapeAdminText(
+                            app.applicantName ||
+                            "Applicant"
+                        )}
+                    </h3>
+
+                    <p>
+                        ${escapeAdminText(
+                            app.internship ||
+                            "Internship"
+                        )}
+                    </p>
+                </div>
+
+                <span
+                    class="admin-status ${statusClass}">
+                    ${escapeAdminText(
+                        currentStatus
+                    )}
+                </span>
+
+            </div>
+
+
+            <div class="admin-application-details">
+
+                <div class="admin-detail-item">
+                    <strong>Email</strong>
+                    ${escapeAdminText(
+                        app.email || "-"
+                    )}
+                </div>
+
+                <div class="admin-detail-item">
+                    <strong>Phone</strong>
+                    ${escapeAdminText(
+                        app.phone || "-"
+                    )}
+                </div>
+
+                <div class="admin-detail-item">
+                    <strong>College</strong>
+                    ${escapeAdminText(
+                        app.college || "-"
+                    )}
+                </div>
+
+                <div class="admin-detail-item">
+                    <strong>Skills</strong>
+                    ${escapeAdminText(
+                        app.skills || "-"
+                    )}
+                </div>
+
+                <div class="admin-detail-item">
+                    <strong>Start Date</strong>
+                    ${escapeAdminText(
+                        app.startDate || "-"
+                    )}
+                </div>
+
+                <div class="admin-detail-item">
+                    <strong>Applied On</strong>
+                    ${escapeAdminText(
+                        app.appliedOn || "-"
+                    )}
+                </div>
+
+            </div>
+
+
+            <div class="admin-application-actions">
+
+                ${
+                    currentStatus !== "Approved"
+                    ?
+                    `
+                    <button
+                        type="button"
+                        class="admin-action-btn admin-approve-btn"
+                        onclick="approveAdminApplication(${app.id})">
+                        ✅ Approve
+                    </button>
+                    `
+                    :
+                    ""
+                }
+
+
+                ${
+                    currentStatus !== "Rejected"
+                    ?
+                    `
+                    <button
+                        type="button"
+                        class="admin-action-btn admin-reject-btn"
+                        onclick="rejectAdminApplication(${app.id})">
+                        ❌ Reject
+                    </button>
+                    `
+                    :
+                    ""
+                }
+
+
+                <button
+                    type="button"
+                    class="admin-action-btn admin-delete-btn"
+                    onclick="deleteAdminApplication(${app.id})">
+                    🗑️ Delete
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(card);
+
+    });
+
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+function updateAdminApplicationStats(
+    applications
+) {
+
+    const total =
+        applications.length;
+
+
+    const pending =
+        applications.filter(function(app) {
+            return (app.status || "Pending")
+                === "Pending";
+        }).length;
+
+
+    const approved =
+        applications.filter(function(app) {
+            return app.status === "Approved";
+        }).length;
+
+
+    const rejected =
+        applications.filter(function(app) {
+            return app.status === "Rejected";
+        }).length;
+
+
+    const totalElement =
+        document.getElementById(
+            "adminTotalApplications"
+        );
+
+    const pendingElement =
+        document.getElementById(
+            "adminPendingApplications"
+        );
+
+    const approvedElement =
+        document.getElementById(
+            "adminApprovedApplications"
+        );
+
+    const rejectedElement =
+        document.getElementById(
+            "adminRejectedApplications"
+        );
+
+
+    if (totalElement)
+        totalElement.textContent = total;
+
+    if (pendingElement)
+        pendingElement.textContent = pending;
+
+    if (approvedElement)
+        approvedElement.textContent = approved;
+
+    if (rejectedElement)
+        rejectedElement.textContent = rejected;
+
+}
+
+
+/* =====================================================
+   APPROVE
+===================================================== */
+
+function approveAdminApplication(id) {
+
+    const applications =
+        getAllAdminApplications();
+
+
+    const application =
+        applications.find(function(app) {
+            return app.id === id;
+        });
+
+
+    if (!application) {
+        return;
+    }
+
+
+    application.status =
+        "Approved";
+
+
+    localStorage.setItem(
+        "enhancedInternshipApplications",
+        JSON.stringify(applications)
+    );
+
+
+    if (typeof addNotification === "function") {
+
+        addNotification(
+            "Application Approved",
+            "Congratulations! Your application for " +
+            application.internship +
+            " has been approved.",
+            "✅"
+        );
+
+    }
+
+
+    alert(
+        "Application approved successfully."
+    );
+
+
+    renderAdminApplications();
+
+}
+
+
+/* =====================================================
+   REJECT
+===================================================== */
+
+function rejectAdminApplication(id) {
+
+    const applications =
+        getAllAdminApplications();
+
+
+    const application =
+        applications.find(function(app) {
+            return app.id === id;
+        });
+
+
+    if (!application) {
+        return;
+    }
+
+
+    application.status =
+        "Rejected";
+
+
+    localStorage.setItem(
+        "enhancedInternshipApplications",
+        JSON.stringify(applications)
+    );
+
+
+    if (typeof addNotification === "function") {
+
+        addNotification(
+            "Application Rejected",
+            "Your application for " +
+            application.internship +
+            " has been rejected.",
+            "❌"
+        );
+
+    }
+
+
+    alert(
+        "Application rejected."
+    );
+
+
+    renderAdminApplications();
+
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+function deleteAdminApplication(id) {
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this application?"
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    let applications =
+        getAllAdminApplications();
+
+
+    applications =
+        applications.filter(function(app) {
+            return app.id !== id;
+        });
+
+
+    localStorage.setItem(
+        "enhancedInternshipApplications",
+        JSON.stringify(applications)
+    );
+
+
+    renderAdminApplications();
+
+}
+
+
+/* =====================================================
+   SAFE TEXT
+===================================================== */
+
+function escapeAdminText(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
 </script>
 
 </body>

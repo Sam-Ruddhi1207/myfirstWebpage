@@ -1828,6 +1828,298 @@ footer {
         padding: 18px;
     }
 }
+   /* ==========================================
+   STEP 14B - APPLICATION SEARCH & FILTER
+========================================== */
+
+.application-filter-panel {
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Header */
+
+.application-filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.application-filter-header h3 {
+    margin: 0 0 5px;
+    font-size: 20px;
+    color: #1e293b;
+}
+
+.application-filter-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+#applicationResultCount {
+    padding: 8px 13px;
+    border-radius: 20px;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* Controls */
+
+.application-filter-controls {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 22px;
+}
+
+
+/* Search */
+
+.application-search-box {
+    height: 46px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 13px;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+.application-search-box span {
+    font-size: 17px;
+}
+
+.application-search-box input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #1e293b;
+    font-size: 14px;
+}
+
+.application-search-box:focus-within {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.10);
+}
+
+
+/* Status */
+
+.application-status-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.application-status-filter label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.application-status-filter select {
+    width: 100%;
+    height: 46px;
+    padding: 0 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.application-status-filter select:focus {
+    border-color: #4f46e5;
+}
+
+
+/* Clear button */
+
+.clear-application-filter {
+    height: 46px;
+    padding: 0 17px;
+    border: none;
+    border-radius: 9px;
+    background: #64748b;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.clear-application-filter:hover {
+    background: #475569;
+}
+
+
+/* Application list */
+
+.filtered-applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+
+/* Individual application */
+
+.filtered-application-card {
+    padding: 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    transition: 0.2s ease;
+}
+
+.filtered-application-card:hover {
+    border-color: #c7d2fe;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+
+.filtered-application-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+.filtered-application-info h4 {
+    margin: 0 0 6px;
+    color: #1e293b;
+    font-size: 16px;
+}
+
+.filtered-application-info p {
+    margin: 3px 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* Status badge */
+
+.application-status-badge {
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.application-status-badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.application-status-badge.approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.application-status-badge.rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* Empty result */
+
+.empty-filter-result {
+    padding: 40px 20px;
+    text-align: center;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.empty-filter-result div {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.empty-filter-result h3 {
+    margin: 0 0 5px;
+    color: #334155;
+}
+
+.empty-filter-result p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .application-filter-controls {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .application-search-box {
+        grid-column: 1 / -1;
+    }
+
+    .clear-application-filter {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .application-filter-panel {
+        padding: 18px;
+    }
+
+    .application-filter-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .application-filter-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .application-search-box {
+        grid-column: auto;
+    }
+
+    .clear-application-filter {
+        width: 100%;
+    }
+
+    .filtered-application-main {
+        flex-direction: column;
+    }
+}
 </style>
 
 </head>
@@ -3041,7 +3333,109 @@ Rejected Applications
 
 
 </div>
+<!-- ==========================================
+     STEP 14B - APPLICATION SEARCH & FILTER
+========================================== -->
 
+<div class="application-filter-panel">
+
+    <div class="application-filter-header">
+
+        <div>
+            <h3>Application Management</h3>
+            <p>Search and filter internship applications.</p>
+        </div>
+
+        <span id="applicationResultCount">
+            0 Applications
+        </span>
+
+    </div>
+
+
+    <div class="application-filter-controls">
+
+        <!-- Search -->
+
+        <div class="application-search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="applicationSearchInput"
+                placeholder="Search applicant, email or internship..."
+                oninput="filterApplications14B()"
+            >
+
+        </div>
+
+
+        <!-- Status Filter -->
+
+        <div class="application-status-filter">
+
+            <label for="applicationStatusFilter">
+                Application Status
+            </label>
+
+            <select
+                id="applicationStatusFilter"
+                onchange="filterApplications14B()"
+            >
+
+                <option value="all">
+                    All Applications
+                </option>
+
+                <option value="pending">
+                    Pending
+                </option>
+
+                <option value="approved">
+                    Approved
+                </option>
+
+                <option value="rejected">
+                    Rejected
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Clear Button -->
+
+        <button
+            type="button"
+            class="clear-application-filter"
+            onclick="clearApplicationFilters14B()"
+        >
+            ✕ Clear Filters
+        </button>
+
+    </div>
+
+
+    <!-- Filtered application results -->
+
+    <div
+        id="filteredApplications14B"
+        class="filtered-applications-list"
+    >
+
+        <div class="empty-filter-result">
+            <div>📋</div>
+            <h3>No Applications Found</h3>
+            <p>
+                Applications will appear here after users apply.
+            </p>
+        </div>
+
+    </div>
+
+</div>
 
 <div class="admin-controls">
 
@@ -5846,6 +6240,369 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
         updateApplicationStatistics();
+    }
+);
+   /* ==========================================
+   STEP 14B - APPLICATION SEARCH & FILTER
+========================================== */
+
+function getApplicationsFor14B() {
+
+    let data = [];
+
+    try {
+
+        data = JSON.parse(
+            localStorage.getItem("internshipApplications") || "[]"
+        );
+
+    } catch (error) {
+
+        data = [];
+
+    }
+
+    if (!Array.isArray(data)) {
+
+        data = [];
+
+    }
+
+    return data;
+}
+
+
+/* ==========================================
+   FILTER APPLICATIONS
+========================================== */
+
+function filterApplications14B() {
+
+    const searchInput =
+        document.getElementById(
+            "applicationSearchInput"
+        );
+
+    const statusFilter =
+        document.getElementById(
+            "applicationStatusFilter"
+        );
+
+    const resultContainer =
+        document.getElementById(
+            "filteredApplications14B"
+        );
+
+    const resultCount =
+        document.getElementById(
+            "applicationResultCount"
+        );
+
+
+    if (!resultContainer) {
+
+        return;
+
+    }
+
+
+    const searchText =
+        searchInput
+            ? searchInput.value.trim().toLowerCase()
+            : "";
+
+
+    const selectedStatus =
+        statusFilter
+            ? statusFilter.value.toLowerCase()
+            : "all";
+
+
+    const applications =
+        getApplicationsFor14B();
+
+
+    const filteredApplications =
+        applications.filter(function(application) {
+
+
+            /* -----------------------------
+               APPLICATION STATUS
+            ----------------------------- */
+
+            const status =
+                String(
+                    application.status || "Pending"
+                ).toLowerCase();
+
+
+            /* -----------------------------
+               SEARCH TEXT
+            ----------------------------- */
+
+            const applicantName =
+                String(
+                    application.name || ""
+                ).toLowerCase();
+
+
+            const email =
+                String(
+                    application.email || ""
+                ).toLowerCase();
+
+
+            const internship =
+                String(
+                    application.internship || ""
+                ).toLowerCase();
+
+
+            const company =
+                String(
+                    application.company || ""
+                ).toLowerCase();
+
+
+            const searchableText =
+                applicantName +
+                " " +
+                email +
+                " " +
+                internship +
+                " " +
+                company;
+
+
+            /* -----------------------------
+               SEARCH MATCH
+            ----------------------------- */
+
+            const searchMatches =
+                searchText === "" ||
+                searchableText.includes(searchText);
+
+
+            /* -----------------------------
+               STATUS MATCH
+            ----------------------------- */
+
+            const statusMatches =
+                selectedStatus === "all" ||
+                status === selectedStatus;
+
+
+            return (
+                searchMatches &&
+                statusMatches
+            );
+
+        });
+
+
+    /* -----------------------------
+       RESULT COUNT
+    ----------------------------- */
+
+    if (resultCount) {
+
+        const number =
+            filteredApplications.length;
+
+        resultCount.textContent =
+            number +
+            (number === 1
+                ? " Application"
+                : " Applications");
+
+    }
+
+
+    /* -----------------------------
+       EMPTY RESULT
+    ----------------------------- */
+
+    if (filteredApplications.length === 0) {
+
+        resultContainer.innerHTML = `
+
+            <div class="empty-filter-result">
+
+                <div>🔍</div>
+
+                <h3>
+                    No Applications Found
+                </h3>
+
+                <p>
+                    Try changing your search or status filter.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* -----------------------------
+       DISPLAY RESULTS
+    ----------------------------- */
+
+    resultContainer.innerHTML = "";
+
+
+    filteredApplications.forEach(
+        function(application) {
+
+
+            const status =
+                application.status ||
+                "Pending";
+
+
+            const statusClass =
+                status.toLowerCase();
+
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "filtered-application-card";
+
+
+            card.innerHTML = `
+
+                <div class="filtered-application-main">
+
+                    <div class="filtered-application-info">
+
+                        <h4>
+                            ${escapeApplicationText14B(
+                                application.name ||
+                                "Applicant"
+                            )}
+                        </h4>
+
+                        <p>
+                            📧
+                            ${escapeApplicationText14B(
+                                application.email ||
+                                "No email"
+                            )}
+                        </p>
+
+                        <p>
+                            💼
+                            ${escapeApplicationText14B(
+                                application.internship ||
+                                "Internship not specified"
+                            )}
+                        </p>
+
+                        ${
+                            application.company
+                            ? `
+                            <p>
+                                🏢
+                                ${escapeApplicationText14B(
+                                    application.company
+                                )}
+                            </p>
+                            `
+                            : ""
+                        }
+
+                    </div>
+
+
+                    <span
+                        class="application-status-badge ${statusClass}"
+                    >
+                        ${escapeApplicationText14B(
+                            status
+                        )}
+                    </span>
+
+                </div>
+
+            `;
+
+
+            resultContainer.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* ==========================================
+   CLEAR FILTERS
+========================================== */
+
+function clearApplicationFilters14B() {
+
+    const searchInput =
+        document.getElementById(
+            "applicationSearchInput"
+        );
+
+    const statusFilter =
+        document.getElementById(
+            "applicationStatusFilter"
+        );
+
+
+    if (searchInput) {
+
+        searchInput.value = "";
+
+    }
+
+
+    if (statusFilter) {
+
+        statusFilter.value = "all";
+
+    }
+
+
+    filterApplications14B();
+
+}
+
+
+/* ==========================================
+   SAFE TEXT
+========================================== */
+
+function escapeApplicationText14B(value) {
+
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* ==========================================
+   INITIALIZE STEP 14B
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        filterApplications14B();
+
     }
 );
 </script>

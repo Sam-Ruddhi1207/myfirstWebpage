@@ -2120,6 +2120,348 @@ footer {
         flex-direction: column;
     }
 }
+   /* =====================================================
+   STEP 15A - ADMIN APPLICATION DETAILS MODAL
+===================================================== */
+
+.admin-details-modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 3000;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(15, 23, 42, 0.75);
+
+    padding: 25px 15px;
+
+    overflow-y: auto;
+}
+
+.admin-details-modal.active {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.admin-details-box {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 800px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.25);
+
+    animation: adminDetailsOpen 0.25s ease;
+}
+
+@keyframes adminDetailsOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(-25px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* Close Button */
+
+.admin-details-close {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    color: #334155;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.admin-details-close:hover {
+    background: #dc2626;
+
+    color: white;
+}
+
+
+/* Header */
+
+.admin-details-header {
+    padding-right: 50px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding-bottom: 20px;
+}
+
+.admin-details-header h2 {
+    margin: 0 0 7px;
+
+    color: #4338ca;
+
+    font-size: 27px;
+}
+
+.admin-details-header p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* Status */
+
+.admin-details-status {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.admin-details-status.pending {
+    background: #fef3c7;
+
+    color: #92400e;
+}
+
+.admin-details-status.approved {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.admin-details-status.rejected {
+    background: #fee2e2;
+
+    color: #991b1b;
+}
+
+
+/* Details Grid */
+
+.admin-details-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Individual Detail */
+
+.admin-detail-box {
+    padding: 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 11px;
+}
+
+.admin-detail-box.full-width {
+    grid-column: 1 / -1;
+}
+
+.admin-detail-box label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+.admin-detail-box span {
+    display: block;
+
+    color: #1e293b;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+
+/* Message */
+
+.admin-details-message {
+    margin-top: 20px;
+
+    padding: 18px;
+
+    background: #eef2ff;
+
+    border-radius: 12px;
+
+    border: 1px solid #c7d2fe;
+}
+
+.admin-details-message h3 {
+    margin: 0 0 10px;
+
+    color: #4338ca;
+
+    font-size: 17px;
+}
+
+.admin-details-message p {
+    margin: 0;
+
+    color: #475569;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* Action Buttons */
+
+.admin-details-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.admin-details-action-btn {
+    flex: 1;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.admin-details-action-btn:hover {
+    opacity: 0.85;
+
+    transform: translateY(-1px);
+}
+
+.admin-details-approve {
+    background: #16a34a;
+}
+
+.admin-details-reject {
+    background: #dc2626;
+}
+
+.admin-details-delete {
+    background: #64748b;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .admin-details-box {
+        padding: 23px 18px;
+
+        max-height: 92vh;
+    }
+
+    .admin-details-header h2 {
+        font-size: 22px;
+    }
+
+    .admin-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-detail-box.full-width {
+        grid-column: auto;
+    }
+
+    .admin-details-actions {
+        flex-direction: column;
+    }
+
+    .admin-details-action-btn {
+        width: 100%;
+    }
+
+}s
 </style>
 
 </head>
@@ -3786,7 +4128,215 @@ Apply Now
 </div>
 
 </div>
+<!-- =====================================================
+     STEP 15A - ADMIN APPLICATION DETAILS MODAL
+===================================================== -->
 
+<div
+    class="admin-details-modal"
+    id="adminDetailsModal">
+
+    <div class="admin-details-box">
+
+        <!-- Close Button -->
+
+        <button
+            type="button"
+            class="admin-details-close"
+            onclick="closeAdminApplicationDetails()">
+
+            ×
+
+        </button>
+
+
+        <!-- Header -->
+
+        <div class="admin-details-header">
+
+            <h2 id="adminDetailsApplicantName">
+                Application Details
+            </h2>
+
+            <p id="adminDetailsInternship">
+                Internship
+            </p>
+
+            <span
+                id="adminDetailsStatus"
+                class="admin-details-status pending">
+
+                Pending
+
+            </span>
+
+        </div>
+
+
+        <!-- Application Information -->
+
+        <div class="admin-details-grid">
+
+
+            <div class="admin-detail-box">
+
+                <label>
+                    Applicant Name
+                </label>
+
+                <span id="adminDetailsName">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="admin-detail-box">
+
+                <label>
+                    Email
+                </label>
+
+                <span id="adminDetailsEmail">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="admin-detail-box">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <span id="adminDetailsPhone">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="admin-detail-box">
+
+                <label>
+                    Internship
+                </label>
+
+                <span id="adminDetailsInternshipName">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="admin-detail-box">
+
+                <label>
+                    Company
+                </label>
+
+                <span id="adminDetailsCompany">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="admin-detail-box">
+
+                <label>
+                    Location
+                </label>
+
+                <span id="adminDetailsLocation">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="admin-detail-box">
+
+                <label>
+                    Application Date
+                </label>
+
+                <span id="adminDetailsDate">
+                    -
+                </span>
+
+            </div>
+
+
+            <div class="admin-detail-box">
+
+                <label>
+                    Application ID
+                </label>
+
+                <span id="adminDetailsId">
+                    -
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Student Message -->
+
+        <div class="admin-details-message">
+
+            <h3>
+                📝 Why do you want this internship?
+            </h3>
+
+            <p id="adminDetailsMessage">
+                No message provided.
+            </p>
+
+        </div>
+
+
+        <!-- Actions -->
+
+        <div class="admin-details-actions">
+
+            <button
+                type="button"
+                class="admin-details-action-btn admin-details-approve"
+                id="adminDetailsApproveBtn">
+
+                ✅ Approve
+
+            </button>
+
+
+            <button
+                type="button"
+                class="admin-details-action-btn admin-details-reject"
+                id="adminDetailsRejectBtn">
+
+                ❌ Reject
+
+            </button>
+
+
+            <button
+                type="button"
+                class="admin-details-action-btn admin-details-delete"
+                id="adminDetailsDeleteBtn">
+
+                🗑️ Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 <!-- =====================================================
      FOOTER
@@ -6602,6 +7152,302 @@ document.addEventListener(
     function () {
 
         filterApplications14B();
+
+    }
+);
+   /* =====================================================
+   STEP 15A - ADMIN APPLICATION DETAILS
+===================================================== */
+
+
+/* =====================================================
+   OPEN APPLICATION DETAILS
+===================================================== */
+
+function viewAdminApplicationDetails(id) {
+
+    let applicationsData = [];
+
+    try {
+
+        applicationsData = JSON.parse(
+            localStorage.getItem("internshipApplications") || "[]"
+        );
+
+    } catch (error) {
+
+        applicationsData = [];
+
+    }
+
+
+    if (!Array.isArray(applicationsData)) {
+
+        applicationsData = [];
+
+    }
+
+
+    const application =
+        applicationsData.find(function(app) {
+
+            return String(app.id) === String(id);
+
+        });
+
+
+    if (!application) {
+
+        alert(
+            "Application details could not be found."
+        );
+
+        return;
+
+    }
+
+
+    /* Applicant Name */
+
+    document.getElementById(
+        "adminDetailsApplicantName"
+    ).textContent =
+        application.name || "Applicant";
+
+
+    /* Internship */
+
+    document.getElementById(
+        "adminDetailsInternship"
+    ).textContent =
+        application.internship || "Internship";
+
+
+    document.getElementById(
+        "adminDetailsName"
+    ).textContent =
+        application.name || "-";
+
+
+    /* Email */
+
+    document.getElementById(
+        "adminDetailsEmail"
+    ).textContent =
+        application.email || "-";
+
+
+    /* Phone */
+
+    document.getElementById(
+        "adminDetailsPhone"
+    ).textContent =
+        application.phone || "-";
+
+
+    /* Internship */
+
+    document.getElementById(
+        "adminDetailsInternshipName"
+    ).textContent =
+        application.internship || "-";
+
+
+    /* Company */
+
+    document.getElementById(
+        "adminDetailsCompany"
+    ).textContent =
+        application.company || "-";
+
+
+    /* Location */
+
+    document.getElementById(
+        "adminDetailsLocation"
+    ).textContent =
+        application.location || "-";
+
+
+    /* Date */
+
+    document.getElementById(
+        "adminDetailsDate"
+    ).textContent =
+        application.date || "-";
+
+
+    /* ID */
+
+    document.getElementById(
+        "adminDetailsId"
+    ).textContent =
+        application.id || "-";
+
+
+    /* Message */
+
+    document.getElementById(
+        "adminDetailsMessage"
+    ).textContent =
+        application.message ||
+        "No message provided.";
+
+
+    /* Status */
+
+    const status =
+        application.status || "Pending";
+
+
+    const statusElement =
+        document.getElementById(
+            "adminDetailsStatus"
+        );
+
+
+    statusElement.textContent =
+        status;
+
+
+    statusElement.className =
+        "admin-details-status " +
+        status.toLowerCase();
+
+
+    /* Approve Button */
+
+    document.getElementById(
+        "adminDetailsApproveBtn"
+    ).onclick =
+        function() {
+
+            approveApplication(
+                application.id
+            );
+
+            closeAdminApplicationDetails();
+
+        };
+
+
+    /* Reject Button */
+
+    document.getElementById(
+        "adminDetailsRejectBtn"
+    ).onclick =
+        function() {
+
+            rejectApplication(
+                application.id
+            );
+
+            closeAdminApplicationDetails();
+
+        };
+
+
+    /* Delete Button */
+
+    document.getElementById(
+        "adminDetailsDeleteBtn"
+    ).onclick =
+        function() {
+
+            deleteApplication(
+                application.id
+            );
+
+            closeAdminApplicationDetails();
+
+        };
+
+
+    /* Open Modal */
+
+    document.getElementById(
+        "adminDetailsModal"
+    ).classList.add("active");
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =====================================================
+   CLOSE APPLICATION DETAILS
+===================================================== */
+
+function closeAdminApplicationDetails() {
+
+    const modal =
+        document.getElementById(
+            "adminDetailsModal"
+        );
+
+
+    if (!modal) {
+
+        return;
+
+    }
+
+
+    modal.classList.remove(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "auto";
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const modal =
+            document.getElementById(
+                "adminDetailsModal"
+            );
+
+
+        if (
+            modal &&
+            event.target === modal
+        ) {
+
+            closeAdminApplicationDetails();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeAdminApplicationDetails();
+
+        }
 
     }
 );

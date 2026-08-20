@@ -1949,6 +1949,193 @@ footer {
     }
 
 }
+   /* ==========================================
+   STEP 15B - STUDENT APPLICATION STATUS CSS
+========================================== */
+
+.student-application-status-panel {
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 25px;
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 7px 22px rgba(0, 0, 0, 0.06);
+}
+
+.student-status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.student-status-header h3 {
+    margin: 0 0 6px;
+
+    font-size: 21px;
+    color: #1e293b;
+}
+
+.student-status-header p {
+    margin: 0;
+
+    font-size: 13px;
+    color: #64748b;
+}
+
+.student-status-count {
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    background: #eef2ff;
+    color: #4338ca;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.student-application-status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.student-status-card {
+    padding: 18px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+
+    background: #f8fafc;
+}
+
+.student-status-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 15px;
+}
+
+.student-status-card h4 {
+    margin: 0 0 7px;
+
+    font-size: 17px;
+    color: #1e293b;
+}
+
+.student-status-card p {
+    margin: 4px 0;
+
+    color: #64748b;
+    font-size: 13px;
+}
+
+.student-status-badge {
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.student-status-badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.student-status-badge.approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.student-status-badge.rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.student-status-message {
+    margin-top: 14px;
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.student-status-message.pending {
+    background: #fffbeb;
+    color: #92400e;
+}
+
+.student-status-message.approved {
+    background: #f0fdf4;
+    color: #166534;
+}
+
+.student-status-message.rejected {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.student-status-empty {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    border: 2px dashed #cbd5e1;
+    border-radius: 14px;
+
+    background: #f8fafc;
+}
+
+.student-status-empty-icon {
+    font-size: 35px;
+    margin-bottom: 9px;
+}
+
+.student-status-empty h3 {
+    margin: 0 0 6px;
+
+    color: #334155;
+}
+
+.student-status-empty p {
+    margin: 0;
+
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media (max-width: 650px) {
+
+    .student-status-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .student-status-card-top {
+        flex-direction: column;
+    }
+
+    .student-status-badge {
+        align-self: flex-start;
+    }
+}
 </style>
 
 </head>
@@ -3047,7 +3234,56 @@ Rejected Applications
 
 
 </div>
+<!-- ==========================================
+     STEP 15A - APPLICATION STATUS
+========================================== -->
 
+<div class="student-application-status-panel">
+
+    <div class="student-status-header">
+
+        <div>
+            <h3>My Application Status</h3>
+
+            <p>
+                Track the status of your internship applications.
+            </p>
+        </div>
+
+        <span
+            id="studentApplicationStatusCount"
+            class="student-status-count">
+            0 Applications
+        </span>
+
+    </div>
+
+
+    <div
+        id="studentApplicationStatusList"
+        class="student-application-status-list">
+
+        <div class="student-status-empty">
+
+            <div class="student-status-empty-icon">
+                📋
+            </div>
+
+            <h3>No Applications Found</h3>
+
+            <p>
+                Your submitted applications will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     END STEP 15A
+========================================== -->
 </section>
 
 
@@ -6107,6 +6343,223 @@ function updateAdminFilterCount14() {
         );
 
 }
+   /* ==========================================
+   STEP 15C - STUDENT APPLICATION STATUS JS
+========================================== */
+
+function loadStudentApplicationStatus15() {
+
+    let applications = [];
+
+    try {
+
+        applications = JSON.parse(
+            localStorage.getItem("internshipApplications") || "[]"
+        );
+
+    } catch (error) {
+
+        applications = [];
+
+    }
+
+    if (!Array.isArray(applications)) {
+        applications = [];
+    }
+
+    const list =
+        document.getElementById(
+            "studentApplicationStatusList"
+        );
+
+    const count =
+        document.getElementById(
+            "studentApplicationStatusCount"
+        );
+
+    if (!list) {
+        return;
+    }
+
+
+    if (count) {
+
+        count.textContent =
+            applications.length +
+            (
+                applications.length === 1
+                    ? " Application"
+                    : " Applications"
+            );
+
+    }
+
+
+    if (applications.length === 0) {
+
+        list.innerHTML = `
+
+            <div class="student-status-empty">
+
+                <div class="student-status-empty-icon">
+                    📋
+                </div>
+
+                <h3>No Applications Found</h3>
+
+                <p>
+                    Your submitted applications will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    list.innerHTML = "";
+
+
+    applications.forEach(function(application) {
+
+        const internship =
+            application.internship ||
+            application.internshipTitle ||
+            application.title ||
+            "Internship";
+
+        const email =
+            application.email ||
+            "";
+
+        const status =
+            application.status ||
+            "Pending";
+
+
+        const statusClass =
+            status.toLowerCase().trim();
+
+
+        let message =
+            "Your application is currently under review.";
+
+
+        if (statusClass === "approved") {
+
+            message =
+                "🎉 Congratulations! Your application has been approved.";
+
+        } else if (statusClass === "rejected") {
+
+            message =
+                "Your application was not selected for this internship.";
+
+        }
+
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "student-status-card";
+
+
+        card.innerHTML = `
+
+            <div class="student-status-card-top">
+
+                <div>
+
+                    <h4>
+                        ${escapeStudentStatusText15(
+                            internship
+                        )}
+                    </h4>
+
+                    <p>
+                        📧
+                        ${escapeStudentStatusText15(
+                            email
+                        )}
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="student-status-badge ${statusClass}">
+
+                    ${escapeStudentStatusText15(
+                        status
+                    )}
+
+                </span>
+
+            </div>
+
+
+            <div
+                class="student-status-message ${statusClass}">
+
+                ${message}
+
+            </div>
+
+        `;
+
+
+        list.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   SAFE TEXT
+========================================== */
+
+function escapeStudentStatusText15(value) {
+
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* ==========================================
+   LOAD STATUS WHEN PAGE OPENS
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadStudentApplicationStatus15();
+
+    }
+);
+
+
+/* ==========================================
+   REFRESH WHEN APPLICATION DATA CHANGES
+========================================== */
+
+window.addEventListener(
+    "storage",
+    function() {
+
+        loadStudentApplicationStatus15();
+
+    }
+);
 </script>
 
 </body>

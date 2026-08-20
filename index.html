@@ -96,10 +96,30 @@
       margin-top: 50px;
     }
 
+    /* Responsive grid layout with media queries */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+    }
+
+    /* Fixed 4-column layout for large screens */
+    @media (min-width: 1200px) {
+      .cards {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    /* 2-column for tablets */
+    @media (max-width: 1199px) and (min-width: 768px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    /* 1-column for mobiles */
+    @media (max-width: 767px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
     }
 
     .card {
@@ -144,6 +164,29 @@
       transform: scale(1.05);
     }
 
+    /* Application status styles */
+    .status {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .status.approved { background-color: #4CAF50; }
+    .status.rejected { background-color: #f44336; }
+    .status.withdrawn { background-color: #ff9800; }
+
+    /* Application count badge */
+    #applicationCount {
+      background-color: #2196F3;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      margin-left: 10px;
+    }
+
     /* Footer styling */
     footer {
       background-color: rgba(255, 255, 255, 0.9);
@@ -153,19 +196,41 @@
       box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
     }
 
-    /* Responsive adjustments */
-    @media(max-width: 600px){
-      header h1 {
-        font-size: 2em;
-      }
-      nav button {
-        padding: 10px 20px;
-        font-size: 0.9em;
-      }
-      .section-title {
-        font-size: 1.5em;
-      }
+    /* Form styling */
+    #apply {
+      padding:50px 20px; 
+      background-color: rgba(255,255,255,0.8); 
+      text-align:center;
     }
+    #applicationForm {
+      margin-top:20px; 
+      max-width:600px; 
+      margin-left:auto; 
+      margin-right:auto; 
+      text-align:left;
+    }
+    #applicationForm label {
+      display:block; 
+      margin-top:10px; 
+      font-weight:bold;
+    }
+    #applicationForm input {
+      width:100%; 
+      padding:10px; 
+      margin-top:8px; 
+      margin-bottom:15px; 
+      border-radius:8px; 
+      border:1px solid #ccc;
+    }
+
+    /* Button in form */
+    #applicationForm button {
+      width:100%; 
+      padding:12px;
+    }
+
+    /* Responsive adjustments already included above */
+
   </style>
 </head>
 <body>
@@ -175,16 +240,20 @@
       <button onclick="scrollToSection('about')">About</button>
       <button onclick="scrollToSection('internships')">Internships</button>
       <button onclick="scrollToSection('apply')">Apply</button>
+      <button onclick="scrollToSection('applications')">Applications <span id="applicationCount">0</span></button>
+      <button onclick="scrollToSection('tracking')">Tracking</button>
     </nav>
   </header>
 
+  <!-- About Section -->
   <section id="about">
     <h2 class="section-title">About Us</h2>
     <p>
-      Welcome to the Internship Portal! We are dedicated to connecting talented students with top companies across various domains. Explore available internships and kickstart your career today!
+      Welcome to the Internship Portal! We connect talented students with top companies across various domains. Explore available internships, apply, and track your applications effortlessly!
     </p>
   </section>
 
+  <!-- Internships Section -->
   <section id="internships">
     <h2 class="section-title">Available Internships</h2>
     <div class="cards" id="internshipCards">
@@ -241,42 +310,146 @@
     </div>
   </section>
 
-  <section id="apply" style="padding:50px 20px; background-color: rgba(255,255,255,0.8); text-align:center;">
+  <!-- Applications Section -->
+  <section id="applications" style="padding:50px 20px;">
+    <h2 class="section-title">Your Applications</h2>
+    <div id="applicationList" style="margin-top:20px; max-width:800px; margin-left:auto; margin-right:auto;">
+      <p>No applications yet.</p>
+    </div>
+  </section>
+
+  <!-- Tracking Section -->
+  <section id="tracking" style="padding:50px 20px;">
+    <h2 class="section-title">Application Status Tracker</h2>
+    <div id="statusContainer" style="margin-top:20px; max-width:800px; margin-left:auto; margin-right:auto;">
+      <p>No applications to track. Please apply first.</p>
+    </div>
+  </section>
+
+  <!-- Apply Form -->
+  <section id="apply">
     <h2 class="section-title">Apply for an Internship</h2>
     <p style="font-size:1.2em;">Fill out the form below to submit your application.</p>
-    <form id="applicationForm" style="margin-top:20px; max-width:600px; margin-left:auto; margin-right:auto; text-align:left;">
-      <label for="name">Full Name:</label><br>
-      <input type="text" id="name" name="name" required style="width:100%; padding:10px; margin-top:8px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;"><br>
-      
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" required style="width:100%; padding:10px; margin-top:8px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;"><br>
-      
-      <label for="internship">Internship Title:</label><br>
-      <input type="text" id="internship" name="internship" required style="width:100%; padding:10px; margin-top:8px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;"><br>
-      
-      <button type="submit" class="btn" style="width:100%; padding:12px;">Submit Application</button>
+    <form id="applicationForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <label for="internship">Internship Title:</label>
+      <input type="text" id="internship" required />
+
+      <button type="submit" class="btn">Submit Application</button>
     </form>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2024 Internship Portal. All rights reserved.</p>
   </footer>
 
   <script>
+    // Data structures
+    let applications = [];
+    let applicationCount = 0;
+
+    // Scroll to sections
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({behavior: 'smooth'});
     }
 
+    // Apply Now button
     function applyNow(title) {
       document.getElementById('internship').value = title;
-      window.scrollTo({ top: document.getElementById('apply').offsetTop, behavior: 'smooth' });
+      scrollToSection('apply');
     }
 
+    // Handle form submission
     document.getElementById('applicationForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Thank you for applying! We will contact you soon.');
-      this.reset();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const internship = document.getElementById('internship').value.trim();
+
+      if(name && email && internship) {
+        // Add to applications
+        applications.push({
+          name,
+          email,
+          internship,
+          status: 'Pending'
+        });
+        applicationCount++;
+        document.getElementById('applicationCount').textContent = applicationCount;
+        updateApplicationList();
+        updateStatusTracker();
+        alert('Application submitted successfully!');
+        document.getElementById('applicationForm').reset();
+      }
     });
+
+    // Update application list display
+    function updateApplicationList() {
+      const listDiv = document.getElementById('applicationList');
+      listDiv.innerHTML = '';
+      if(applications.length === 0) {
+        listDiv.innerHTML = '<p>No applications yet.</p>';
+        return;
+      }
+      applications.forEach((app, index) => {
+        const div = document.createElement('div');
+        div.style.border = '1px solid #ccc';
+        div.style.borderRadius = '10px';
+        div.style.padding = '10px';
+        div.style.marginBottom = '10px';
+        div.innerHTML = `
+          <strong>Name:</strong> ${app.name}<br>
+          <strong>Email:</strong> ${app.email}<br>
+          <strong>Internship:</strong> ${app.internship}<br>
+          <strong>Status:</strong> <span class="status ${app.status.toLowerCase()}">${app.status}</span>
+          <br>
+          <button onclick="changeStatus(${index}, 'Approved')" class="btn" style="background-color:#4CAF50; margin-top:10px;">Approve</button>
+          <button onclick="changeStatus(${index}, 'Rejected')" class="btn" style="background-color:#f44336; margin-top:10px;">Reject</button>
+          <button onclick="changeStatus(${index}, 'Withdrawn')" class="btn" style="background-color:#ff9800; margin-top:10px;">Withdraw</button>
+        `;
+        listDiv.appendChild(div);
+      });
+    }
+
+    // Update status tracker
+    function updateStatusTracker() {
+      const container = document.getElementById('statusContainer');
+      container.innerHTML = '';
+      if(applications.length === 0) {
+        container.innerHTML = '<p>No applications to track. Please apply first.</p>';
+        return;
+      }
+      applications.forEach((app, index) => {
+        const div = document.createElement('div');
+        div.style.border = '1px solid #ccc';
+        div.style.borderRadius = '10px';
+        div.style.padding = '10px';
+        div.style.marginBottom = '10px';
+        div.innerHTML = `
+          <strong>Name:</strong> ${app.name}<br>
+          <strong>Internship:</strong> ${app.internship}<br>
+          <strong>Status:</strong> <span class="status ${app.status.toLowerCase()}">${app.status}</span>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Change application status
+    function changeStatus(index, newStatus) {
+      applications[index].status = newStatus;
+      updateApplicationList();
+      updateStatusTracker();
+    }
+
+    // Initialize display
+    updateApplicationList();
+    updateStatusTracker();
   </script>
 </body>
 </html>

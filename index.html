@@ -1,6567 +1,796 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Internship Portal</title>
-
-
 <style>
-
-/* =========================
-   RESET
-========================= */
-
-* {
+  /* Basic Reset & Styles */
+  * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+  }
 
-html {
-    scroll-behavior: smooth;
-}
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f7fb;
+    color: #333;
+  }
 
-body {
-    background: #f5f7fb;
-    color: #222;
-}
-
-section {
-    scroll-margin-top: 80px;
-}
-
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar {
-    background: linear-gradient(135deg, #4338ca, #7c3aed);
+  /* Navigation Styles */
+  nav {
+    background-color: #222;
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
+  }
 
-.nav-container {
-    max-width: 1400px;
-    margin: auto;
-    min-height: 75px;
-    padding: 0 30px;
-
+  .nav-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-}
+    align-items: center;
+  }
 
-.logo {
-    color: white;
-    text-decoration: none;
+  .logo {
+    color: #fff;
     font-size: 24px;
     font-weight: bold;
-}
+  }
 
-.nav-menu {
+  .nav-menu {
     list-style: none;
-
     display: flex;
-    align-items: center;
+  }
 
-    gap: 4px;
-}
+  .nav-menu li {
+    margin-left: 20px;
+  }
 
-.nav-menu li a {
-    color: white;
+  .nav-menu li a {
+    color: #fff;
     text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
 
-    padding: 10px 11px;
+  .nav-menu li a:hover {
+    background-color: #4f46e5;
+  }
 
-    border-radius: 7px;
-
-    font-size: 13px;
-
-    transition: 0.3s;
-}
-
-.nav-menu li a:hover {
-    background: rgba(255,255,255,0.15);
-    color: #ffd700;
-}
-
-.login-btn {
-    background: white !important;
-    color: #4338ca !important;
-    font-weight: bold;
-}
-
-.menu-toggle {
-    display: none;
-
-    background: transparent;
-    border: none;
-
-    color: white;
-
-    font-size: 28px;
-
-    cursor: pointer;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 520px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #4f46e5,
-            #7c3aed
-        );
-
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 60px 20px;
-}
-
-.hero h1 {
-    font-size: 52px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 800px;
-
-    font-size: 19px;
-
-    margin-bottom: 30px;
-}
-
-.hero-btn {
-    display: inline-block;
-
-    background: white;
-
-    color: #4f46e5;
-
-    text-decoration: none;
-
-    padding: 14px 28px;
-
-    border-radius: 8px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-.hero-btn:hover {
-    background: #ffd700;
-    color: #222;
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-section {
-    background: white;
-
-    text-align: center;
-
-    padding: 40px 20px;
-}
-
-.search-section h2 {
-    margin-bottom: 20px;
-}
-
-#searchBox {
-    width: 70%;
-    max-width: 650px;
-
-    padding: 14px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 8px;
-
-    font-size: 16px;
-
-    outline: none;
-}
-
-
-/* =========================
-   COMMON
-========================= */
-
-.page-section {
-    padding: 70px 8%;
+  /* Sections */
+section {
+  padding: 70px 8%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .section-title {
-    text-align: center;
-
-    font-size: 34px;
-
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  font-weight: 700;
+  color: #222;
 }
 
-
-/* =========================
-   INTERNSHIP CARDS
-========================= */
-
-.internship-grid {
-    max-width: 1150px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 25px;
+/* Hero / Home */
+#home {
+  background-color: #e0e7ff;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 10px;
 }
 
-.internship-card {
-    background: white;
-
-    border-radius: 15px;
-
-    padding: 25px;
-
-    min-height: 350px;
-
-    display: flex;
-    flex-direction: column;
-
-    box-shadow:
-        0 5px 18px
-        rgba(0,0,0,0.08);
-
-    border: 1px solid #e5e7eb;
-
-    transition: 0.3s;
+#home h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #1e3a8a;
 }
 
-.internship-card:hover {
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 12px 30px
-        rgba(0,0,0,0.14);
+#home p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
-.internship-card h3 {
-    color: #4338ca;
-
-    margin-bottom: 12px;
+.btn {
+  padding: 12px 24px;
+  background-color: #4f46e5;
+  color: #fff;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.internship-card p {
-    color: #555;
-
-    margin: 5px 0;
+.btn:hover {
+  background-color: #3730a3;
 }
 
-.badge {
-    display: inline-block;
-
-    width: fit-content;
-
-    margin-top: 12px;
-
-    padding: 5px 10px;
-
-    border-radius: 20px;
-
-    background: #eef2ff;
-
-    color: #4338ca;
-
-    font-size: 12px;
+/* About & other sections */
+#about, #internships, #apply, #myApplications, #application-tracking, #support, #faq, #footer {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-
-/* =========================
-   CARD BUTTONS
-========================= */
-
-.card-buttons {
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: auto;
+/* Internship Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-.card-buttons button {
-    flex: 1;
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-.apply-btn {
-    padding: 12px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: #4f46e5;
-
-    color: white;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.apply-btn:hover {
-    background: #3730a3;
+.card h3 {
+  margin-bottom: 10px;
+  color: #1e3a8a;
 }
 
-.details-btn {
-    padding: 12px;
-
-    border: 2px solid #4f46e5;
-
-    border-radius: 8px;
-
-    background: white;
-
-    color: #4f46e5;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
+.card p {
+  margin-bottom: 10px;
 }
 
-.details-btn:hover {
-    background: #4f46e5;
-
-    color: white;
+/* Application Form */
+#applicationForm {
+  max-width: 600px;
+  margin: auto;
 }
 
-
-/* =========================
-   APPLY
-========================= */
-
-.apply-section {
-    background: #eef2ff;
-
-    padding: 70px 20px;
+#applicationForm .form-group {
+  margin-bottom: 15px;
 }
 
-.form-container {
-    max-width: 750px;
-
-    margin: auto;
-
-    background: white;
-
-    padding: 35px;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 8px 30px
-        rgba(0,0,0,0.08);
+#applicationForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
-.form-container h2 {
-    text-align: center;
+#applicationForm input, #applicationForm select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
 
-    color: #4338ca;
+#applicationForm button {
+  width: 100%;
+  padding: 14px;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
 
-    margin-bottom: 25px;
+#applicationForm button:hover {
+  background-color: #3730a3;
+}
+
+/* Application Tracking Styles */
+.application-tracking {
+  padding: 70px 8%;
+  background: #f5f7fb;
+}
+
+.tracking-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tracker-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.tracker-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.progress-line {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  background: #ccc;
+  z-index: -1;
+}
+
+.progress-line-active {
+  background: #4f46e5;
+}
+
+.tracker-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+  transition: background 0.3s;
+}
+
+.circle.active {
+  background: #4f46e5;
+}
+
+.step-label {
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Contact & Support */
+.contact-support {
+  padding: 70px 8%;
+  background: #f5f7fb;
+  text-align: center;
+}
+
+.support-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.support-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  flex: 1 1 200px;
+  min-width: 200px;
+  text-align: center;
+  font-size: 16px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .form-group {
-    margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
-.form-group label {
-    display: block;
-
-    margin-bottom: 7px;
-
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-
-    padding: 13px;
-
-    border: 1px solid #d1d5db;
-
-    border-radius: 8px;
-
-    outline: none;
-
-    font-size: 15px;
-}
-
-.submit-btn {
-    width: 100%;
-
-    padding: 14px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: #4f46e5;
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    background: #3730a3;
-}
-
-
-/* =========================
-   MY APPLICATIONS
-========================= */
-
-.applications-section {
-    background: white;
-
-    padding: 70px 8%;
-}
-
-.application-grid {
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 25px;
-}
-
-.application-card {
-    background: white;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 15px;
-
-    padding: 25px;
-
-    box-shadow:
-        0 5px 18px
-        rgba(0,0,0,0.07);
-}
-
-.application-card h3 {
-    color: #4338ca;
-
-    margin-bottom: 12px;
-}
-
-.application-card p {
-    margin: 7px 0;
-
-    color: #555;
-}
-
-.status {
-    display: inline-block;
-
-    margin-top: 10px;
-
-    padding: 6px 13px;
-
-    border-radius: 20px;
-
-    font-size: 13px;
-
-    font-weight: bold;
-}
-
-.status-pending {
-    background: #fff7ed;
-    color: #c2410c;
-}
-
-.status-approved {
-    background: #ecfdf5;
-    color: #047857;
-}
-
-.status-rejected {
-    background: #fef2f2;
-    color: #b91c1c;
-}
-
-.withdraw-btn {
-    margin-top: 18px;
-
-    padding: 10px 18px;
-
-    border: none;
-
-    border-radius: 7px;
-
-    background: #dc2626;
-
-    color: white;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-.withdraw-btn:hover {
-    background: #b91c1c;
-}
-
-.empty-applications {
-    grid-column: 1 / -1;
-
-    text-align: center;
-
-    padding: 35px;
-
-    color: #777;
-
-    background: #f8fafc;
-
-    border-radius: 12px;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    padding: 70px 8%;
-
-    text-align: center;
-}
-
-.about p {
-    max-width: 850px;
-
-    margin: auto;
-
-    color: #555;
-
-    line-height: 1.8;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    background: white;
-
-    padding: 70px 20px;
-
-    text-align: center;
-}
-
-.contact-info p {
-    margin: 15px;
-
-    color: #555;
-}
-
-
-/* =========================
-   LOGIN / REGISTER
-========================= */
-
-.auth-section {
-    padding: 70px 20px;
-
-    background: #eef2ff;
-}
-
-.auth-box {
-    max-width: 600px;
-
-    margin: auto;
-
-    background: white;
-
-    padding: 35px;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 8px 30px
-        rgba(0,0,0,0.08);
-}
-
-.auth-box h2 {
-    text-align: center;
-
-    color: #4338ca;
-
-    margin-bottom: 25px;
-}
-
-
-/* =========================
-   PROFILE
-========================= */
-
-.profile-section {
-    padding: 70px 20px;
-
-    background: white;
-}
-
-.profile-card {
-    max-width: 700px;
-
-    margin: auto;
-
-    background: white;
-
-    padding: 35px;
-
-    border-radius: 16px;
-
-    text-align: center;
-
-    box-shadow:
-        0 8px 30px
-        rgba(0,0,0,0.08);
-}
-
-.profile-circle {
-    width: 90px;
-    height: 90px;
-
-    margin: 0 auto 20px;
-
-    border-radius: 50%;
-
-    background: #4f46e5;
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 35px;
-
-    font-weight: bold;
-}
-
-
-/* =========================
-   STUDENT DASHBOARD
-========================= */
-
-.dashboard-section {
-    padding: 70px 8%;
-
-    background: #f5f7fb;
-}
-
-.dashboard-grid {
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 20px;
-}
-
-.dashboard-card {
-    background: white;
-
-    padding: 30px;
-
-    border-radius: 15px;
-
-    text-align: center;
-
-    box-shadow:
-        0 5px 18px
-        rgba(0,0,0,0.07);
-}
-
-.dashboard-card h3 {
-    color: #4338ca;
-
-    margin-bottom: 10px;
-}
-
-.dashboard-number {
-    font-size: 35px;
-
-    font-weight: bold;
-
-    color: #4f46e5;
-}
-
-
-/* =====================================================
-   ADMIN DASHBOARD
-===================================================== */
-
-.admin-section {
-    padding: 70px 6%;
-
-    background: #f8fafc;
-}
-
-.admin-header {
-    max-width: 1200px;
-
-    margin: auto;
-
-    text-align: center;
-
-    margin-bottom: 35px;
-}
-
-.admin-header h2 {
-    font-size: 36px;
-
-    color: #1e293b;
-
-    margin-bottom: 10px;
-}
-
-.admin-header p {
-    color: #64748b;
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
-.admin-stats {
-    max-width: 1200px;
-
-    margin: 0 auto 30px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 20px;
-}
-
-.admin-stat-card {
-    background: white;
-
-    border-radius: 15px;
-
-    padding: 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    box-shadow:
-        0 5px 18px
-        rgba(0,0,0,0.06);
-
-    border: 1px solid #e5e7eb;
-
-    transition: 0.3s;
-}
-
-.admin-stat-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 10px 25px
-        rgba(0,0,0,0.10);
-}
-
-.stat-icon {
-    width: 55px;
-    height: 55px;
-
-    border-radius: 12px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 25px;
-
-    background: #eef2ff;
-}
-
-.stat-info h3 {
-    font-size: 28px;
-
-    color: #1e293b;
-}
-
-.stat-info p {
-    font-size: 13px;
-
-    color: #64748b;
-}
-
-.admin-controls {
-    max-width: 1200px;
-
-    margin: 0 auto 20px;
-
-    background: white;
-
-    padding: 18px;
-
-    border-radius: 12px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 15px;
-
-    box-shadow:
-        0 4px 15px
-        rgba(0,0,0,0.05);
-}
-
-.admin-search {
-    flex: 1;
-
-    max-width: 450px;
-
-    padding: 12px 15px;
-
-    border: 1px solid #d1d5db;
-
-    border-radius: 8px;
-
-    outline: none;
-
-    font-size: 14px;
-}
-
-.admin-search:focus {
-    border-color: #4f46e5;
-}
-
-.status-filter {
-    padding: 12px 15px;
-
-    border: 1px solid #d1d5db;
-
-    border-radius: 8px;
-
-    background: white;
-
-    outline: none;
-
-    font-size: 14px;
-}
-
-.admin-table-container {
-    max-width: 1200px;
-
-    margin: auto;
-
-    background: white;
-
-    border-radius: 15px;
-
-    padding: 20px;
-
-    overflow-x: auto;
-
-    box-shadow:
-        0 5px 18px
-        rgba(0,0,0,0.06);
-}
-
-.admin-table {
-    width: 100%;
-
-    border-collapse: collapse;
-
-    min-width: 1000px;
-}
-
-.admin-table th {
-    background: #eef2ff;
-
-    color: #4338ca;
-
-    padding: 14px;
-
-    text-align: left;
-
-    font-size: 13px;
-}
-
-.admin-table td {
-    padding: 13px;
-
-    border-bottom: 1px solid #edf0f3;
-
-    font-size: 13px;
-
-    color: #475569;
-}
-
-.admin-table tr:hover {
-    background: #fafafa;
-}
-
-.admin-status {
-    display: inline-block;
-
-    padding: 5px 10px;
-
-    border-radius: 20px;
-
-    font-size: 11px;
-
-    font-weight: bold;
-}
-
-.admin-pending {
-    background: #fff7ed;
-
-    color: #c2410c;
-}
-
-.admin-approved {
-    background: #ecfdf5;
-
-    color: #047857;
-}
-
-.admin-rejected {
-    background: #fef2f2;
-
-    color: #b91c1c;
-}
-
-.admin-action-btn {
-    border: none;
-
-    padding: 7px 9px;
-
-    border-radius: 6px;
-
-    color: white;
-
-    font-size: 11px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    margin: 2px;
-}
-
-.approve-btn {
-    background: #16a34a;
-}
-
-.approve-btn:hover {
-    background: #15803d;
-}
-
-.reject-btn {
-    background: #dc2626;
-}
-
-.reject-btn:hover {
-    background: #b91c1c;
-}
-
-.delete-btn {
-    background: #64748b;
-}
-
-.delete-btn:hover {
-    background: #475569;
-}
-
-
-/* =====================================================
-   INTERNSHIP DETAILS MODAL
-===================================================== */
-
-.details-modal {
-    display: none;
-
-    position: fixed;
-
-    z-index: 2000;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(15, 23, 42, 0.75);
-
-    padding: 30px 15px;
-
-    overflow-y: auto;
-}
-
-.details-modal.active {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-.details-box {
-    position: relative;
-
-    width: 100%;
-
-    max-width: 650px;
-
-    background: white;
-
-    border-radius: 18px;
-
-    padding: 35px;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,0.25);
-
-    animation: modalOpen 0.25s ease;
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
 }
-
-@keyframes modalOpen {
-
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+button.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
 }
-
-.close-details {
-    position: absolute;
-
-    right: 18px;
-    top: 15px;
-
-    width: 38px;
-    height: 38px;
-
-    border: none;
-
-    border-radius: 50%;
 
-    background: #f1f5f9;
-
-    color: #334155;
-
-    font-size: 25px;
-
-    cursor: pointer;
+button.submit-btn:hover {
+  background-color: #3730a3;
 }
 
-.close-details:hover {
-    background: #dc2626;
-
-    color: white;
+/* FAQ Styles */
+.faq {
+  padding: 70px 8%;
+  background: #f5f7fb;
 }
-
-.details-box h2 {
-    color: #4338ca;
 
-    font-size: 27px;
-
-    margin-bottom: 25px;
-
-    padding-right: 40px;
+.faq-item {
+  margin-bottom: 15px;
 }
-
-.details-content p {
-    margin: 13px 0;
 
-    line-height: 1.6;
-
-    color: #475569;
+.faq-question {
+  width: 100%;
+  background: #fff;
+  border: none;
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.details-content strong {
-    color: #1e293b;
+.faq-question:hover {
+  background: #e0e7ff;
 }
-
-.details-content h3 {
-    margin-top: 25px;
-
-    margin-bottom: 8px;
 
-    color: #4338ca;
+.faq-answer {
+  margin-top: 8px;
+  background: #eef2ff;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #334155;
+  display: none;
 }
 
-.modal-apply-btn {
-    width: 100%;
-
-    margin-top: 25px;
-
-    padding: 14px;
-
-    border: none;
-
-    border-radius: 9px;
-
-    background: #4f46e5;
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ec4899;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s;
 }
 
-.modal-apply-btn:hover {
-    background: #3730a3;
+#backToTop:hover {
+  background-color: #db2777;
+  transform: scale(1.05);
 }
-
-
-/* =========================
-   FOOTER
-========================= */
 
+/* Footer Styles */
 footer {
-    background: #222;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 25px;
+  background-color: #222;
+  color: #fff;
+  padding: 40px 8%;
 }
 
-
-/* =========================
-   TABLET
-========================= */
-
-@media(max-width:1100px) {
-
-    .nav-menu li a {
-        font-size: 11px;
-
-        padding: 8px 6px;
-    }
-
-    .internship-grid {
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .dashboard-grid {
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .admin-stats {
-        grid-template-columns:
-            repeat(2,1fr);
-    }
+footer h3, footer h4 {
+  margin-bottom: 10px;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:850px) {
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        display: none;
-
-        position: absolute;
-
-        top: 75px;
-
-        left: 0;
-        right: 0;
-
-        background:
-            linear-gradient(
-                135deg,
-                #4338ca,
-                #7c3aed
-            );
-
-        flex-direction: column;
-
-        padding: 15px;
-
-        gap: 4px;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-menu li a {
-        display: block;
-
-        text-align: center;
-
-        padding: 12px;
-
-        font-size: 14px;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .internship-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .application-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-controls {
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .admin-search {
-        max-width: 100%;
-    }
-
-    .status-filter {
-        width: 100%;
-    }
-
+footer ul {
+  list-style: none;
 }
 
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media(max-width:500px) {
-
-    .logo {
-        font-size: 20px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    #searchBox {
-        width: 100%;
-    }
-
-    .form-container,
-    .auth-box,
-    .profile-card {
-        padding: 22px;
-    }
-
-    .details-box {
-        padding: 25px 20px;
-    }
-
-    .card-buttons {
-        flex-direction: column;
-    }
-
+footer ul li {
+  margin-bottom: 8px;
 }
 
-
-/* =====================================================
-   STEP 11 - SEARCH & FILTERS
-===================================================== */
-
-.internship-filter-section {
-    max-width: 1200px;
-    margin: 0 auto 30px;
-    padding: 28px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.filter-title {
-    text-align: center;
-    margin-bottom: 24px;
+footer ul li a:hover {
+  text-decoration: underline;
 }
 
-.filter-title h2 {
-    color: #4338ca;
-    margin-bottom: 8px;
+footer p {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
 }
 
-.filter-title p {
-    color: #64748b;
-    font-size: 14px;
-}
-
-.internship-filters {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr auto;
-    gap: 14px;
-    align-items: end;
-}
-
-.filter-group {
-    display: flex;
+/* Responsive */
+@media(max-width: 768px){
+  nav {
     flex-direction: column;
-    gap: 7px;
-}
-
-.filter-group label {
-    font-size: 13px;
-    font-weight: 700;
-    color: #334155;
-}
-
-.filter-group input,
-.filter-group select {
-    width: 100%;
-    height: 44px;
-    box-sizing: border-box;
-    padding: 0 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 9px;
-    background: #ffffff;
-    color: #1e293b;
-    font-size: 14px;
-    outline: none;
-}
-
-.filter-group input:focus,
-.filter-group select:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79,70,229,0.12);
-}
-
-.clear-filter-btn {
-    height: 44px;
-    padding: 0 16px;
-    border: none;
-    border-radius: 9px;
-    background: #ef4444;
-    color: #ffffff;
-    font-weight: 700;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.clear-filter-btn:hover {
-    background: #dc2626;
-}
-
-.filter-result-info {
-    margin-top: 18px;
-    padding-top: 14px;
-    border-top: 1px solid #e5e7eb;
-    color: #64748b;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.internship-card.filter-hidden {
-    display: none !important;
-}
-
-.no-filter-results {
-    display: none;
-    margin: 20px 0;
-    padding: 35px 20px;
-    text-align: center;
-    background: #f8fafc;
-    border-radius: 14px;
-    color: #64748b;
-}
-
-.no-filter-results.show {
-    display: block;
-}
-
-@media (max-width: 950px) {
-    .internship-filters {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .search-group {
-        grid-column: 1 / -1;
-    }
-
-    .clear-filter-btn {
-        width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-    .internship-filter-section {
-        padding: 20px;
-    }
-
-    .internship-filters {
-        grid-template-columns: 1fr;
-    }
-
-    .search-group {
-        grid-column: auto;
-    }
-}
-
-   /* ==========================================
-   STEP 13B - APPLICATION MANAGEMENT CSS
-========================================== */
-
-.admin-application-management {
-    width: 100%;
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 25px;
-    box-sizing: border-box;
-
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-}
-
-.admin-management-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 20px;
-    margin-bottom: 22px;
-}
-
-.admin-management-header h3 {
-    margin: 0 0 6px;
-
-    font-size: 22px;
-    color: #1e293b;
-}
-
-.admin-management-header p {
-    margin: 0;
-
-    font-size: 14px;
-    color: #64748b;
-}
-
-.admin-application-count {
-    padding: 9px 16px;
-
-    border-radius: 20px;
-
-    background: #eef2ff;
-    color: #4338ca;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-.admin-application-list {
-    display: flex;
-    flex-direction: column;
-
-    gap: 15px;
-}
-
-.admin-empty-state {
-    padding: 45px 20px;
-
-    text-align: center;
-
-    border: 2px dashed #cbd5e1;
-    border-radius: 14px;
-
-    background: #f8fafc;
-}
-
-.admin-empty-icon {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-
-.admin-empty-state h3 {
-    margin: 0 0 7px;
-
-    color: #334155;
-    font-size: 19px;
-}
-
-.admin-empty-state p {
-    margin: 0;
-
-    color: #64748b;
-    font-size: 14px;
-}
-
-
-/* Application card */
-
-.admin-application-card {
-    padding: 20px;
-
-    background: #f8fafc;
-
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-
-    transition: 0.2s ease;
-}
-
-.admin-application-card:hover {
-    transform: translateY(-2px);
-
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-}
-
-.admin-application-top {
-    display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+  }
 
-    gap: 20px;
-}
-
-.admin-application-card h4 {
-    margin: 0 0 8px;
-
-    font-size: 18px;
-    color: #1e293b;
-}
-
-.admin-application-card p {
-    margin: 5px 0;
-
-    color: #64748b;
-    font-size: 14px;
-}
-
-.admin-application-status {
-    padding: 6px 12px;
-
-    border-radius: 20px;
-
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.admin-application-status.pending {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.admin-application-status.approved {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.admin-application-status.rejected {
-    background: #fee2e2;
-    color: #991b1b;
-}
-
-.admin-application-actions {
-    display: flex;
-    gap: 10px;
-
-    margin-top: 18px;
-}
-
-.admin-application-actions button {
-    border: none;
-
-    padding: 9px 15px;
-
-    border-radius: 7px;
-
-    cursor: pointer;
-
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.admin-approve-btn {
-    background: #16a34a;
-    color: #ffffff;
-}
-
-.admin-reject-btn {
-    background: #dc2626;
-    color: #ffffff;
-}
-
-.admin-delete-btn {
-    background: #475569;
-    color: #ffffff;
-}
-
-.admin-application-actions button:hover {
-    opacity: 0.88;
-}
-
-
-@media (max-width: 700px) {
-
-    .admin-management-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .admin-application-top {
-        flex-direction: column;
-    }
-
-    .admin-application-actions {
-        flex-direction: column;
-    }
-
-    .admin-application-actions button {
-        width: 100%;
-    }
-}
-   /* ==========================================
-   STEP 14B - APPLICATION SEARCH & FILTER CSS
-========================================== */
-
-.admin-application-filter {
-    width: 100%;
-    max-width: 1100px;
-
-    margin: 30px auto 15px;
-    padding: 22px;
-
-    box-sizing: border-box;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-}
-
-
-.admin-filter-header {
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 20px;
-
-    margin-bottom: 20px;
-}
-
-
-.admin-filter-header h3 {
-    margin: 0 0 5px;
-
-    font-size: 20px;
-
-    color: #1e293b;
-}
-
-
-.admin-filter-header p {
-    margin: 0;
-
-    font-size: 13px;
-
-    color: #64748b;
-}
-
-
-#adminFilterResultCount {
-    padding: 8px 14px;
-
-    border-radius: 20px;
-
-    background: #eef2ff;
-
-    color: #4338ca;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-
-.admin-filter-controls {
-    display: grid;
-
-    grid-template-columns:
-        minmax(250px, 1fr)
-        200px
-        auto;
-
-    gap: 12px;
-
-    align-items: end;
-}
-
-
-.admin-search-box {
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    height: 44px;
-
-    padding: 0 13px;
-
-    box-sizing: border-box;
-
-    border: 1px solid #cbd5e1;
-
-    border-radius: 9px;
-
-    background: #ffffff;
-}
-
-
-.admin-search-box:focus-within {
-    border-color: #6366f1;
-
-    box-shadow:
-        0 0 0 3px rgba(99, 102, 241, 0.12);
-}
-
-
-.admin-search-icon {
-    font-size: 16px;
-}
-
-
-.admin-search-box input {
-    width: 100%;
-
-    height: 100%;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
-    font-size: 14px;
-
-    color: #1e293b;
-}
-
-
-.admin-search-box input::placeholder {
-    color: #94a3b8;
-}
-
-
-.admin-status-box {
-    display: flex;
-
+  .nav-menu {
     flex-direction: column;
-
-    gap: 6px;
-}
-
-
-.admin-status-box label {
-    font-size: 12px;
-
-    font-weight: 700;
-
-    color: #475569;
-}
-
-
-.admin-status-box select {
     width: 100%;
+  }
 
-    height: 44px;
+  .nav-menu li {
+    margin: 10px 0;
+  }
 
-    padding: 0 12px;
-
-    border: 1px solid #cbd5e1;
-
-    border-radius: 9px;
-
-    background: #ffffff;
-
-    color: #334155;
-
-    outline: none;
-
-    font-size: 14px;
-
-    cursor: pointer;
-}
-
-
-.admin-status-box select:focus {
-    border-color: #6366f1;
-
-    box-shadow:
-        0 0 0 3px rgba(99, 102, 241, 0.12);
-}
-
-
-.admin-clear-filter {
-    height: 44px;
-
-    padding: 0 18px;
-
-    border: none;
-
-    border-radius: 9px;
-
-    background: #475569;
-
-    color: #ffffff;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-
-.admin-clear-filter:hover {
-    background: #334155;
-
-    transform: translateY(-1px);
-}
-
-
-@media (max-width: 800px) {
-
-    .admin-filter-controls {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-clear-filter {
-        width: 100%;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .admin-filter-header {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-}
-   /* ==========================================
-   STEP 15B - STUDENT APPLICATION STATUS CSS
-========================================== */
-
-.student-application-status-panel {
-    width: 100%;
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 25px;
-    box-sizing: border-box;
-
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-
-    box-shadow: 0 7px 22px rgba(0, 0, 0, 0.06);
-}
-
-.student-status-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 20px;
-    margin-bottom: 22px;
-}
-
-.student-status-header h3 {
-    margin: 0 0 6px;
-
-    font-size: 21px;
-    color: #1e293b;
-}
-
-.student-status-header p {
-    margin: 0;
-
-    font-size: 13px;
-    color: #64748b;
-}
-
-.student-status-count {
-    padding: 8px 14px;
-
-    border-radius: 20px;
-
-    background: #eef2ff;
-    color: #4338ca;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-.student-application-status-list {
-    display: flex;
+  .support-cards {
     flex-direction: column;
-    gap: 14px;
-}
-
-.student-status-card {
-    padding: 18px;
-
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-
-    background: #f8fafc;
-}
-
-.student-status-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    gap: 15px;
-}
-
-.student-status-card h4 {
-    margin: 0 0 7px;
-
-    font-size: 17px;
-    color: #1e293b;
-}
-
-.student-status-card p {
-    margin: 4px 0;
-
-    color: #64748b;
-    font-size: 13px;
-}
-
-.student-status-badge {
-    padding: 7px 13px;
-
-    border-radius: 20px;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-.student-status-badge.pending {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.student-status-badge.approved {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.student-status-badge.rejected {
-    background: #fee2e2;
-    color: #991b1b;
-}
-
-.student-status-message {
-    margin-top: 14px;
-    padding: 11px 13px;
-
-    border-radius: 8px;
-
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.student-status-message.pending {
-    background: #fffbeb;
-    color: #92400e;
-}
-
-.student-status-message.approved {
-    background: #f0fdf4;
-    color: #166534;
-}
-
-.student-status-message.rejected {
-    background: #fef2f2;
-    color: #991b1b;
-}
-
-.student-status-empty {
-    padding: 40px 20px;
-
-    text-align: center;
-
-    border: 2px dashed #cbd5e1;
-    border-radius: 14px;
-
-    background: #f8fafc;
-}
-
-.student-status-empty-icon {
-    font-size: 35px;
-    margin-bottom: 9px;
-}
-
-.student-status-empty h3 {
-    margin: 0 0 6px;
-
-    color: #334155;
-}
-
-.student-status-empty p {
-    margin: 0;
-
-    color: #64748b;
-    font-size: 13px;
-}
-
-@media (max-width: 650px) {
-
-    .student-status-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .student-status-card-top {
-        flex-direction: column;
-    }
-
-    .student-status-badge {
-        align-self: flex-start;
-    }
+  }
 }
 </style>
-
 </head>
-
-
 <body>
 
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
-<nav class="navbar">
-
-<div class="nav-container">
-
-<a
-href="#home"
-class="logo">
-
-Internship Portal
-
-</a>
-
-
-<button
-class="menu-toggle"
-onclick="toggleMenu()">
-
-☰
-
-</button>
-
-
-<ul
-class="nav-menu"
-id="navMenu">
-
-<li>
-<a href="#home">
-Home
-</a>
-</li>
-
-<li>
-<a href="#internships">
-Internships
-</a>
-</li>
-
-<li>
-<a href="#apply">
-Apply
-</a>
-</li>
-
-<li>
-<a href="#myApplications">
-My Applications
-</a>
-</li>
-
-<li>
-<a href="#about">
-About
-</a>
-</li>
-
-<li>
-<a href="#contact">
-Contact
-</a>
-</li>
-
-<li>
-<a
-href="#login"
-class="login-btn">
-Login
-</a>
-</li>
-
-<li>
-<a href="#register">
-Register
-</a>
-</li>
-
-<li>
-<a href="#profile">
-Profile
-</a>
-</li>
-
-<li>
-<a href="#dashboard">
-Dashboard
-</a>
-</li>
-
-<li>
-<a href="#admin">
-Admin
-</a>
-</li>
-
-</ul>
-
-</div>
-
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">Internship Portal</div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#internships">Internships</a></li>
+      <li><a href="#apply">Apply</a></li>
+      <li><a href="#myApplications">Applications</a></li>
+      <li><a href="#application-tracking">Track Application</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-
-<!-- =====================================================
-     HOME
-===================================================== -->
-
-<section
-class="hero"
-id="home">
-
-<h1>
-Find Your Dream Internship
-</h1>
-
-<p>
-Explore internship opportunities,
-develop your skills, gain valuable
-experience and start your career.
-</p>
-
-<a
-href="#internships"
-class="hero-btn">
-
-Explore Internships
-
-</a>
-
+<!-- Step 1: Home -->
+<section id="home">
+  <h1>Welcome to the Internship Portal</h1>
+  <p>Your gateway to exciting internship opportunities.</p>
+  <button class="btn" onclick="location.href='#internships'">Explore Internships</button>
 </section>
 
-
-<!-- =====================================================
-     SEARCH
-===================================================== -->
-
-<section class="search-section">
-
-<h2>
-Search Internships
-</h2>
-
-<input
-type="text"
-id="searchBox"
-placeholder="Search internship, company or location..."
-onkeyup="searchInternships()">
-
+<!-- Step 2: About -->
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+  <p style="text-align: justify;">Our Internship Portal connects students with top companies offering internships across various domains. Our mission is to bridge the gap between education and industry, providing valuable real-world experience.</p>
 </section>
 
-
-<!-- =====================================================
-     INTERNSHIPS
-===================================================== -->
-
-<section
-class="page-section"
-id="internships">
-
-<h2 class="section-title">
-Latest Internship Opportunities
-</h2>
-
-
-<div
-class="internship-grid"
-id="internshipCards">
-
-
-<!-- WEB DEVELOPMENT -->
-
-<div
-class="internship-card"
-data-company="Tech Solutions"
-data-location="Remote">
-
-<h3>
-Web Development Intern
-</h3>
-
-<p>
-<strong>Company:</strong>
-Tech Solutions
-</p>
-
-<p>
-<strong>Location:</strong>
-Remote
-</p>
-
-<p>
-<strong>Duration:</strong>
-3 Months
-</p>
-
-<p>
-<strong>Stipend:</strong>
-₹10,000 / Month
-</p>
-
-<p>
-Learn HTML, CSS, JavaScript
-and build real-world websites.
-</p>
-
-<span class="badge">
-Remote
-</span>
-
-<div class="card-buttons">
-
-<button
-class="details-btn"
-onclick="showInternshipDetails('Web Development Intern')">
-
-View Details
-
-</button>
-
-<button
-class="apply-btn"
-onclick="selectInternship('Web Development Intern')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- JAVA -->
-
-<div
-class="internship-card"
-data-company="Software Technologies"
-data-location="Pune">
-
-<h3>
-Java Developer Intern
-</h3>
-
-<p>
-<strong>Company:</strong>
-Software Technologies
-</p>
-
-<p>
-<strong>Location:</strong>
-Pune
-</p>
-
-<p>
-<strong>Duration:</strong>
-6 Months
-</p>
-
-<p>
-<strong>Stipend:</strong>
-₹12,000 / Month
-</p>
-
-<p>
-Work on Java applications
-and improve programming skills.
-</p>
-
-<span class="badge">
-Pune
-</span>
-
-<div class="card-buttons">
-
-<button
-class="details-btn"
-onclick="showInternshipDetails('Java Developer Intern')">
-
-View Details
-
-</button>
-
-<button
-class="apply-btn"
-onclick="selectInternship('Java Developer Intern')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- PYTHON -->
-
-<div
-class="internship-card"
-data-company="Innovation Labs"
-data-location="Remote">
-
-<h3>
-Python Developer Intern
-</h3>
-
-<p>
-<strong>Company:</strong>
-Innovation Labs
-</p>
-
-<p>
-<strong>Location:</strong>
-Remote
-</p>
-
-<p>
-<strong>Duration:</strong>
-3 Months
-</p>
-
-<p>
-<strong>Stipend:</strong>
-₹15,000 / Month
-</p>
-
-<p>
-Develop Python projects
-and learn practical concepts.
-</p>
-
-<span class="badge">
-Remote
-</span>
-
-<div class="card-buttons">
-
-<button
-class="details-btn"
-onclick="showInternshipDetails('Python Developer Intern')">
-
-View Details
-
-</button>
-
-<button
-class="apply-btn"
-onclick="selectInternship('Python Developer Intern')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- DATA SCIENCE -->
-
-<div
-class="internship-card"
-data-company="Data Analytics Pvt. Ltd."
-data-location="Mumbai">
-
-<h3>
-Data Science Intern
-</h3>
-
-<p>
-<strong>Company:</strong>
-Data Analytics Pvt. Ltd.
-</p>
-
-<p>
-<strong>Location:</strong>
-Mumbai
-</p>
-
-<p>
-<strong>Duration:</strong>
-4 Months
-</p>
-
-<p>
-<strong>Stipend:</strong>
-₹18,000 / Month
-</p>
-
-<p>
-Learn data analysis,
-visualization and machine learning.
-</p>
-
-<span class="badge">
-Mumbai
-</span>
-
-<div class="card-buttons">
-
-<button
-class="details-btn"
-onclick="showInternshipDetails('Data Science Intern')">
-
-View Details
-
-</button>
-
-<button
-class="apply-btn"
-onclick="selectInternship('Data Science Intern')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- AI ML -->
-
-<div
-class="internship-card"
-data-company="Future AI Labs"
-data-location="Bengaluru">
-
-<h3>
-AI / ML Intern
-</h3>
-
-<p>
-<strong>Company:</strong>
-Future AI Labs
-</p>
-
-<p>
-<strong>Location:</strong>
-Bengaluru
-</p>
-
-<p>
-<strong>Duration:</strong>
-6 Months
-</p>
-
-<p>
-<strong>Stipend:</strong>
-₹20,000 / Month
-</p>
-
-<p>
-Explore artificial intelligence
-and machine learning projects.
-</p>
-
-<span class="badge">
-Bengaluru
-</span>
-
-<div class="card-buttons">
-
-<button
-class="details-btn"
-onclick="showInternshipDetails('AI / ML Intern')">
-
-View Details
-
-</button>
-
-<button
-class="apply-btn"
-onclick="selectInternship('AI / ML Intern')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- UI UX -->
-
-<div
-class="internship-card"
-data-company="Creative Studio"
-data-location="Mumbai">
-
-<h3>
-UI/UX Design Intern
-</h3>
-
-<p>
-<strong>Company:</strong>
-Creative Studio
-</p>
-
-<p>
-<strong>Location:</strong>
-Mumbai
-</p>
-
-<p>
-<strong>Duration:</strong>
-3 Months
-</p>
-
-<p>
-<strong>Stipend:</strong>
-₹8,000 / Month
-</p>
-
-<p>
-Design attractive and
-user-friendly digital experiences.
-</p>
-
-<span class="badge">
-Design
-</span>
-
-<div class="card-buttons">
-
-<button
-class="details-btn"
-onclick="showInternshipDetails('UI/UX Design Intern')">
-
-View Details
-
-</button>
-
-<button
-class="apply-btn"
-onclick="selectInternship('UI/UX Design Intern')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     APPLY
-===================================================== -->
-
-<section
-class="apply-section"
-id="apply">
-
-<div class="form-container">
-
-<h2>
-Apply for Internship
-</h2>
-
-
-<form
-id="applicationForm"
-onsubmit="submitApplication(event)"
-novalidate>
-
-
-<div class="form-group">
-
-<label>
-Full Name
-</label>
-
-<input
-type="text"
-id="fullName"
-required
-placeholder="Enter your full name">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Email
-</label>
-
-<input
-type="email"
-id="email"
-required
-placeholder="Enter your email">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Phone Number
-</label>
-
-<input
-type="tel"
-id="phone"
-required
-placeholder="Enter your phone number">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Select Internship
-</label>
-
-<select
-id="internshipSelect"
-required>
-
-<option value="">
-Select an internship
-</option>
-
-<option>
-Web Development Intern
-</option>
-
-<option>
-Java Developer Intern
-</option>
-
-<option>
-Python Developer Intern
-</option>
-
-<option>
-Data Science Intern
-</option>
-
-<option>
-AI / ML Intern
-</option>
-
-<option>
-UI/UX Design Intern
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Resume
-</label>
-
-<input
-type="file"
-id="resume"
-accept=".pdf,.doc,.docx">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Why do you want this internship?
-</label>
-
-<textarea
-id="message"
-rows="5"
-required
-placeholder="Write a short message..."></textarea>
-
-</div>
-
-
-<button
-type="submit"
-class="submit-btn">
-
-Submit Application
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     MY APPLICATIONS
-===================================================== -->
-
-<section
-class="applications-section"
-id="myApplications">
-
-<h2 class="section-title">
-My Applications
-</h2>
-
-<div
-class="application-grid"
-id="applicationList">
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section
-class="about"
-id="about">
-
-<h2 class="section-title">
-About Internship Portal
-</h2>
-
-<p>
-
-Internship Portal helps students
-discover internship opportunities
-according to their skills and
-career goals.
-
-Students can explore internships,
-submit applications and track their
-application status.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section
-class="contact"
-id="contact">
-
-<h2 class="section-title">
-Contact Us
-</h2>
-
-<div class="contact-info">
-
-<p>
-📧 Email:
-internshipportal@gmail.com
-</p>
-
-<p>
-📞 Phone:
-+91 123456723
-</p>
-
-<p>
-📍 Location:
-Pune, Maharashtra
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     LOGIN
-===================================================== -->
-
-<section
-class="auth-section"
-id="login">
-
-<div class="auth-box">
-
-<h2>
-Student Login
-</h2>
-
-<form
-onsubmit="loginUser(event)">
-
-<div class="form-group">
-
-<label>
-Email
-</label>
-
-<input
-type="email"
-id="loginEmail"
-required
-placeholder="Enter your email">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Password
-</label>
-
-<input
-type="password"
-id="loginPassword"
-required
-placeholder="Enter your password">
-
-</div>
-
-
-<button
-type="submit"
-class="submit-btn">
-
-Login
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     REGISTER
-===================================================== -->
-
-<section
-class="auth-section"
-id="register">
-
-<div class="auth-box">
-
-<h2>
-Create Account
-</h2>
-
-<form
-onsubmit="registerUser(event)">
-
-<div class="form-group">
-
-<label>
-Full Name
-</label>
-
-<input
-type="text"
-id="registerName"
-required
-placeholder="Enter your full name">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Email
-</label>
-
-<input
-type="email"
-id="registerEmail"
-required
-placeholder="Enter your email">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Password
-</label>
-
-<input
-type="password"
-id="registerPassword"
-required
-placeholder="Create password">
-
-</div>
-
-
-<button
-type="submit"
-class="submit-btn">
-
-Register
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PROFILE
-===================================================== -->
-
-<section
-class="profile-section"
-id="profile">
-
-<h2 class="section-title">
-My Profile
-</h2>
-
-
-<div class="profile-card">
-
-<div
-class="profile-circle"
-id="profileInitial">
-
-S
-
-</div>
-
-
-<h2 id="profileName">
-Student Profile
-</h2>
-
-
-<p>
-
-<strong>Name:</strong>
-
-<span id="profileNameText">
-Student
-</span>
-
-</p>
-
-
-<p>
-
-<strong>Email:</strong>
-
-<span id="profileEmailText">
-student@example.com
-</span>
-
-</p>
-
-
-<p>
-<strong>Role:</strong>
-Student
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     STUDENT DASHBOARD
-===================================================== -->
-
-<section
-class="dashboard-section"
-id="dashboard">
-
-<h2 class="section-title">
-Student Dashboard
-</h2>
-
-
-<div class="dashboard-grid">
-
-
-<div class="dashboard-card">
-
-<h3>
-Applications
-</h3>
-
-<div
-class="dashboard-number"
-id="totalApplications">
-
-0
-
-</div>
-
-<p>
-Total Applications
-</p>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<h3>
-Approved
-</h3>
-
-<div
-class="dashboard-number"
-id="approvedApplications">
-
-0
-
-</div>
-
-<p>
-Approved Applications
-</p>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<h3>
-Pending
-</h3>
-
-<div
-class="dashboard-number"
-id="pendingApplications">
-
-0
-
-</div>
-
-<p>
-Pending Applications
-</p>
-
-</div>
-
-
-<div class="dashboard-card">
-
-<h3>
-Rejected
-</h3>
-
-<div
-class="dashboard-number"
-id="rejectedApplications">
-
-0
-
-</div>
-
-<p>
-Rejected Applications
-</p>
-
-</div>
-
-
-</div>
-<!-- ==========================================
-     STEP 15A - APPLICATION STATUS
-========================================== -->
-
-<div class="student-application-status-panel">
-
-    <div class="student-status-header">
-
-        <div>
-            <h3>My Application Status</h3>
-
-            <p>
-                Track the status of your internship applications.
-            </p>
-        </div>
-
-        <span
-            id="studentApplicationStatusCount"
-            class="student-status-count">
-            0 Applications
-        </span>
-
+<!-- Step 3: Internships -->
+<section id="internships">
+  <h2 class="section-title">Available Internships</h2>
+  <div class="cards" id="internshipCards">
+    <!-- Cards will be dynamically added -->
+    <!-- For demo, static example -->
+    <div class="card">
+      <h3>Web Development Intern</h3>
+      <p>Company: Tech Solutions</p>
+      <p>Location: Pune</p>
+      <button class="btn" onclick="applyNow('Web Development Intern')">Apply Now</button>
     </div>
-
-
-    <div
-        id="studentApplicationStatusList"
-        class="student-application-status-list">
-
-        <div class="student-status-empty">
-
-            <div class="student-status-empty-icon">
-                📋
-            </div>
-
-            <h3>No Applications Found</h3>
-
-            <p>
-                Your submitted applications will appear here.
-            </p>
-
-        </div>
-
+    <div class="card">
+      <h3>Python Developer Intern</h3>
+      <p>Company: InnovateX</p>
+      <p>Location: Mumbai</p>
+      <button class="btn" onclick="applyNow('Python Developer Intern')">Apply Now</button>
     </div>
-
-</div>
-
-<!-- ==========================================
-     END STEP 15A
-========================================== -->
+    <div class="card">
+      <h3>UI/UX Design Intern</h3>
+      <p>Company: Creatives Inc.</p>
+      <p>Location: Bangalore</p>
+      <button class="btn" onclick="applyNow('UI/UX Design Intern')">Apply Now</button>
+    </div>
+  </div>
 </section>
 
-
-<!-- =====================================================
-     ADMIN DASHBOARD
-===================================================== -->
-
-<section
-class="admin-section"
-id="admin">
-
-
-<div class="admin-header">
-
-<h2>
-Admin Dashboard
-</h2>
-
-<p>
-Manage student internship applications
-from one place.
-</p>
-
-</div>
-
-
-<div class="admin-stats">
-
-
-<div class="admin-stat-card">
-
-<div class="stat-icon">
-📋
-</div>
-
-<div class="stat-info">
-
-<h3 id="adminTotal">
-0
-</h3>
-
-<p>
-Total Applications
-</p>
-
-</div>
-
-</div>
-
-
-<div class="admin-stat-card">
-
-<div class="stat-icon">
-⏳
-</div>
-
-<div class="stat-info">
-
-<h3 id="adminPending">
-0
-</h3>
-
-<p>
-Pending Applications
-</p>
-
-</div>
-
-</div>
-
-
-<div class="admin-stat-card">
-
-<div class="stat-icon">
-✅
-</div>
-
-<div class="stat-info">
-
-<h3 id="adminApproved">
-0
-</h3>
-
-<p>
-Approved Applications
-</p>
-
-</div>
-
-</div>
-
-
-<div class="admin-stat-card">
-
-<div class="stat-icon">
-❌
-</div>
-
-<div class="stat-info">
-
-<h3 id="adminRejected">
-0
-</h3>
-
-<p>
-Rejected Applications
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-   <!-- ==========================================
-     STEP 14A - APPLICATION SEARCH & FILTER
-========================================== -->
-
-<div class="admin-application-filter">
-
-    <div class="admin-filter-header">
-
-        <div>
-            <h3>Search Applications</h3>
-
-            <p>
-                Search and filter student applications.
-            </p>
-        </div>
-
-        <span id="adminFilterResultCount">
-            0 Applications
-        </span>
-
+<!-- Step 4: Application Form -->
+<section id="apply" style="display:none;">
+  <h2 class="section-title">Application Form</h2>
+  <form id="applicationForm" onsubmit="submitApplication(event)">
+    <div class="form-group">
+      <label for="internshipName">Internship Name</label>
+      <input type="text" id="internshipName" name="internshipName" required>
     </div>
-
-
-    <div class="admin-filter-controls">
-
-        <div class="admin-search-box">
-
-            <span class="admin-search-icon">
-                🔍
-            </span>
-
-            <input
-                type="text"
-                id="adminApplicationSearch"
-                placeholder="Search by name, email or internship..."
-                oninput="filterAdminApplications14()"
-            >
-
-        </div>
-
-
-        <div class="admin-status-box">
-
-            <label for="adminApplicationStatus">
-                Status
-            </label>
-
-            <select
-                id="adminApplicationStatus"
-                onchange="filterAdminApplications14()"
-            >
-
-                <option value="all">
-                    All Applications
-                </option>
-
-                <option value="pending">
-                    Pending
-                </option>
-
-                <option value="approved">
-                    Approved
-                </option>
-
-                <option value="rejected">
-                    Rejected
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <button
-            type="button"
-            class="admin-clear-filter"
-            onclick="clearAdminApplicationFilters14()"
-        >
-            ✕ Clear
-        </button>
-
+    <div class="form-group">
+      <label for="companyName">Company Name</label>
+      <input type="text" id="companyName" name="companyName" required>
     </div>
-
-</div>
-
-<!-- ==========================================
-     END STEP 14A
-========================================== -->
-   <!-- ==========================================
-     STEP 13A - APPLICATION MANAGEMENT
-========================================== -->
-
-<div class="admin-application-management">
-
-    <div class="admin-management-header">
-
-        <div>
-            <h3>Application Management</h3>
-
-            <p>
-                View and manage student internship applications.
-            </p>
-        </div>
-
-        <div
-            class="admin-application-count"
-            id="adminApplicationCount">
-            0 Applications
-        </div>
-
+    <div class="form-group">
+      <label for="applicationID">Application ID</label>
+      <input type="text" id="applicationID" name="applicationID" readonly>
     </div>
-
-
-    <div
-        class="admin-application-list"
-        id="adminApplicationList">
-
-        <div class="admin-empty-state">
-
-            <div class="admin-empty-icon">
-                📋
-            </div>
-
-            <h3>No Applications Yet</h3>
-
-            <p>
-                Student applications will appear here.
-            </p>
-
-        </div>
-
+    <div class="form-group">
+      <label for="applicationDate">Application Date</label>
+      <input type="date" id="applicationDate" name="applicationDate" required>
     </div>
-
-</div>
-
-<!-- ==========================================
-     END STEP 13A
-========================================== -->
-
-<div class="admin-controls">
-
-
-<input
-type="text"
-class="admin-search"
-id="adminSearch"
-placeholder="Search by student, email, internship or company..."
-onkeyup="filterAdminApplications()">
-
-
-<select
-class="status-filter"
-id="statusFilter"
-onchange="filterAdminApplications()">
-
-<option value="All">
-All Status
-</option>
-
-<option value="Pending">
-Pending
-</option>
-
-<option value="Approved">
-Approved
-</option>
-
-<option value="Rejected">
-Rejected
-</option>
-
-</select>
-
-
-</div>
-
-
-<div class="admin-table-container">
-
-<table class="admin-table">
-
-<thead>
-
-<tr>
-
-<th>
-Student
-</th>
-
-<th>
-Email
-</th>
-
-<th>
-Internship
-</th>
-
-<th>
-Company
-</th>
-
-<th>
-Location
-</th>
-
-<th>
-Date
-</th>
-
-<th>
-Status
-</th>
-
-<th>
-Actions
-</th>
-
-</tr>
-
-</thead>
-
-
-<tbody
-id="adminApplicationTable">
-
-</tbody>
-
-</table>
-
-</div>
-
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" required>
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" name="status" required>
+        <option value="Applied">Applied</option>
+        <option value="Under Review">Under Review</option>
+        <option value="Interview">Interview</option>
+        <option value="Selected">Selected</option>
+      </select>
+    </div>
+    <button class="btn" type="submit">Submit Application</button>
+  </form>
 </section>
 
+<!-- Step 16: Application Tracking -->
+<section class="application-tracking" id="application-tracking" style="display:none;">
+  <h2 class="section-title">Application Progress Tracker</h2>
+  <div class="tracking-container" id="trackingContainer">
+    <!-- Dynamic progress tracker cards will be added here -->
+  </div>
+</section>
 
-<!-- =====================================================
-     INTERNSHIP DETAILS MODAL
-===================================================== -->
+<!-- Step 17: Contact & Support -->
+<section class="contact-support" id="support">
+  <h2 class="section-title">Contact & Support</h2>
+  <div class="support-cards">
+    <div class="support-card">
+      📧 Email Support<br>
+      support@internshipportal.com
+    </div>
+    <div class="support-card">
+      📞 Phone Support<br>
+      +91 9876543210
+    </div>
+    <div class="support-card">
+      Office<br>
+      Pune, Maharashtra
+    </div>
+  </div>
+  <form id="supportForm" onsubmit="submitSupportForm(event)">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" id="supportName" required placeholder="Your name" />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="supportEmail" required placeholder="Your email" />
+    </div>
+    <div class="form-group">
+      <label>Subject</label>
+      <input type="text" id="supportSubject" required placeholder="Subject" />
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea id="supportMessage" rows="4" required placeholder="Your message"></textarea>
+    </div>
+    <button class="btn" type="submit">Send Message</button>
+  </form>
+</section>
 
-<div
-class="details-modal"
-id="detailsModal">
+<!-- Step 18: FAQ -->
+<section class="faq" id="faq">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(this)">+ How can I apply for an internship?</button>
+    <div class="faq-answer">You can browse internships and click "Apply Now" on any internship card to submit your application.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(this)">+ Can I track my application?</button>
+    <div class="faq-answer">Yes, you can view your application status in the "My Applications" section.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(this)">+ Is the Internship Portal free?</button>
+    <div class="faq-answer">Yes, the portal is completely free for students to explore and apply.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(this)">+ How will I know if I am selected?</button>
+    <div class="faq-answer">You will receive updates via your email and see the status in your "My Applications" section.</div>
+  </div>
+</section>
 
-<div class="details-box">
+<!-- Step 19: Back to Top Button -->
+<button id="backToTop" title="Back to Top" onclick="scrollToTop()">↑</button>
 
-<button
-class="close-details"
-onclick="closeInternshipDetails()">
-
-×
-
-</button>
-
-
-<h2 id="detailsTitle">
-Internship Details
-</h2>
-
-
-<div class="details-content">
-
-<p>
-<strong>🏢 Company:</strong>
-
-<span id="detailsCompany">
-</span>
-
-</p>
-
-
-<p>
-<strong>📍 Location:</strong>
-
-<span id="detailsLocation">
-</span>
-
-</p>
-
-
-<p>
-<strong>⏳ Duration:</strong>
-
-<span id="detailsDuration">
-</span>
-
-</p>
-
-
-<p>
-<strong>💰 Stipend:</strong>
-
-<span id="detailsStipend">
-</span>
-
-</p>
-
-
-<p>
-<strong>🛠️ Skills Required:</strong>
-
-<span id="detailsSkills">
-</span>
-
-</p>
-
-
-<p>
-<strong>🎓 Eligibility:</strong>
-
-<span id="detailsEligibility">
-</span>
-
-</p>
-
-
-<p>
-<strong>📅 Application Deadline:</strong>
-
-<span id="detailsDeadline">
-</span>
-
-</p>
-
-
-<h3>
-Job Description
-</h3>
-
-
-<p id="detailsDescription">
-</p>
-
-</div>
-
-
-<button
-class="modal-apply-btn"
-id="modalApplyButton">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
+<!-- Step 20: Footer -->
 <footer>
-
-<p>
-© 2026 Internship Portal |
-All Rights Reserved
-</p>
-
+  <div style="display:flex; flex-wrap:wrap; justify-content: space-around; align-items:center; padding:40px 8%; background:#222; color:#fff;">
+    <div style="flex:1; min-width:200px; margin-bottom:20px;">
+      <h3>Internship Portal</h3>
+      <p>Your gateway to internships, career growth, and professional development.</p>
+    </div>
+    <div style="flex:1; min-width:200px; margin-bottom:20px;">
+      <h4>Quick Links</h4>
+      <ul style="list-style:none; padding:0;">
+        <li><a href="#home" style="color:#fff; text-decoration:none;">Home</a></li>
+        <li><a href="#about" style="color:#fff; text-decoration:none;">About</a></li>
+        <li><a href="#internships" style="color:#fff; text-decoration:none;">Internships</a></li>
+        <li><a href="#apply" style="color:#fff; text-decoration:none;">Apply</a></li>
+        <li><a href="#myApplications" style="color:#fff; text-decoration:none;">Applications</a></li>
+        <li><a href="#application-tracking" style="color:#fff; text-decoration:none;">Track Application</a></li>
+        <li><a href="#faq" style="color:#fff; text-decoration:none;">FAQ</a></li>
+        <li><a href="#support" style="color:#fff; text-decoration:none;">Support</a></li>
+        <li><a href="#contact" style="color:#fff; text-decoration:none;">Contact</a></li>
+      </ul>
+    </div>
+    <div style="flex:1; min-width:200px; margin-bottom:20px;">
+      <h4>Support</h4>
+      <p>support@internshipportal.com</p>
+      <p>+91 9876543210</p>
+    </div>
+    <div style="flex:1; min-width:200px;">
+      <p style="margin-top:20px;">© 2026 Internship Portal | All Rights Reserved</p>
+    </div>
+  </div>
 </footer>
 
-
+<!-- Scripts -->
 <script>
-
-
-/* =====================================================
-   APPLICATION DATA
-===================================================== */
-
-let applications =
-JSON.parse(
-localStorage.getItem(
-"internshipApplications"
-)
-) || [];
-
-
-let registeredUser =
-JSON.parse(
-localStorage.getItem(
-"registeredUser"
-)
-) || null;
-
-
-/* =====================================================
-   INTERNSHIP DETAILS DATA
-===================================================== */
-
-const internshipDetails = {
-
-"Web Development Intern": {
-
-company: "Tech Solutions",
-
-location: "Remote",
-
-duration: "3 Months",
-
-stipend: "₹10,000 / Month",
-
-skills:
-"HTML, CSS, JavaScript, Git",
-
-eligibility:
-"B.E / B.Tech / BCA / MCA students",
-
-deadline:
-"30 September 2026",
-
-description:
-"Work with the development team to create responsive websites and learn modern web development practices."
-
-},
-
-
-"Java Developer Intern": {
-
-company:
-"Software Technologies",
-
-location:
-"Pune",
-
-duration:
-"6 Months",
-
-stipend:
-"₹12,000 / Month",
-
-skills:
-"Java, OOP, SQL, Spring Boot",
-
-eligibility:
-"Students with basic Java knowledge",
-
-deadline:
-"15 October 2026",
-
-description:
-"Develop Java applications, work with databases and learn professional software development practices."
-
-},
-
-
-"Python Developer Intern": {
-
-company:
-"Innovation Labs",
-
-location:
-"Remote",
-
-duration:
-"3 Months",
-
-stipend:
-"₹15,000 / Month",
-
-skills:
-"Python, OOP, APIs, SQL",
-
-eligibility:
-"CSE / IT students with Python knowledge",
-
-deadline:
-"10 October 2026",
-
-description:
-"Build Python-based applications and APIs while working on practical software development projects."
-
-},
-
-
-"Data Science Intern": {
-
-company:
-"Data Analytics Pvt. Ltd.",
-
-location:
-"Mumbai",
-
-duration:
-"4 Months",
-
-stipend:
-"₹18,000 / Month",
-
-skills:
-"Python, Pandas, NumPy, Machine Learning",
-
-eligibility:
-"Students interested in Data Science",
-
-deadline:
-"20 September 2026",
-
-description:
-"Analyze datasets, create visualizations and work on machine learning projects with the data analytics team."
-
-},
-
-
-"AI / ML Intern": {
-
-company:
-"Future AI Labs",
-
-location:
-"Bengaluru",
-
-duration:
-"6 Months",
-
-stipend:
-"₹20,000 / Month",
-
-skills:
-"Python, Machine Learning, AI, TensorFlow",
-
-eligibility:
-"CSE / AI / Data Science students",
-
-deadline:
-"25 September 2026",
-
-description:
-"Work on artificial intelligence and machine learning projects and gain practical experience with AI technologies."
-
-},
-
-
-"UI/UX Design Intern": {
-
-company:
-"Creative Studio",
-
-location:
-"Mumbai",
-
-duration:
-"3 Months",
-
-stipend:
-"₹8,000 / Month",
-
-skills:
-"Figma, UI Design, UX Research, Prototyping",
-
-eligibility:
-"Students interested in UI/UX design",
-
-deadline:
-"5 October 2026",
-
-description:
-"Design user-friendly interfaces, create prototypes and work with the design team on real-world digital products."
-
+  // Sample applications data stored in localStorage
+  let applications = [];
+
+  // Load existing applications from localStorage
+  if (localStorage.getItem('applications')) {
+    applications = JSON.parse(localStorage.getItem('applications'));
+  }
+
+  // Helper: generate unique ID
+  function generateID() {
+    return 'APP' + Math.floor(Math.random() * 1000000);
+  }
+
+  // Apply Now button handler
+function applyNow(internshipName) {
+  // Set internship info
+  document.getElementById('internshipName').value = internshipName;
+  document.getElementById('companyName').value = 'Sample Company'; // or fetch dynamically
+  document.getElementById('applicationID').value = generateID();
+  document.getElementById('applicationDate').valueAsDate = new Date();
+  document.getElementById('location').value = 'Pune'; // or fetch dynamically
+  // Show form
+  document.querySelector('#apply').style.display = 'block';
+  document.querySelector('#application-tracking').style.display = 'none';
 }
 
-};
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-function toggleMenu() {
-
-document
-.getElementById("navMenu")
-.classList
-.toggle("active");
-
+// Submit Application
+function submitApplication(e) {
+  e.preventDefault();
+  const form = e.target;
+  const newApp = {
+    internshipName: form.internshipName.value,
+    companyName: form.companyName.value,
+    applicationID: form.applicationID.value,
+    applicationDate: form.applicationDate.value,
+    location: form.location.value,
+    status: form.status.value
+  };
+  applications.push(newApp);
+  localStorage.setItem('applications', JSON.stringify(applications));
+  alert('Application submitted successfully!');
+  form.reset();
+  // Hide form
+  document.querySelector('#apply').style.display = 'none';
+  // Show applications list or dashboard
+  showApplications();
+  // Optionally, update application tracking
+  renderApplicationProgress();
 }
 
-
-document
-.querySelectorAll(".nav-menu a")
-.forEach(function(link) {
-
-link.addEventListener(
-"click",
-function() {
-
-document
-.getElementById("navMenu")
-.classList
-.remove("active");
-
-});
-
-});
-
-
-/* =====================================================
-   SEARCH INTERNSHIPS
-===================================================== */
-
-function searchInternships() {
-
-let input =
-document
-.getElementById("searchBox")
-.value
-.toLowerCase();
-
-
-let cards =
-document.querySelectorAll(
-".internship-card"
-);
-
-
-cards.forEach(function(card) {
-
-let text =
-card.innerText.toLowerCase();
-
-
-if (
-text.includes(input)
-) {
-
-card.style.display =
-"flex";
-
-}
-else {
-
-card.style.display =
-"none";
-
+// Show applications list (optional, for demo)
+function showApplications() {
+  // For simplicity, just show the applications in a modal or alert
+  // Or implement a dedicated section
 }
 
-});
-
-}
-
-
-/* =====================================================
-   SELECT INTERNSHIP
-===================================================== */
-
-function selectInternship(
-internship
-) {
-
-document
-.getElementById(
-"internshipSelect"
-)
-.value =
-internship;
-
-
-document
-.getElementById("apply")
-.scrollIntoView({
-behavior: "smooth"
-});
-
-}
-
-
-/* =====================================================
-   SHOW INTERNSHIP DETAILS
-===================================================== */
-
-function showInternshipDetails(
-internship
-) {
-
-let data =
-internshipDetails[internship];
-
-
-if (!data) {
-
-alert(
-"Internship details not found."
-);
-
-return;
-
-}
-
-
-document
-.getElementById(
-"detailsTitle"
-)
-.innerText =
-internship;
-
-
-document
-.getElementById(
-"detailsCompany"
-)
-.innerText =
-data.company;
-
-
-document
-.getElementById(
-"detailsLocation"
-)
-.innerText =
-data.location;
-
-
-document
-.getElementById(
-"detailsDuration"
-)
-.innerText =
-data.duration;
-
-
-document
-.getElementById(
-"detailsStipend"
-)
-.innerText =
-data.stipend;
-
-
-document
-.getElementById(
-"detailsSkills"
-)
-.innerText =
-data.skills;
-
-
-document
-.getElementById(
-"detailsEligibility"
-)
-.innerText =
-data.eligibility;
-
-
-document
-.getElementById(
-"detailsDeadline"
-)
-.innerText =
-data.deadline;
-
-
-document
-.getElementById(
-"detailsDescription"
-)
-.innerText =
-data.description;
-
-
-document
-.getElementById(
-"modalApplyButton"
-)
-.onclick =
-function() {
-
-closeInternshipDetails();
-
-selectInternship(
-internship
-);
-
-};
-
-
-document
-.getElementById(
-"detailsModal"
-)
-.classList
-.add("active");
-
-
-document.body.style.overflow =
-"hidden";
-
-}
-
-
-/* =====================================================
-   CLOSE DETAILS
-===================================================== */
-
-function closeInternshipDetails() {
-
-document
-.getElementById(
-"detailsModal"
-)
-.classList
-.remove("active");
-
-
-document.body.style.overflow =
-"auto";
-
-}
-
-
-/* =====================================================
-   CLOSE MODAL OUTSIDE
-===================================================== */
-
-document
-.getElementById("detailsModal")
-.addEventListener(
-"click",
-function(event) {
-
-if (
-event.target === this
-) {
-
-closeInternshipDetails();
-
-}
-
-});
-
-
-/* =====================================================
-   ESCAPE KEY
-===================================================== */
-
-document.addEventListener(
-"keydown",
-function(event) {
-
-if (
-event.key === "Escape"
-) {
-
-closeInternshipDetails();
-
-}
-
-});
-
-
-/* =====================================================
-   SUBMIT APPLICATION
-===================================================== */
-
-function submitApplication(
-event
-) {
-
-event.preventDefault();
-
-
-let name =
-document
-.getElementById("fullName")
-.value
-.trim();
-
-
-let email =
-document
-.getElementById("email")
-.value
-.trim();
-
-
-let phone =
-document
-.getElementById("phone")
-.value
-.trim();
-
-
-let internship =
-document
-.getElementById(
-"internshipSelect"
-)
-.value;
-
-
-let message =
-document
-.getElementById("message")
-.value
-.trim();
-
-
-if (
-name === "" ||
-email === "" ||
-phone === "" ||
-internship === "" ||
-message === ""
-) {
-
-alert(
-"Please fill all required fields."
-);
-
-return;
-
-}
-
-
-/* DUPLICATE CHECK */
-
-let alreadyApplied =
-applications.some(
-function(app) {
-
-return (
-app.email === email &&
-app.internship === internship
-);
-
-}
-);
-
-
-if (alreadyApplied) {
-
-alert(
-"You have already applied for this internship."
-);
-
-return;
-
-}
-
-
-/* COMPANY */
-
-let company =
-"";
-
-let location =
-"";
-
-
-if (
-internship ===
-"Web Development Intern"
-) {
-
-company =
-"Tech Solutions";
-
-location =
-"Remote";
-
-}
-
-else if (
-internship ===
-"Java Developer Intern"
-) {
-
-company =
-"Software Technologies";
-
-location =
-"Pune";
-
-}
-
-else if (
-internship ===
-"Python Developer Intern"
-) {
-
-company =
-"Innovation Labs";
-
-location =
-"Remote";
-
-}
-
-else if (
-internship ===
-"Data Science Intern"
-) {
-
-company =
-"Data Analytics Pvt. Ltd.";
-
-location =
-"Mumbai";
-
-}
-
-else if (
-internship ===
-"AI / ML Intern"
-) {
-
-company =
-"Future AI Labs";
-
-location =
-"Bengaluru";
-
-}
-
-else if (
-internship ===
-"UI/UX Design Intern"
-) {
-
-company =
-"Creative Studio";
-
-location =
-"Mumbai";
-
-}
-
-
-/* APPLICATION OBJECT */
-
-let newApplication = {
-
-id:
-Date.now(),
-
-name:
-name,
-
-email:
-email,
-
-phone:
-phone,
-
-internship:
-internship,
-
-company:
-company,
-
-location:
-location,
-
-message:
-message,
-
-status:
-"Pending",
-
-date:
-new Date()
-.toLocaleDateString("en-IN")
-
-};
-
-
-applications.push(
-newApplication
-);
-
-
-saveApplications();
-
-
-document
-.getElementById(
-"applicationForm"
-)
-.reset();
-
-
-alert(
-"Application submitted successfully!"
-);
-
-
-renderApplications();
-
-updateDashboard();
-
-updateAdminDashboard();
-
-
-document
-.getElementById(
-"myApplications"
-)
-.scrollIntoView({
-behavior: "smooth"
-});
-
-}
-
-
-/* =====================================================
-   SAVE APPLICATIONS
-===================================================== */
-
-function saveApplications() {
-
-localStorage.setItem(
-"internshipApplications",
-JSON.stringify(
-applications
-)
-);
-
-}
-
-
-/* =====================================================
-   MY APPLICATIONS
-===================================================== */
-
-function renderApplications() {
-
-let container =
-document.getElementById(
-"applicationList"
-);
-
-
-container.innerHTML =
-"";
-
-
-if (
-applications.length === 0
-) {
-
-container.innerHTML = `
-
-<div class="empty-applications">
-
-<h3>
-No Applications Yet
-</h3>
-
-<p>
-Apply for an internship
-to see your applications here.
-</p>
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-applications.forEach(
-function(app) {
-
-let statusClass =
-"status-pending";
-
-
-if (
-app.status === "Approved"
-) {
-
-statusClass =
-"status-approved";
-
-}
-
-
-if (
-app.status === "Rejected"
-) {
-
-statusClass =
-"status-rejected";
-
-}
-
-
-let card =
-document.createElement(
-"div"
-);
-
-
-card.className =
-"application-card";
-
-
-card.innerHTML = `
-
-<h3>
-${app.internship}
-</h3>
-
-<p>
-<strong>Student:</strong>
-${app.name}
-</p>
-
-<p>
-<strong>Company:</strong>
-${app.company}
-</p>
-
-<p>
-<strong>Location:</strong>
-${app.location}
-</p>
-
-<p>
-<strong>Email:</strong>
-${app.email}
-</p>
-
-<p>
-<strong>Applied On:</strong>
-${app.date}
-</p>
-
-<span
-class="status ${statusClass}">
-
-${app.status}
-
-</span>
-
-<br>
-
-<button
-class="withdraw-btn"
-onclick="withdrawApplication(${app.id})">
-
-Withdraw
-
-</button>
-
-`;
-
-
-container.appendChild(
-card
-);
-
-});
-
-}
-
-
-/* =====================================================
-   WITHDRAW
-===================================================== */
-
-function withdrawApplication(
-id
-) {
-
-let confirmWithdraw =
-confirm(
-"Are you sure you want to withdraw this application?"
-);
-
-
-if (!confirmWithdraw) {
-
-return;
-
-}
-
-
-applications =
-applications.filter(
-function(app) {
-
-return app.id !== id;
-
-}
-);
-
-
-saveApplications();
-
-
-renderApplications();
-
-updateDashboard();
-
-updateAdminDashboard();
-
-
-alert(
-"Application withdrawn successfully."
-);
-
-}
-
-
-/* =====================================================
-   STUDENT DASHBOARD
-===================================================== */
-
-function updateDashboard() {
-
-let total =
-applications.length;
-
-
-let approved =
-applications.filter(
-function(app) {
-
-return app.status ===
-"Approved";
-
-}
-).length;
-
-
-let pending =
-applications.filter(
-function(app) {
-
-return app.status ===
-"Pending";
-
-}
-).length;
-
-
-let rejected =
-applications.filter(
-function(app) {
-
-return app.status ===
-"Rejected";
-
-}
-).length;
-
-
-document
-.getElementById(
-"totalApplications"
-)
-.innerText =
-total;
-
-
-document
-.getElementById(
-"approvedApplications"
-)
-.innerText =
-approved;
-
-
-document
-.getElementById(
-"pendingApplications"
-)
-.innerText =
-pending;
-
-
-document
-.getElementById(
-"rejectedApplications"
-)
-.innerText =
-rejected;
-
-}
-
-
-/* =====================================================
-   ADMIN DASHBOARD
-===================================================== */
-
-function updateAdminDashboard() {
-
-let total =
-applications.length;
-
-
-let pending =
-applications.filter(
-function(app) {
-
-return app.status ===
-"Pending";
-
-}
-).length;
-
-
-let approved =
-applications.filter(
-function(app) {
-
-return app.status ===
-"Approved";
-
-}
-).length;
-
-
-let rejected =
-applications.filter(
-function(app) {
-
-return app.status ===
-"Rejected";
-
-}
-).length;
-
-
-document
-.getElementById(
-"adminTotal"
-)
-.innerText =
-total;
-
-
-document
-.getElementById(
-"adminPending"
-)
-.innerText =
-pending;
-
-
-document
-.getElementById(
-"adminApproved"
-)
-.innerText =
-approved;
-
-
-document
-.getElementById(
-"adminRejected"
-)
-.innerText =
-rejected;
-
-
-filterAdminApplications();
-
-}
-
-
-/* =====================================================
-   ADMIN TABLE
-===================================================== */
-
-function updateAdminTable(
-list
-) {
-
-let table =
-document.getElementById(
-"adminApplicationTable"
-);
-
-
-table.innerHTML =
-"";
-
-
-if (
-list.length === 0
-) {
-
-table.innerHTML = `
-
-<tr>
-
-<td
-colspan="8"
-style="
-text-align:center;
-padding:30px;
-color:#64748b;
-">
-
-No applications found.
-
-</td>
-
-</tr>
-
-`;
-
-return;
-
-}
-
-
-list.forEach(
-function(app) {
-
-let statusClass =
-"admin-pending";
-
-
-if (
-app.status === "Approved"
-) {
-
-statusClass =
-"admin-approved";
-
-}
-
-
-if (
-app.status === "Rejected"
-) {
-
-statusClass =
-"admin-rejected";
-
-}
-
-
-let row =
-document.createElement(
-"tr"
-);
-
-
-row.innerHTML = `
-
-<td>
-<strong>
-${app.name}
-</strong>
-</td>
-
-<td>
-${app.email}
-</td>
-
-<td>
-${app.internship}
-</td>
-
-<td>
-${app.company}
-</td>
-
-<td>
-${app.location}
-</td>
-
-<td>
-${app.date}
-</td>
-
-<td>
-
-<span
-class="admin-status ${statusClass}">
-
-${app.status}
-
-</span>
-
-</td>
-
-<td>
-
-<button
-class="admin-action-btn approve-btn"
-onclick="approveApplication(${app.id})">
-
-Approve
-
-</button>
-
-<button
-class="admin-action-btn reject-btn"
-onclick="rejectApplication(${app.id})">
-
-Reject
-
-</button>
-
-<button
-class="admin-action-btn delete-btn"
-onclick="deleteApplication(${app.id})">
-
-Delete
-
-</button>
-
-</td>
-
-`;
-
-
-table.appendChild(
-row
-);
-
-});
-
-}
-
-
-/* =====================================================
-   ADMIN SEARCH + FILTER
-===================================================== */
-
-function filterAdminApplications() {
-
-let search =
-document
-.getElementById(
-"adminSearch"
-)
-.value
-.toLowerCase();
-
-
-let status =
-document
-.getElementById(
-"statusFilter"
-)
-.value;
-
-
-let filtered =
-applications.filter(
-function(app) {
-
-let searchableText =
-
-(
-app.name +
-" " +
-app.email +
-" " +
-app.internship +
-" " +
-app.company +
-" " +
-app.location
-)
-.toLowerCase();
-
-
-let matchesSearch =
-searchableText
-.includes(search);
-
-
-let matchesStatus =
-status === "All" ||
-app.status === status;
-
-
-return (
-matchesSearch &&
-matchesStatus
-);
-
-}
-);
-
-
-updateAdminTable(
-filtered
-);
-
-}
-
-
-/* =====================================================
-   APPROVE APPLICATION
-===================================================== */
-
-function approveApplication(
-id
-) {
-
-let app =
-applications.find(
-function(item) {
-
-return item.id === id;
-
-}
-);
-
-
-if (!app) {
-
-return;
-
-}
-
-
-if (
-app.status === "Approved"
-) {
-
-alert(
-"This application is already approved."
-);
-
-return;
-
-}
-
-
-app.status =
-"Approved";
-
-
-saveApplications();
-
-
-renderApplications();
-
-updateDashboard();
-
-updateAdminDashboard();
-
-
-alert(
-"Application approved successfully!"
-);
-
-}
-
-
-/* =====================================================
-   REJECT APPLICATION
-===================================================== */
-
-function rejectApplication(
-id
-) {
-
-let app =
-applications.find(
-function(item) {
-
-return item.id === id;
-
-}
-);
-
-
-if (!app) {
-
-return;
-
-}
-
-
-if (
-app.status === "Rejected"
-) {
-
-alert(
-"This application is already rejected."
-);
-
-return;
-
-}
-
-
-let confirmReject =
-confirm(
-"Are you sure you want to reject this application?"
-);
-
-
-if (!confirmReject) {
-
-return;
-
-}
-
-
-app.status =
-"Rejected";
-
-
-saveApplications();
-
-
-renderApplications();
-
-updateDashboard();
-
-updateAdminDashboard();
-
-
-alert(
-"Application rejected."
-);
-
-}
-
-
-/* =====================================================
-   DELETE APPLICATION
-===================================================== */
-
-function deleteApplication(
-id
-) {
-
-let confirmDelete =
-confirm(
-"Are you sure you want to permanently delete this application?"
-);
-
-
-if (!confirmDelete) {
-
-return;
-
-}
-
-
-applications =
-applications.filter(
-function(app) {
-
-return app.id !== id;
-
-}
-);
-
-
-saveApplications();
-
-
-renderApplications();
-
-updateDashboard();
-
-updateAdminDashboard();
-
-
-alert(
-"Application deleted successfully."
-);
-
-}
-
-
-/* =====================================================
-   REGISTER
-===================================================== */
-
-function registerUser(
-event
-) {
-
-event.preventDefault();
-
-
-let name =
-document
-.getElementById(
-"registerName"
-)
-.value
-.trim();
-
-
-let email =
-document
-.getElementById(
-"registerEmail"
-)
-.value
-.trim();
-
-
-let password =
-document
-.getElementById(
-"registerPassword"
-)
-.value;
-
-
-if (
-password.length < 6
-) {
-
-alert(
-"Password must contain at least 6 characters."
-);
-
-return;
-
-}
-
-
-registeredUser = {
-
-name:
-name,
-
-email:
-email,
-
-password:
-password
-
-};
-
-
-localStorage.setItem(
-"registeredUser",
-JSON.stringify(
-registeredUser
-)
-);
-
-
-alert(
-"Registration successful!"
-);
-
-
-document
-.getElementById(
-"registerName"
-)
-.value =
-"";
-
-
-document
-.getElementById(
-"registerEmail"
-)
-.value =
-"";
-
-
-document
-.getElementById(
-"registerPassword"
-)
-.value =
-"";
-
-
-updateProfile();
-
-}
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-function loginUser(
-event
-) {
-
-event.preventDefault();
-
-
-let email =
-document
-.getElementById(
-"loginEmail"
-)
-.value
-.trim();
-
-
-let password =
-document
-.getElementById(
-"loginPassword"
-)
-.value;
-
-
-/* ADMIN LOGIN */
-
-if (
-email ===
-"admin@internship.com"
-&&
-password ===
-"admin123"
-) {
-
-alert(
-"Admin login successful!"
-);
-
-
-document
-.getElementById(
-"admin"
-)
-.scrollIntoView({
-behavior: "smooth"
-});
-
-return;
-
-}
-
-
-/* STUDENT LOGIN */
-
-if (
-registeredUser &&
-email === registeredUser.email &&
-password === registeredUser.password
-) {
-
-localStorage.setItem(
-"loggedIn",
-"true"
-);
-
-
-alert(
-"Login successful! Welcome "
-+
-registeredUser.name
-+
-"."
-);
-
-
-updateProfile();
-
-
-document
-.getElementById(
-"profile"
-)
-.scrollIntoView({
-behavior: "smooth"
-});
-
-return;
-
-}
-
-
-alert(
-"Invalid email or password."
-);
-
-}
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-function updateProfile() {
-
-if (!registeredUser) {
-
-return;
-
-}
-
-
-document
-.getElementById(
-"profileName"
-)
-.innerText =
-registeredUser.name;
-
-
-document
-.getElementById(
-"profileNameText"
-)
-.innerText =
-registeredUser.name;
-
-
-document
-.getElementById(
-"profileEmailText"
-)
-.innerText =
-registeredUser.email;
-
-
-document
-.getElementById(
-"profileInitial"
-)
-.innerText =
-registeredUser.name
-.charAt(0)
-.toUpperCase();
-
-}
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
-renderApplications();
-
-updateDashboard();
-
-updateAdminDashboard();
-
-updateProfile();
-
-
-
-/* =====================================================
-   STEP 11 - SEARCH & FILTERS
-===================================================== */
-
-function filterInternships() {
-    const searchEl = document.getElementById("internshipSearch");
-    const categoryEl = document.getElementById("categoryFilter");
-    const locationEl = document.getElementById("locationFilter");
-    const modeEl = document.getElementById("modeFilter");
-
-    if (!searchEl || !categoryEl || !locationEl || !modeEl) return;
-
-    const search = searchEl.value.trim().toLowerCase();
-    const category = categoryEl.value.toLowerCase();
-    const location = locationEl.value.toLowerCase();
-    const mode = modeEl.value.toLowerCase();
-
-    const cards = Array.from(
-        document.querySelectorAll(".internship-card")
-    );
-
-    let visible = 0;
-
-    cards.forEach(function(card) {
-        const text = card.innerText.toLowerCase();
-
-        const cardCategory =
-            String(card.dataset.category || "").toLowerCase();
-
-        const cardLocation =
-            String(card.dataset.location || "").toLowerCase();
-
-        const cardMode =
-            String(card.dataset.mode || "").toLowerCase();
-
-        const categoryMatch =
-            category === "all" ||
-            cardCategory.includes(category) ||
-            text.includes(category);
-
-        const locationMatch =
-            location === "all" ||
-            cardLocation.includes(location) ||
-            text.includes(location);
-
-        const modeMatch =
-            mode === "all" ||
-            cardMode.includes(mode) ||
-            text.includes(mode);
-
-        const searchMatch =
-            search === "" ||
-            text.includes(search);
-
-        const show =
-            searchMatch &&
-            categoryMatch &&
-            locationMatch &&
-            modeMatch;
-
-        card.classList.toggle("filter-hidden", !show);
-
-        if (show) visible++;
+// Render Application Progress Tracker
+function renderApplicationProgress() {
+  const container = document.getElementById('trackingContainer');
+  container.innerHTML = '';
+
+  applications.forEach(app => {
+    const card = document.createElement('div');
+    card.className = 'tracker-card';
+
+    const steps = ['Applied', 'Under Review', 'Interview', 'Selected'];
+    const currentStepIndex = steps.indexOf(app.status);
+
+    let progressHTML = '';
+
+    steps.forEach((step, index) => {
+      const isActive = index <= currentStepIndex;
+      progressHTML += `
+        <div class="tracker-step" style="flex:1;text-align:center;">
+          <div class="circle ${isActive ? 'active' : ''}">${index + 1}</div>
+          <div class="step-label">${step}</div>
+        </div>
+      `;
+      if (index < steps.length - 1) {
+        progressHTML += `<div class="progress-line ${isActive ? 'active' : ''}"></div>`;
+      }
     });
 
-    const result = document.getElementById("internshipResultCount");
-
-    if (result) {
-        if (cards.length === 0) {
-            result.textContent = "No internships available.";
-        } else if (visible === 0) {
-            result.textContent = "No internships match your filters.";
-        } else {
-            result.textContent =
-                "Showing " + visible + " of " + cards.length + " internships";
-        }
-    }
+    card.innerHTML = `
+      <div class="tracker-title">${app.internshipName}</div>
+      <div class="progress-tracker" style="display:flex; align-items:center;">
+        ${progressHTML}
+      </div>
+      <div class="status-badge status-${app.status.toLowerCase().replace(' ', '-')}">
+        ${app.status}
+      </div>
+    `;
+    container.appendChild(card);
+  });
 }
 
-function clearInternshipFilters() {
-    const searchEl = document.getElementById("internshipSearch");
-    const categoryEl = document.getElementById("categoryFilter");
-    const locationEl = document.getElementById("locationFilter");
-    const modeEl = document.getElementById("modeFilter");
-
-    if (searchEl) searchEl.value = "";
-    if (categoryEl) categoryEl.value = "all";
-    if (locationEl) locationEl.value = "all";
-    if (modeEl) modeEl.value = "all";
-
-    filterInternships();
-}
-/* ==========================================
-   STEP 12 - STUDENT DASHBOARD STATISTICS
-========================================== */
-
-function updateStudentDashboard() {
-
-    let applications = [];
-
-    try {
-
-        applications = JSON.parse(
-            localStorage.getItem("internshipApplications") || "[]"
-        );
-
-    } catch (error) {
-
-        applications = [];
-
-    }
-
-    if (!Array.isArray(applications)) {
-        applications = [];
-    }
-
-    let total = applications.length;
-    let pending = 0;
-    let approved = 0;
-    let rejected = 0;
-
-    applications.forEach(function(application) {
-
-        let status =
-            String(application.status || "Pending")
-            .toLowerCase()
-            .trim();
-
-        if (status === "approved") {
-
-            approved++;
-
-        } else if (status === "rejected") {
-
-            rejected++;
-
-        } else {
-
-            pending++;
-
-        }
-
-    });
-
-    /* Total Applications */
-
-    const totalElement =
-        document.getElementById("totalApplications");
-
-    if (totalElement) {
-        totalElement.textContent = total;
-    }
-
-
-    /* Pending Applications */
-
-    const pendingElement =
-        document.getElementById("pendingApplications");
-
-    if (pendingElement) {
-        pendingElement.textContent = pending;
-    }
-
-
-    /* Approved Applications */
-
-    const approvedElement =
-        document.getElementById("approvedApplications");
-
-    if (approvedElement) {
-        approvedElement.textContent = approved;
-    }
-
-
-    /* Rejected Applications */
-
-    const rejectedElement =
-        document.getElementById("rejectedApplications");
-
-    if (rejectedElement) {
-        rejectedElement.textContent = rejected;
-    }
-
+// Support form submit
+function submitSupportForm(e) {
+  e.preventDefault();
+  alert('Thank you! Your message has been submitted successfully.');
+  document.getElementById('supportForm').reset();
 }
 
+// Toggle FAQ answers
+function toggleFAQ(btn) {
+  const answer = btn.nextElementSibling;
+  if (answer.style.display === 'none' || answer.style.display === '') {
+    answer.style.display = 'block';
+    btn.textContent = '− ' + btn.textContent.slice(2);
+  } else {
+    answer.style.display = 'none';
+    btn.textContent = '+ ' + btn.textContent.slice(2);
+  }
+}
 
-/* Run when page opens */
+// Back to Top
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+// Show/hide Back to Top button
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  if (window.pageYOffset > 300) {
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+});
 
-        updateStudentDashboard();
+// Submit application handler
+function submitApplication(e) {
+  // same as above
+}
 
-    }
-);
-
-
-/* Update dashboard whenever another part
-   of the website changes application data */
-
-window.addEventListener(
-    "storage",
-    function() {
-
-        updateStudentDashboard();
-
-    }
-);
-   <script>
-
-    YOUR EXISTING JAVASCRIPT
-
-    /* STEP 12 CODE GOES HERE */
-
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  // Load applications
+  renderApplicationProgress();
+});
 </script>
-   /* ==========================================
-   STEP 13C - ADMIN APPLICATION MANAGEMENT
-========================================== */
-
-function loadAdminApplications() {
-
-    let applications = [];
-
-    try {
-
-        applications = JSON.parse(
-            localStorage.getItem("internshipApplications") || "[]"
-        );
-
-    } catch (error) {
-
-        applications = [];
-
-    }
-
-    if (!Array.isArray(applications)) {
-        applications = [];
-    }
-
-    const applicationList =
-        document.getElementById("adminApplicationList");
-
-    const applicationCount =
-        document.getElementById("adminApplicationCount");
-
-    if (!applicationList) {
-        return;
-    }
-
-
-    /* Application count */
-
-    if (applicationCount) {
-
-        applicationCount.textContent =
-            applications.length +
-            (
-                applications.length === 1
-                    ? " Application"
-                    : " Applications"
-            );
-
-    }
-
-
-    /* No applications */
-
-    if (applications.length === 0) {
-
-        applicationList.innerHTML = `
-
-            <div class="admin-empty-state">
-
-                <div class="admin-empty-icon">
-                    📋
-                </div>
-
-                <h3>No Applications Yet</h3>
-
-                <p>
-                    Student applications will appear here.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    /* Display applications */
-
-    applicationList.innerHTML = "";
-
-
-    applications.forEach(function(application, index) {
-
-        const name =
-            application.name ||
-            application.studentName ||
-            "Applicant";
-
-        const email =
-            application.email ||
-            "No email provided";
-
-        const internship =
-            application.internship ||
-            application.internshipTitle ||
-            application.title ||
-            "Internship not specified";
-
-        const status =
-            application.status ||
-            "Pending";
-
-
-        const statusClass =
-            status
-                .toLowerCase()
-                .replace(/\s+/g, "-");
-
-
-        const card =
-            document.createElement("div");
-
-        card.className =
-            "admin-application-card";
-
-
-        card.innerHTML = `
-
-            <div class="admin-application-top">
-
-                <div>
-
-                    <h4>
-                        ${escapeAdminText(name)}
-                    </h4>
-
-                    <p>
-                        📧 ${escapeAdminText(email)}
-                    </p>
-
-                    <p>
-                        💼 ${escapeAdminText(internship)}
-                    </p>
-
-                </div>
-
-
-                <span
-                    class="admin-application-status ${statusClass}">
-
-                    ${escapeAdminText(status)}
-
-                </span>
-
-            </div>
-
-
-            <div class="admin-application-actions">
-
-                <button
-                    type="button"
-                    class="admin-approve-btn"
-                    onclick="approveApplication(${index})">
-
-                    ✓ Approve
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="admin-reject-btn"
-                    onclick="rejectApplication(${index})">
-
-                    ✕ Reject
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="admin-delete-btn"
-                    onclick="deleteApplication(${index})">
-
-                    🗑 Delete
-
-                </button>
-
-            </div>
-
-        `;
-
-
-        applicationList.appendChild(card);
-
-    });
-
-}
-
-
-/* ==========================================
-   APPROVE APPLICATION
-========================================== */
-
-function approveApplication(index) {
-
-    let applications = getApplications13C();
-
-    if (!applications[index]) {
-        return;
-    }
-
-
-    applications[index].status =
-        "Approved";
-
-
-    saveApplications13C(applications);
-
-
-    loadAdminApplications();
-
-
-    if (typeof updateStudentDashboard === "function") {
-        updateStudentDashboard();
-    }
-
-
-    alert(
-        "Application approved successfully."
-    );
-
-}
-
-
-/* ==========================================
-   REJECT APPLICATION
-========================================== */
-
-function rejectApplication(index) {
-
-    let applications = getApplications13C();
-
-    if (!applications[index]) {
-        return;
-    }
-
-
-    applications[index].status =
-        "Rejected";
-
-
-    saveApplications13C(applications);
-
-
-    loadAdminApplications();
-
-
-    if (typeof updateStudentDashboard === "function") {
-        updateStudentDashboard();
-    }
-
-
-    alert(
-        "Application rejected."
-    );
-
-}
-
-
-/* ==========================================
-   DELETE APPLICATION
-========================================== */
-
-function deleteApplication(index) {
-
-    let applications = getApplications13C();
-
-    if (!applications[index]) {
-        return;
-    }
-
-
-    const confirmation =
-        confirm(
-            "Are you sure you want to delete this application?"
-        );
-
-
-    if (!confirmation) {
-        return;
-    }
-
-
-    applications.splice(index, 1);
-
-
-    saveApplications13C(applications);
-
-
-    loadAdminApplications();
-
-
-    if (typeof updateStudentDashboard === "function") {
-        updateStudentDashboard();
-    }
-
-
-    alert(
-        "Application deleted successfully."
-    );
-
-}
-
-
-/* ==========================================
-   GET APPLICATIONS
-========================================== */
-
-function getApplications13C() {
-
-    try {
-
-        const data =
-            JSON.parse(
-                localStorage.getItem(
-                    "internshipApplications"
-                ) || "[]"
-            );
-
-
-        return Array.isArray(data)
-            ? data
-            : [];
-
-    } catch (error) {
-
-        return [];
-
-    }
-
-}
-
-
-/* ==========================================
-   SAVE APPLICATIONS
-========================================== */
-
-function saveApplications13C(applications) {
-
-    localStorage.setItem(
-        "internshipApplications",
-        JSON.stringify(applications)
-    );
-
-}
-
-
-/* ==========================================
-   SECURITY / TEXT CLEANING
-========================================== */
-
-function escapeAdminText(value) {
-
-    return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-/* ==========================================
-   LOAD ADMIN APPLICATIONS
-========================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        loadAdminApplications();
-
-    }
-);
-   /* ==========================================
-   STEP 14C - APPLICATION SEARCH & FILTER JS
-========================================== */
-
-function filterAdminApplications14() {
-
-    const searchInput =
-        document.getElementById(
-            "adminApplicationSearch"
-        );
-
-    const statusSelect =
-        document.getElementById(
-            "adminApplicationStatus"
-        );
-
-    const resultCount =
-        document.getElementById(
-            "adminFilterResultCount"
-        );
-
-    const applicationList =
-        document.getElementById(
-            "adminApplicationList"
-        );
-
-
-    if (!applicationList) {
-        return;
-    }
-
-
-    const searchText =
-        searchInput
-            ? searchInput.value
-                .toLowerCase()
-                .trim()
-            : "";
-
-
-    const selectedStatus =
-        statusSelect
-            ? statusSelect.value.toLowerCase()
-            : "all";
-
-
-    const cards =
-        applicationList.querySelectorAll(
-            ".admin-application-card"
-        );
-
-
-    let visibleCount = 0;
-
-
-    cards.forEach(function(card) {
-
-        const cardText =
-            card.textContent
-                .toLowerCase()
-                .trim();
-
-
-        const statusElement =
-            card.querySelector(
-                ".admin-application-status"
-            );
-
-
-        const cardStatus =
-            statusElement
-                ? statusElement.textContent
-                    .toLowerCase()
-                    .trim()
-                : "pending";
-
-
-        const searchMatches =
-            searchText === "" ||
-            cardText.includes(searchText);
-
-
-        const statusMatches =
-            selectedStatus === "all" ||
-            cardStatus === selectedStatus;
-
-
-        if (
-            searchMatches &&
-            statusMatches
-        ) {
-
-            card.style.display = "";
-
-            visibleCount++;
-
-        } else {
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-
-    if (resultCount) {
-
-        resultCount.textContent =
-            visibleCount +
-            (
-                visibleCount === 1
-                    ? " Application"
-                    : " Applications"
-            );
-
-    }
-
-}
-
-
-/* ==========================================
-   CLEAR FILTERS
-========================================== */
-
-function clearAdminApplicationFilters14() {
-
-    const searchInput =
-        document.getElementById(
-            "adminApplicationSearch"
-        );
-
-    const statusSelect =
-        document.getElementById(
-            "adminApplicationStatus"
-        );
-
-
-    if (searchInput) {
-
-        searchInput.value = "";
-
-    }
-
-
-    if (statusSelect) {
-
-        statusSelect.value = "all";
-
-    }
-
-
-    filterAdminApplications14();
-
-}
-
-
-/* ==========================================
-   UPDATE FILTER COUNT
-   AFTER APPLICATIONS ARE LOADED
-========================================== */
-
-function updateAdminFilterCount14() {
-
-    const resultCount =
-        document.getElementById(
-            "adminFilterResultCount"
-        );
-
-    const applicationList =
-        document.getElementById(
-            "adminApplicationList"
-        );
-
-
-    if (!resultCount || !applicationList) {
-        return;
-    }
-
-
-    const cards =
-        applicationList.querySelectorAll(
-            ".admin-application-card"
-        );
-
-
-    let visibleCount = 0;
-
-
-    cards.forEach(function(card) {
-
-        if (
-            card.style.display !== "none"
-        ) {
-
-            visibleCount++;
-
-        }
-
-    });
-
-
-    resultCount.textContent =
-        visibleCount +
-        (
-            visibleCount === 1
-                ? " Application"
-                : " Applications"
-        );
-
-}
-   /* ==========================================
-   STEP 15C - STUDENT APPLICATION STATUS JS
-========================================== */
-
-function loadStudentApplicationStatus15() {
-
-    let applications = [];
-
-    try {
-
-        applications = JSON.parse(
-            localStorage.getItem("internshipApplications") || "[]"
-        );
-
-    } catch (error) {
-
-        applications = [];
-
-    }
-
-    if (!Array.isArray(applications)) {
-        applications = [];
-    }
-
-    const list =
-        document.getElementById(
-            "studentApplicationStatusList"
-        );
-
-    const count =
-        document.getElementById(
-            "studentApplicationStatusCount"
-        );
-
-    if (!list) {
-        return;
-    }
-
-
-    if (count) {
-
-        count.textContent =
-            applications.length +
-            (
-                applications.length === 1
-                    ? " Application"
-                    : " Applications"
-            );
-
-    }
-
-
-    if (applications.length === 0) {
-
-        list.innerHTML = `
-
-            <div class="student-status-empty">
-
-                <div class="student-status-empty-icon">
-                    📋
-                </div>
-
-                <h3>No Applications Found</h3>
-
-                <p>
-                    Your submitted applications will appear here.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    list.innerHTML = "";
-
-
-    applications.forEach(function(application) {
-
-        const internship =
-            application.internship ||
-            application.internshipTitle ||
-            application.title ||
-            "Internship";
-
-        const email =
-            application.email ||
-            "";
-
-        const status =
-            application.status ||
-            "Pending";
-
-
-        const statusClass =
-            status.toLowerCase().trim();
-
-
-        let message =
-            "Your application is currently under review.";
-
-
-        if (statusClass === "approved") {
-
-            message =
-                "🎉 Congratulations! Your application has been approved.";
-
-        } else if (statusClass === "rejected") {
-
-            message =
-                "Your application was not selected for this internship.";
-
-        }
-
-
-        const card =
-            document.createElement("div");
-
-        card.className =
-            "student-status-card";
-
-
-        card.innerHTML = `
-
-            <div class="student-status-card-top">
-
-                <div>
-
-                    <h4>
-                        ${escapeStudentStatusText15(
-                            internship
-                        )}
-                    </h4>
-
-                    <p>
-                        📧
-                        ${escapeStudentStatusText15(
-                            email
-                        )}
-                    </p>
-
-                </div>
-
-
-                <span
-                    class="student-status-badge ${statusClass}">
-
-                    ${escapeStudentStatusText15(
-                        status
-                    )}
-
-                </span>
-
-            </div>
-
-
-            <div
-                class="student-status-message ${statusClass}">
-
-                ${message}
-
-            </div>
-
-        `;
-
-
-        list.appendChild(card);
-
-    });
-
-}
-
-
-/* ==========================================
-   SAFE TEXT
-========================================== */
-
-function escapeStudentStatusText15(value) {
-
-    return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-/* ==========================================
-   LOAD STATUS WHEN PAGE OPENS
-========================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        loadStudentApplicationStatus15();
-
-    }
-);
-
-
-/* ==========================================
-   REFRESH WHEN APPLICATION DATA CHANGES
-========================================== */
-
-window.addEventListener(
-    "storage",
-    function() {
-
-        loadStudentApplicationStatus15();
-
-    }
-);
-</script>
-
 </body>
-
 </html>

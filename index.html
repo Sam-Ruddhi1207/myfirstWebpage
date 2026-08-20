@@ -4801,7 +4801,130 @@ function clearInternshipFilters() {
 
     filterInternships();
 }
+/* ==========================================
+   STEP 12 - STUDENT DASHBOARD STATISTICS
+========================================== */
 
+function updateStudentDashboard() {
+
+    let applications = [];
+
+    try {
+
+        applications = JSON.parse(
+            localStorage.getItem("internshipApplications") || "[]"
+        );
+
+    } catch (error) {
+
+        applications = [];
+
+    }
+
+    if (!Array.isArray(applications)) {
+        applications = [];
+    }
+
+    let total = applications.length;
+    let pending = 0;
+    let approved = 0;
+    let rejected = 0;
+
+    applications.forEach(function(application) {
+
+        let status =
+            String(application.status || "Pending")
+            .toLowerCase()
+            .trim();
+
+        if (status === "approved") {
+
+            approved++;
+
+        } else if (status === "rejected") {
+
+            rejected++;
+
+        } else {
+
+            pending++;
+
+        }
+
+    });
+
+    /* Total Applications */
+
+    const totalElement =
+        document.getElementById("totalApplications");
+
+    if (totalElement) {
+        totalElement.textContent = total;
+    }
+
+
+    /* Pending Applications */
+
+    const pendingElement =
+        document.getElementById("pendingApplications");
+
+    if (pendingElement) {
+        pendingElement.textContent = pending;
+    }
+
+
+    /* Approved Applications */
+
+    const approvedElement =
+        document.getElementById("approvedApplications");
+
+    if (approvedElement) {
+        approvedElement.textContent = approved;
+    }
+
+
+    /* Rejected Applications */
+
+    const rejectedElement =
+        document.getElementById("rejectedApplications");
+
+    if (rejectedElement) {
+        rejectedElement.textContent = rejected;
+    }
+
+}
+
+
+/* Run when page opens */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        updateStudentDashboard();
+
+    }
+);
+
+
+/* Update dashboard whenever another part
+   of the website changes application data */
+
+window.addEventListener(
+    "storage",
+    function() {
+
+        updateStudentDashboard();
+
+    }
+);
+   <script>
+
+    YOUR EXISTING JAVASCRIPT
+
+    /* STEP 12 CODE GOES HERE */
+
+</script>
 </script>
 
 </body>

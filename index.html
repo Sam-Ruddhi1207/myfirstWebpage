@@ -5192,6 +5192,383 @@ window.addEventListener(
     /* STEP 12 CODE GOES HERE */
 
 </script>
+   /* ==========================================
+   STEP 13C - ADMIN APPLICATION MANAGEMENT
+========================================== */
+
+function loadAdminApplications() {
+
+    let applications = [];
+
+    try {
+
+        applications = JSON.parse(
+            localStorage.getItem("internshipApplications") || "[]"
+        );
+
+    } catch (error) {
+
+        applications = [];
+
+    }
+
+    if (!Array.isArray(applications)) {
+        applications = [];
+    }
+
+    const applicationList =
+        document.getElementById("adminApplicationList");
+
+    const applicationCount =
+        document.getElementById("adminApplicationCount");
+
+    if (!applicationList) {
+        return;
+    }
+
+
+    /* Application count */
+
+    if (applicationCount) {
+
+        applicationCount.textContent =
+            applications.length +
+            (
+                applications.length === 1
+                    ? " Application"
+                    : " Applications"
+            );
+
+    }
+
+
+    /* No applications */
+
+    if (applications.length === 0) {
+
+        applicationList.innerHTML = `
+
+            <div class="admin-empty-state">
+
+                <div class="admin-empty-icon">
+                    📋
+                </div>
+
+                <h3>No Applications Yet</h3>
+
+                <p>
+                    Student applications will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* Display applications */
+
+    applicationList.innerHTML = "";
+
+
+    applications.forEach(function(application, index) {
+
+        const name =
+            application.name ||
+            application.studentName ||
+            "Applicant";
+
+        const email =
+            application.email ||
+            "No email provided";
+
+        const internship =
+            application.internship ||
+            application.internshipTitle ||
+            application.title ||
+            "Internship not specified";
+
+        const status =
+            application.status ||
+            "Pending";
+
+
+        const statusClass =
+            status
+                .toLowerCase()
+                .replace(/\s+/g, "-");
+
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "admin-application-card";
+
+
+        card.innerHTML = `
+
+            <div class="admin-application-top">
+
+                <div>
+
+                    <h4>
+                        ${escapeAdminText(name)}
+                    </h4>
+
+                    <p>
+                        📧 ${escapeAdminText(email)}
+                    </p>
+
+                    <p>
+                        💼 ${escapeAdminText(internship)}
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="admin-application-status ${statusClass}">
+
+                    ${escapeAdminText(status)}
+
+                </span>
+
+            </div>
+
+
+            <div class="admin-application-actions">
+
+                <button
+                    type="button"
+                    class="admin-approve-btn"
+                    onclick="approveApplication(${index})">
+
+                    ✓ Approve
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="admin-reject-btn"
+                    onclick="rejectApplication(${index})">
+
+                    ✕ Reject
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="admin-delete-btn"
+                    onclick="deleteApplication(${index})">
+
+                    🗑 Delete
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        applicationList.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   APPROVE APPLICATION
+========================================== */
+
+function approveApplication(index) {
+
+    let applications = getApplications13C();
+
+    if (!applications[index]) {
+        return;
+    }
+
+
+    applications[index].status =
+        "Approved";
+
+
+    saveApplications13C(applications);
+
+
+    loadAdminApplications();
+
+
+    if (typeof updateStudentDashboard === "function") {
+        updateStudentDashboard();
+    }
+
+
+    alert(
+        "Application approved successfully."
+    );
+
+}
+
+
+/* ==========================================
+   REJECT APPLICATION
+========================================== */
+
+function rejectApplication(index) {
+
+    let applications = getApplications13C();
+
+    if (!applications[index]) {
+        return;
+    }
+
+
+    applications[index].status =
+        "Rejected";
+
+
+    saveApplications13C(applications);
+
+
+    loadAdminApplications();
+
+
+    if (typeof updateStudentDashboard === "function") {
+        updateStudentDashboard();
+    }
+
+
+    alert(
+        "Application rejected."
+    );
+
+}
+
+
+/* ==========================================
+   DELETE APPLICATION
+========================================== */
+
+function deleteApplication(index) {
+
+    let applications = getApplications13C();
+
+    if (!applications[index]) {
+        return;
+    }
+
+
+    const confirmation =
+        confirm(
+            "Are you sure you want to delete this application?"
+        );
+
+
+    if (!confirmation) {
+        return;
+    }
+
+
+    applications.splice(index, 1);
+
+
+    saveApplications13C(applications);
+
+
+    loadAdminApplications();
+
+
+    if (typeof updateStudentDashboard === "function") {
+        updateStudentDashboard();
+    }
+
+
+    alert(
+        "Application deleted successfully."
+    );
+
+}
+
+
+/* ==========================================
+   GET APPLICATIONS
+========================================== */
+
+function getApplications13C() {
+
+    try {
+
+        const data =
+            JSON.parse(
+                localStorage.getItem(
+                    "internshipApplications"
+                ) || "[]"
+            );
+
+
+        return Array.isArray(data)
+            ? data
+            : [];
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+/* ==========================================
+   SAVE APPLICATIONS
+========================================== */
+
+function saveApplications13C(applications) {
+
+    localStorage.setItem(
+        "internshipApplications",
+        JSON.stringify(applications)
+    );
+
+}
+
+
+/* ==========================================
+   SECURITY / TEXT CLEANING
+========================================== */
+
+function escapeAdminText(value) {
+
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* ==========================================
+   LOAD ADMIN APPLICATIONS
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadAdminApplications();
+
+    }
+);
 </script>
 
 </body>
